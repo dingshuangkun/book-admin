@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mysql" />
+        <module name="nutch" />
+        <module name="redis" />
+        <module name="service" />
+        <module name="web" />
+        <module name="webmagic" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bookadmin" target="1.5" />
+      <module name="mysql" target="1.5" />
+      <module name="nutch" target="1.5" />
+      <module name="redis" target="1.5" />
+      <module name="service" target="1.5" />
+      <module name="web" target="1.5" />
+      <module name="webmagic" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

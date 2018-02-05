@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bookadmin.iml" filepath="$PROJECT_DIR$/bookadmin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mysql/mysql.iml" filepath="$PROJECT_DIR$/mysql/mysql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nutch/nutch.iml" filepath="$PROJECT_DIR$/nutch/nutch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis/redis.iml" filepath="$PROJECT_DIR$/redis/redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webmagic/webmagic.iml" filepath="$PROJECT_DIR$/webmagic/webmagic.iml" />
+    </modules>
+  </component>
+</project>
