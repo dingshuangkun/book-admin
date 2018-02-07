@@ -15,4 +15,11 @@ public interface BookDao {
      */
     public BookDO findById(Long id);
 
+    /**
+     *
+     * @param ids
+     * @return
+     */
+    public List<BookDO> findById(List<Long> ids);
+
 }
