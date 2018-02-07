@@ -10,6 +10,7 @@
         <module name="nutch" />
         <module name="redis" />
         <module name="service" />
+        <module name="test" />
         <module name="web" />
         <module name="webmagic" />
       </profile>
@@ -20,6 +21,7 @@
       <module name="nutch" target="1.5" />
       <module name="redis" target="1.5" />
       <module name="service" target="1.5" />
+      <module name="test" target="1.5" />
       <module name="web" target="1.5" />
       <module name="webmagic" target="1.5" />
     </bytecodeTargetLevel>
