@@ -5,40 +5,31 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * @author dingshuangkun on 2018/2/7.
+ * Created by dingshuangkun on 2018/3/3.
+ * 图书所对应的图片
  */
-
 @Data
-public class BookDO {
-
+public class BookPictureDO {
     /**
-     * 主键 Id
+     * 主键id
      */
     private Long id;
     /**
-     * 图书code
+     * 图书主键Id
+     */
+    private Long bookId;
+    /**
+     * 图书编码
      */
     private String bookCoding;
     /**
-     * 书名
+     * 图片地址
      */
-    private String name;
+    private String urls;
     /**
      * 标签
      */
     private String tag;
-    /**
-     * 索引
-     */
-    private String bookIndex;
-    /**
-     * 作者编号（用户写的图书）
-     */
-    private Long authorId;
-    /**
-     * 图书的作者
-     */
-    private String author;
     /**
      * 创建时间
      */

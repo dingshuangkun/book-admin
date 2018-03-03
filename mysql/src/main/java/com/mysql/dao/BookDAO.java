@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by dingshuangkun on 2018/2/7.
  */
-public interface BookDao {
+public interface BookDAO {
     /**
      * 根据id 查询
      * @param id

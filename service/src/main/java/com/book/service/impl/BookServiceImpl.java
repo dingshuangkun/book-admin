@@ -1,7 +1,7 @@
 package com.book.service.impl;
 
 import com.book.service.BookService;
-import com.mysql.dao.BookDao;
+import com.mysql.dao.BookDAO;
 import com.mysql.model.BookDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class BookServiceImpl implements BookService {
 
     @Autowired
-    private BookDao bookDao;
+    private BookDAO bookDao;
 
     @Override
     public BookDO findById(Long id) {

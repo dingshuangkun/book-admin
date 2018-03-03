@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mysql.dao.BookDao">
+<mapper namespace="com.mysql.dao.BookDAO">
     <resultMap type="com.mysql.model.BookDO" id="bookDO">
-
-        <id property="bookIndex" javaType="int" column="book_index" />
+        <id property="bookIndex" javaType="java.lang.String" column="book_index" />
+        <id property="bookCoding" javaType="java.lang.String" column="book_coding"/>
+        <id property="authorId" javaType="java.lang.Long" column="author_id"/>
+        <id property="gmtCreate" javaType="java.util.Date" column="gmt_create"/>
+        <id property="gmtUpdate" javaType="java.util.Date" column="gmt_update"/>
     </resultMap>
 
     <select id="findById" resultType="com.mysql.model.BookDO" parameterType="java.lang.Long">
-        SELECT * from tb_book WHERE id = #{id}
+
+        SELECT id,book_coding,name,book_index,author,author_id,tag,gmt_crate,gmt_update
+         FROM book WHERE TRUE
+         <if test="id != null">
+             AND id = #{id}
+         </if>
+        <if test="bookCoding != null">
+            AND book_coding = #{bookCoding}
+        </if>
+        <if test="authorId != null">
+            AND  author_id = #{authorId}
+        </if>
+        <if test="author !=null">
+            author = #{author}
+        </if>
     </select>
 
 </mapper>
