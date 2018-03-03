@@ -16,7 +16,7 @@ public interface BookDAO {
     public BookDO findById(Long id);
 
     /**
-     *
+     *根据id 批量查询
      * @param ids
      * @return
      */
