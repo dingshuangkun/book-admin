@@ -38,7 +38,7 @@ public class BookDO {
     /**
      * 图书的作者
      */
-    private String author;
+    private String authorName;
     /**
      * 创建时间
      */

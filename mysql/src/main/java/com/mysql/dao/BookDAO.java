@@ -1,6 +1,7 @@
 package com.mysql.dao;
 
 import com.mysql.model.BookDO;
+import com.mysql.query.QueryBook;
 
 import java.util.List;
 
@@ -9,17 +10,31 @@ import java.util.List;
  */
 public interface BookDAO {
     /**
-     * 根据id 查询
-     * @param id
+     * 查询book表
+     * @param queryBook
      * @return
      */
-    public BookDO findById(Long id);
+     List<BookDO> findBooks(QueryBook queryBook);
 
     /**
-     *根据id 批量查询
+     * 插入BookDO
+     * @param bookDO
+     * @return
+     */
+     Boolean insertBookDO(BookDO bookDO);
+
+    /**
+     * 批量插入BookDO
+     * @param bookDOS
+     * @return
+     */
+     Boolean insertBookDOS(List<BookDO> bookDOS);
+
+    /**
+     * 根据Id 批量删除
      * @param ids
      * @return
      */
-    public List<BookDO> findById(List<Long> ids);
+     Integer deleteByIds(List<Long> ids);
 
 }
