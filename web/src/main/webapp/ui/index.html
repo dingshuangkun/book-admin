@@ -1,1144 +1,926 @@
-﻿<!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="renderer" content="webkit|ie-comp|ie-stand">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-<!--[if lt IE 9]>
-<script type="text/javascript" src="lib/html5shiv.js"></script>
-<script type="text/javascript" src="lib/respond.min.js"></script>
-<![endif]-->
-<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.min.css" />
-<!--[if lt IE 9]>
-<link href="static/h-ui/css/H-ui.ie.css" rel="stylesheet" type="text/css" />
-<![endif]-->
-<!--[if IE 6]>
-<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
-<![endif]-->
-<style type="text/css">
-.ui-sortable .panel-header{ cursor:move}
-</style>
-<title>Hi，H-ui v3.1</title>
-<meta name="keywords" content="关键词,5个左右,单个8汉字以内">
-<meta name="description" content="网站描述，字数尽量空制在80个汉字，160个字符以内！">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="applicable-device" content="pc">
+    <title>善 阅网--海量新闻、精彩资讯、图书、免费小说、漫画，免费畅读</title>
+
+
+    <link rel="shortcut icon" href="//yuedust.yuedu.126.net/favicon.ico?20180325153144" />
+    <link type="text/css" rel="stylesheet" href="//yuedust.yuedu.126.net/assets/bundle/css/index.css?20180325153144"/>
+    <!--[if lt IE 9]>
+    <!--<script src="//yuedust.yuedu.126.net/assets/js/html5shiv.js?20180325153144"></script>-->
+    <!--<script src="//yuedust.yuedu.126.net/assets/js/es5/es5-shim-4.1.9.min.js?20180325153144"></script>-->
+    <!--<script src="//yuedust.yuedu.126.net/assets/js/es5/es5-sham-4.1.9.min.js?20180325153144"></script>-->
+    <![endif]-->
+    <script type="text/javascript" src="//yuedust.yuedu.126.net/assets/bundle/js/libs.js?20180325153144"></script>
 </head>
-<body ontouchstart>
-<div class="sideBox">
-	<ul class="nav navbar-nav pt-20">
-		<li><a href="about.html">登录/注册</a></li>
-		<li><a href="jiansuo.html">技术检索</a></li>
-		<li><a href="about.html">关于我们</a></li>
-		<li><a href="#">联系我们</a></li>
-		<li><a href="#">隐私保护</a></li>
-		<li><a href="#">免责声明</a></li>
-		<li><a href="#">支付方式</a></li>
-	</ul>
+<body id="page-163-com" class="page-index">
+<noscript>请使用支持脚本的浏览器！</noscript>
+<div class="g-doc">
+    <!-- 头部导航 -->
+    <div class="g-hdw">
+        <div id="J_Header" class="g-hd ">
+            <div class="m-topbar">
+                <div class="inner f-cb"></div>
+            </div>
+            <div class="m-headertop">
+                <div class="inner">
+                    <!--<h1 class="m-logo"><a href="/">善阅网</a></h1>-->
+                    <div class=""></div>
+                    <div class="m-sch">
+                    </div>
+                    <div class="m-clouds">
+                        <a class="m-cloudzx" href="/mysubs.do?operation=source" target="_blank" onclick="_gaq.push(['_trackEvent', 'yuedu', 'mycenter', 'manage_subs']);">我的订阅</a>
+                        <a class="m-cloudsj" href="/shelf.do?operation=query_current" target="_blank">我的书架</a>
+                    </div>
+                </div>
+            </div>
+            <div class="m-headerbottom">
+                <div class="inner">
+                    <ul class="m-mianlist">
+                        <li><a class="crt" href="/index" onclick="_gaq.push(['_trackEvent', 'navi', 'home']);">首页</a></li>
+                        <li><a class="" href="/book" onclick="_gaq.push(['_trackEvent', 'navi', 'publish']);">出版图书</a></li>
+                        <li><a class="" href="/yc" onclick="_gaq.push(['_trackEvent', 'navi', 'yc']);">国风中文网</a></li>
+                        <li><a class="" href="/ycmm" onclick="_gaq.push(['_trackEvent', 'navi', 'ycmm']);">采薇书院</a></li>
+                        <li><a class="" href="/manhua" onclick="_gaq.push(['_trackEvent', 'navi', 'comic']);">漫画</a></li>
+                        <li><a class="" href="/contentcenter" onclick="_gaq.push(['_trackEvent', 'navi', 'sub']);">订阅</a></li>
+                        <li><a class="" href="/rank" onclick="_gaq.push(['_trackEvent', 'navi', 'rank']);">排行榜</a></li>
+                        <li class="fr"><a href="/client" target="_blank" onclick="_gaq.push(['_trackEvent', 'navi', 'client']);"><b class="icon-download"></b>客户端</a></li>
+                        <li class="fr"><a href="/recharge.do?operation=form" onclick="_gaq.push(['_trackEvent', 'navi', 'recharge']);"><b class="icon-recharge"></b>充值</a></li>
+                        <li class="fr"><a href="http://open.yuedu.163.com/" target="_blank" onclick="_gaq.push(['_trackEvent', 'navi', 'open']);"><b class="icon-open"></b>作者中心</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="J_HeaderFix" class="g-hd m-headerfix">
+            <div class="inner f-cb">
+                <h2 class="m-logo-mini"><a href="/">网易阅读</a></h2>
+                <ul class="m-menu-2 f-cb">
+                    <li><a class="crt" href="/index">首页</a></li>
+                    <li><a href="/book">出版图书</a></li>
+                    <li><a href="/yc">国风中文网</a></li>
+                    <li><a href="/ycmm">采薇书院</a></li>
+                    <li><a href="/manhua">漫画</a></li>
+                    <li><a href="/contentcenter">订阅</a></li>
+                    <li><a href="/rank">排行榜</a></li>
+                    <li><a class="client" href="/client" target="_blank"><b class="icon-download"></b>客户端下载</a></li>
+                </ul>
+                <div class="m-sch j-sch">
+                </div>
+            </div>
+        </div>
+    </div>    <!-- 主题内容 -->
+    <div class="g-bdw">
+        <div class="g-bd g-bd-large">
+            <div class="g-sec f-cb" style="margin-top:17px;">
+                <div id="J_Slider01" class="m-slider m-slider-idx">
+                    <div class="slider">
+                        <ul class="j-slider">
+                            <li><a href="    //yuedu.163.com/source/2c859c54c05741e2af11025295617b7d_4
+    " target="_blank" data-model="ad" data-opration="ad_index" title="刺"><img src="//cms-bucket.nosdn.127.net/5218064bf1024a4097f52e436761770b20180322105403.jpeg" alt="刺" /></a></li>
+                            <li><a href="    //yuedu.163.com/source/0d8e2bcfce8242d38c92fe6a1c623b46_4
+    " target="_blank" data-model="ad" data-opration="ad_index" title="刺杀骑士团长"><img src="//cms-bucket.nosdn.127.net/66be4bf91c924fcebf064a8b439fae0c20180308094230.jpeg" alt="刺杀骑士团长" /></a></li>
+                            <li><a href="    //yuedu.163.com/source/b1be62e53d1f4da78b1dea9c1ac1cae5_4
+    " target="_blank" data-model="ad" data-opration="ad_index" title="大裂"><img src="//cms-bucket.nosdn.127.net/0f052ad6e9aa4a46aad9d11d2176cc5720180228161607.jpeg" alt="大裂" /></a></li>
+                            <li><a href="    //yuedu.163.com/source/3b35b6160d684835b7f240c60b607a36_4
+    " target="_blank" data-model="ad" data-opration="ad_index" title="北洋夜行记"><img src="//cms-bucket.nosdn.127.net/9e2245dc98424321914b6b4e1cb5f33c20180224093631.jpeg" alt="北洋夜行记" /></a></li>
+                        </ul>
+                    </div>
+                    <a class="btn left-btn j-cl" href="#"></a>
+                    <a class="btn right-btn j-cr" href="#"></a>
+                    <div class="control">
+                        <ol class="j-control">
+                            <li><span>1</span><em>&bull;</em></li>
+                            <li><span>2</span><em>&bull;</em></li>
+                            <li><span>3</span><em>&bull;</em></li>
+                            <li><span>4</span><em>&bull;</em></li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="J_MM" class="m-menu">
+                    <div class="category">
+                        <div class="sub">
+                            <h3 class="fl">国风中文网<i></i></h3>
+                            <p>
+                                <a class="hot" href="//guofeng.yuedu.163.com/yc/category/7" target="_blank" data-model="index" data-opration="man">都市生活</a>
+                                <a class="hot" href="//guofeng.yuedu.163.com/yc/category/4" target="_blank" data-model="index" data-opration="man">官场职场</a>
+                                <a class="ll" href="//guofeng.yuedu.163.com/yc/category/1" target="_blank" data-model="index" data-opration="man">玄幻仙侠</a>
+                            </p>
+                            <p>
+                                <a href="//guofeng.yuedu.163.com/yc/category/5" target="_blank" data-model="index" data-opration="man">悬疑探险</a>
+                                <a href="//guofeng.yuedu.163.com/yc/category/6" target="_blank" data-model="index" data-opration="man">灵异恐怖</a>
+                                <a class="ll" href="//guofeng.yuedu.163.com/yc/category/12" target="_blank" data-model="index" data-opration="man">短篇小说</a>
+                            </p>
+                        </div>
+                        <div class="more" style="display: none;">
+                            <p class="f-cb">
+                                <a href="//guofeng.yuedu.163.com/yc/category/2" target="_blank" data-model="index" data-opration="man">科幻奇幻</a>
+                                <a href="//guofeng.yuedu.163.com/yc/category/3" target="_blank" data-model="index" data-opration="man">军事谍战</a>
+                                <a class="ll" href="//guofeng.yuedu.163.com/yc/category/10" target="_blank" data-model="index" data-opration="man">同人网游</a>
+                                <a class="ll" href="//guofeng.yuedu.163.com/yc/category/11" target="_blank" data-model="index" data-opration="man">历史传奇</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="category">
+                        <div class="sub">
+                            <h3>采薇书院<i></i></h3>
+                            <p>
+                                <a href="//caiwei.yuedu.163.com/ycmm/category/22" target="_blank" data-model="index" data-opration="woman">浪漫青春</a>
+                                <a class="hot" href="//caiwei.yuedu.163.com/ycmm/category/8" target="_blank" data-model="index" data-opration="woman">都市言情</a>
+                                <a class="ll" href="//caiwei.yuedu.163.com/ycmm/category/24" target="_blank" data-model="index" data-opration="woman">古风古韵</a>
+                            </p>
+                            <p>
+                                <a href="//caiwei.yuedu.163.com/ycmm/category/9" target="_blank" data-model="index" data-opration="woman">穿越架空</a>
+                                <a class="hot" href="//caiwei.yuedu.163.com/ycmm/category/18" target="_blank" data-model="index" data-opration="woman">宫斗宅斗</a>
+                                <a class="ll" href="//caiwei.yuedu.163.com/ycmm/category/17" target="_blank" data-model="index" data-opration="woman">种田重生</a>
+                            </p>
+                        </div>
+                        <div class="more" style="display: none;">
+                            <p class="f-cb">
+                                <a href="//caiwei.yuedu.163.com/ycmm/category/16" target="_blank" data-model="index" data-opration="woman">短篇美文</a>
+                                <a href="//caiwei.yuedu.163.com/ycmm/category/13" target="_blank" data-model="index" data-opration="woman">仙侠幻情</a>
+                                <a class="ll" href="//caiwei.yuedu.163.com/ycmm/category/14" target="_blank" data-model="index" data-opration="woman">灵异推理</a>
+                                <a class="ll" href="//caiwei.yuedu.163.com/ycmm/category/15" target="_blank" data-model="index" data-opration="woman">同人网游</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="category">
+                        <div class="sub">
+                            <h3>图书<i></i></h3>
+                            <p>
+                                <a class="hot" href="/book/category/category/2000" target="_blank" data-model="index" data-opration="ts">小说作品</a>
+                                <a class="hot" href="/book/category/category/2300" target="_blank" data-model="index" data-opration="ts">人文社科</a>
+                                <a class="ll" href="/book/category/category/2600" target="_blank" data-model="index" data-opration="ts">成功励志</a>
+                            </p>
+                            <p>
+                                <a href="/book/category/category/2400" target="_blank" data-model="index" data-opration="ts">经济管理</a>
+                                <a href="/book/category/category/2800" target="_blank" data-model="index" data-opration="ts">品质生活</a>
+                                <a class="ll" href="/book/category/category/3000" target="_blank" data-model="index" data-opration="ts">计算机&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            </p>
+                        </div>
+                        <div class="more more-fl" style="display:none;">
+                            <p class="f-cb">
+                                <a href="/book/category/category/2100" target="_blank" data-model="index" data-opration="ts">文学作品</a>
+                                <a href="/book/category/category/2500" target="_blank" data-model="index" data-opration="ts">两性情感</a>
+                                <a class="ll" href="/book/category/category/2700" target="_blank" data-model="index" data-opration="ts">亲子少儿</a>
+                                <a href="/book/category/category/3100" target="_blank" data-model="index" data-opration="ts">培训考试</a>
+                                <a href="/book/category/category/12000" target="_blank" data-model="index" data-opration="ts">杂志期刊</a>
+                                <a class="ll" href="/book/category/category/3200" target="_blank" data-model="index" data-opration="ts">外文外版</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="category">
+                        <div class="sub">
+                            <h3>订阅<i></i></h3>
+                            <p>
+                                <a href="/contentcenter/category/c2978cf8-bddb-4094-9185-704723a19f48" data-model="index" target="_blank" data-opration="sub" title="创意频道">创意频道</a>
+                                <a href="/contentcenter/category/617b9d62-9653-4324-bae6-a667e9c98f12" data-model="index" target="_blank" data-opration="sub" title="美食频道">美食频道</a>
+                                <a class="ll" href="/contentcenter/category/09d03a45-3ed2-4bd5-9b02-939fc74acb12" data-model="index" target="_blank" data-opration="sub" title="公开课堂">公开课堂</a>
+                            </p>
+                            <p>
+                                <a href="/contentcenter/category/cac3f406-5d87-45cf-9daa-a8a1bd64a86d" data-model="index" target="_blank" data-opration="sub" title="视觉频道">视觉频道</a>
+                                <a href="/contentcenter/category/1cb0bfaf-a083-4bdf-b955-dddb5433cbb2" data-model="index" target="_blank" data-opration="sub" title="外文资讯">外文资讯</a>
+                                <a class="ll" href="/contentcenter/category/6ae8d575-5e28-4264-8139-dafbd97f9c31" data-model="index" target="_blank" data-opration="sub" title="自媒体人">自媒体人</a>
+                            </p>
+                        </div>
+                        <div class="more more-ll" style="display: none;">
+                            <p class="f-cb">
+                                <a href="/contentcenter/category/60829229-8733-4514-b4eb-8ca8be200213" title="娱乐" target="_blank" data-model="index" data-opration="sub">报刊</a>
+                                <a href="/contentcenter/category/284db4de-e5a4-4024-b9ba-e3f0d192775f" target="_blank" data-model="index" data-opration="sub">娱乐</a>
+                                <a href="/contentcenter/category/60174b63-bc1d-49ba-bcf8-7856b28e15f0" title="新闻" target="_blank" data-model="index" data-opration="sub">新闻</a>
+                                <a href="/contentcenter/category/ee1083a0-9e54-4e04-9056-93bdb1b551e9" title="财经" target="_blank" data-model="index" data-opration="sub">财经</a>
+                                <a class="ll" href="/contentcenter/category/214482e8-437a-4b6d-aa8b-c0660f4da4a8" title="科技" target="_blank" data-model="index" data-opration="sub">科技</a>
+                                <a href="/contentcenter/category/f1f39fbb-93e0-4cf9-a847-4cc9f7b77ef3" title="生活" target="_blank" data-model="index" data-opration="sub">生活</a>
+                                <a href="/contentcenter/category/868d1f63-6084-4e25-9769-d27f8da12c16" title="人文" target="_blank" data-model="index" data-opration="sub">人文</a>
+                                <a href="/contentcenter/category/4164eea4-6d09-47df-9ecc-d7197e63193c" title="时尚" target="_blank" data-model="index" data-opration="sub">时尚</a>
+                                <a href="/contentcenter/category/a9670b8c-9a6b-41e2-b93f-0ce94ebe6f68" title="家居" target="_blank" data-model="index" data-opration="sub">家居</a>
+                                <a class="ll" href="/contentcenter/category/a4f39a3b-b002-477a-bf16-406e9e0547e9" title="文史" target="_blank" data-model="index" data-opration="sub">文史</a>
+                            </p>
+                            <p class="f-cb">
+                                <a href="/contentcenter/category/b1033dd6-3c0d-4ab7-be85-74e7712cde7a" title="旅游" target="_blank" data-model="index" data-opration="sub">旅游</a>
+                                <a href="/contentcenter/category/2d246f78-5366-4596-bb5d-3166f8c2cc55" title="游戏" target="_blank" data-model="index" data-opration="sub">游戏</a>
+                                <a href="/contentcenter/category/b3def15a-c143-4004-b6af-68ea3ac9bfbe" title="汽车" target="_blank" data-model="index" data-opration="sub">汽车</a>
+                                <a href="/contentcenter/category/2bb29a9c-7b7c-4427-9c20-366c3ac3060f" title="星座" target="_blank" data-model="index" data-opration="sub">星座</a>
+                                <a class="ll" href="/contentcenter/category/ec80e280-ce8e-42f7-8872-40e98d71292f" title="体育" target="_blank" data-model="index" data-opration="sub">体育</a>
+                                <a href="/contentcenter/category/2ce53cc7-2db5-481c-93b7-50f8504456f4" title="灵异" target="_blank" data-model="index" data-opration="sub">灵异</a>
+                                <a href="/contentcenter/category/1fff875a-8e45-4ee6-9f38-d2f702507d20" title="名人博客" target="_blank" data-model="index" data-opration="sub">名人博客</a>
+                                <a href="/contentcenter/category/9817e493-a606-48c9-8482-d741845217b5" title="本地资讯" target="_blank" data-model="index" data-opration="sub">本地资讯</a>
+                                <a class="ll" href="/contentcenter/category/c87b15f6-7f3c-4244-b9b9-b918ab5a001f" title="云课堂" target="_blank" data-model="index" data-opration="sub">云课堂</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="g-sec">
+                <header><h2>主编推荐</h2></header>
+                <div id="J_Focus" class="m-focus">
+                    <div class="tabs">
+                        <ul class="f-cb">
+                            <li class="crt"><span>小说</span></li>
+                            <li class=""><span>图书</span></li>
+                            <li class="ll"><span>订阅</span></li>
+                        </ul>
+                    </div>
+                    <div class="contents">
+                        <div class="tab-item" >
+                            <ul class="book f-cb">
+                                <li>
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="    //caiwei.yuedu.163.com/source/74c3dfed01b04d35bbd506c760faf296_4
+    " target="_blank" title="情深刻骨：陆少的新欢" data-model="zbtj#xs" data-opration="source"><img src="https://easyreadfs.nosdn.127.net/xvlH3CaBEuWKzo_7cbEZuQ==/8796093023410298384?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/xvlH3CaBEuWKzo_7cbEZuQ==/8796093023410298384?imageView&quality=90&thumbnail=228y320 2x" alt="情深刻骨：陆少的新欢"></a>
+                                        <h3><a href="    //caiwei.yuedu.163.com/source/74c3dfed01b04d35bbd506c760faf296_4
+    " target="_blank" title="情深刻骨：陆少的新欢">情深刻骨：陆少的新欢</a></h3>
+                                        <p></p>
+                                        <p class="disc eps">叶澜清这辈子做的最傻也是最好的一件事，就是，在错的时间爱上陆博言，还偷偷生了他孩子。再相逢，她醉酒之下和他发生了不可描述的事情。</p>
+                                        <a class="read" href="    /source/74c3dfed01b04d35bbd506c760faf296_4
+    " target="_blank" data-model="zbtj#xs" data-opration="book_reader" title="立即阅读">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="    //caiwei.yuedu.163.com/source/60a592efcbf448e3a6d1fcc468cb9e36_4
+    " target="_blank" title="噬骨入怀：总裁的柔情蜜意" data-model="zbtj#xs" data-opration="source"><img src="https://easyreadfs.nosdn.127.net/pXs7Mvr7XsFGG2uw3PbPzw==/8796093023753533815?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/pXs7Mvr7XsFGG2uw3PbPzw==/8796093023753533815?imageView&quality=90&thumbnail=228y320 2x" alt="噬骨入怀：总裁的柔情蜜意"></a>
+                                        <h3><a href="    //caiwei.yuedu.163.com/source/60a592efcbf448e3a6d1fcc468cb9e36_4
+    " target="_blank" title="噬骨入怀：总裁的柔情蜜意">噬骨入怀：总裁的柔情蜜意</a></h3>
+                                        <p></p>
+                                        <p class="disc eps">原本以为像两条平行线一样不在相交，可谁又知道阴差阳错的相遇，让她在也无法逃离。</p>
+                                        <a class="read" href="    /source/60a592efcbf448e3a6d1fcc468cb9e36_4
+    " target="_blank" data-model="zbtj#xs" data-opration="book_reader" title="立即阅读">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                                <li class="ll">
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="    //guofeng.yuedu.163.com/source/9a766e4fd7694375be56f956e3cb9e4f_4
+    " target="_blank" title="特种炊事班" data-model="zbtj#xs" data-opration="source"><img src="https://easyreadfs.nosdn.127.net/r1fFSwd1c1xx_JAADSCv2w==/8796093023673509667?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/r1fFSwd1c1xx_JAADSCv2w==/8796093023673509667?imageView&quality=90&thumbnail=228y320 2x" alt="特种炊事班"></a>
+                                        <h3><a href="    //guofeng.yuedu.163.com/source/9a766e4fd7694375be56f956e3cb9e4f_4
+    " target="_blank" title="特种炊事班">特种炊事班</a></h3>
+                                        <p>天使归属地</p>
+                                        <p class="disc eps">往往背着铁锅炒勺跟着大部队东奔西走的炊事员，他们才是战场上最可怕的存在。</p>
+                                        <a class="read" href="    //guofeng.yuedu.163.com/source/9a766e4fd7694375be56f956e3cb9e4f_4
+    " target="_blank" data-model="zbtj#xs" data-opration="book_reader" title="立即阅读">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-item" style="display:none;">
+                            <ul class="book f-cb">
+                                <li>
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="    //yuedu.163.com/source/bc71aca869ff48feb42b08175ec86873_4
+    " target="_blank" data-model="zbtj#ts" data-opration="source" title="和平饭店"><img src="https://easyreadfs.nosdn.127.net/vbFc8vtSkBeCvB6hbelM5g==/8796093024021176972?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/vbFc8vtSkBeCvB6hbelM5g==/8796093024021176972?imageView&quality=90&thumbnail=228y320 2x" alt="和平饭店"></a>
+                                        <h3><a href="    //yuedu.163.com/source/bc71aca869ff48feb42b08175ec86873_4
+    " target="_blank" title="和平饭店">和平饭店</a></h3>
+                                        <p>肖午,杨树</p>
+                                        <p class="disc eps">有人在极限状态下的隐忍不发，也有对人性的观照和同情。</p>
+                                        <a class="read" href="    //yuedu.163.com/book_reader/bc71aca869ff48feb42b08175ec86873_4/a6e196e91aa84e74afc4b24f8e7f0fd2_4
+    " target="_blank" data-model="zbtj#ts" data-opration="book_reader" title="立即阅读">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="    //yuedu.163.com/source/7cf30d177b334150998c38ac853ef611_4
+    " target="_blank" data-model="zbtj#ts" data-opration="source" title="中国经济2018"><img src="https://easyreadfs.nosdn.127.net/T11RxQCYTskFjvYh96xTMQ==/8796093023845401272?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/T11RxQCYTskFjvYh96xTMQ==/8796093023845401272?imageView&quality=90&thumbnail=228y320 2x" alt="中国经济2018"></a>
+                                        <h3><a href="    //yuedu.163.com/source/7cf30d177b334150998c38ac853ef611_4
+    " target="_blank" title="中国经济2018">中国经济2018</a></h3>
+                                        <p>王德培</p>
+                                        <p class="disc eps">中国经济经历了2017的新旧交替，迎来大变局时代。</p>
+                                        <a class="read" href="    //yuedu.163.com/book_reader/7cf30d177b334150998c38ac853ef611_4/a9e12a535d5345bd9e07800fd273b89a_4
+    " target="_blank" data-model="zbtj#ts" data-opration="book_reader" title="立即阅读">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                                <li class="ll">
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="    //yuedu.163.com/source/d43e9d170f9d4877a5d997a4a5c79077_4
+    " target="_blank" data-model="zbtj#ts" data-opration="source" title="纳博科夫短篇小说全集"><img src="https://easyreadfs.nosdn.127.net/wwvbVuQOCGXVe3WwYk76XQ==/8796093023975536378?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/wwvbVuQOCGXVe3WwYk76XQ==/8796093023975536378?imageView&quality=90&thumbnail=228y320 2x" alt="纳博科夫短篇小说全集"></a>
+                                        <h3><a href="    //yuedu.163.com/source/d43e9d170f9d4877a5d997a4a5c79077_4
+    " target="_blank" title="纳博科夫短篇小说全集">纳博科夫短篇小说全集</a></h3>
+                                        <p>【美】弗拉基米尔·纳博科夫,逢珍</p>
+                                        <p class="disc eps">《纳博科夫短篇小说全集》是文学大师纳博科夫的短篇小说作品在国内首次完整结集。</p>
+                                        <a class="read" href="    //yuedu.163.com/book_reader/d43e9d170f9d4877a5d997a4a5c79077_4/18614d7bb3694a55b6a7a4a097565a44_4
+    " target="_blank" data-model="zbtj#ts" data-opration="book_reader" title="立即阅读">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-item" style="display:none;">
+                            <ul class="rss f-cb">
+                                <li>
+                                    <div class="f-cb">
+                                        <a class="img" href="    //yuedu.163.com/news_reader/#/~/source?id=0fc3d5d44a574b94a64a2a4b7aa48d53_1
+    " target="_blank" title="日本通"><img src="https://img3.cache.netease.com/news/2018/2/2/2018020215174328787.jpg" alt="日本通"></a>
+                                        <h3><a href="    //yuedu.163.com/news_reader/#/~/source?id=0fc3d5d44a574b94a64a2a4b7aa48d53_1
+    " target="_blank" data-model="zbtj#dy" data-opration="source" title="日本通">日本通</a></h3>
+                                        <div class="detail">
+                                            <div class="w-star w-star1">
+                                                <span>&nbsp;</span>
+                                                <span>&nbsp;</span>
+                                                <span>&nbsp;</span>
+                                                <span>&nbsp;</span>
+                                                <span class="no">&nbsp;</span>
+                                            </div>
+                                            999+人订阅
+                                        </div>
+                                        <a class="read" href="    //yuedu.163.com/news_reader/#/~/source?id=0fc3d5d44a574b94a64a2a4b7aa48d53_1
+    " target="_blank" data-model="zbtj#dy" data-opration="book_reader" title="立即阅读">立即阅读<i></i></a>
+                                    </div>
+                                    <div class="article">
+                                        <p><a href="    //yuedu.163.com/news_reader/#/~/source?id=0fc3d5d44a574b94a64a2a4b7aa48d53_1&cid=37dd3546d6d64a998b3d1a94ffbf1feb_1
+    " target="_blank" title="《旅行青蛙》负责人：游戏与测试生育意愿无关，更多内幕曝光！">《旅行青蛙》负责人：游戏与测试生育意愿无关，更多内幕曝光！</a></p>
+                                        <p><a href="    //yuedu.163.com/news_reader/#/~/source?id=0fc3d5d44a574b94a64a2a4b7aa48d53_1&cid=5ca0bd3469ca48558acdce9d9c06a71c_1
+    " target="_blank" title="看看日本学霸的书！这样努力大概就不用《等你下课》了吧……">看看日本学霸的书！这样努力大概就不用《等你下课》了吧……</a></p>
+                                        <p><a href="    //yuedu.163.com/news_reader/#/~/source?id=0fc3d5d44a574b94a64a2a4b7aa48d53_1&cid=fbdb980e0a5d432e8a1b2bf4c3fd2d18_1
+    " target="_blank" title="这些日本当红明星吃得好香，难道不是日料广告？">这些日本当红明星吃得好香，难道不是日料广告？</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="f-cb">
+                                        <a class="img" href="    //yuedu.163.com/news_reader/#/~/source?id=e0fa1424-37d8-49cb-be69-2f6bf66f2d5a_1
+    " target="_blank" title="VOICER"><img src="https://img1.cache.netease.com/news/2018/2/2/20180202151827f0796.png" alt="VOICER"></a>
+                                        <h3><a href="    //yuedu.163.com/news_reader/#/~/source?id=e0fa1424-37d8-49cb-be69-2f6bf66f2d5a_1
+    " target="_blank" data-model="zbtj#dy" data-opration="source" title="VOICER">VOICER</a></h3>
+                                        <div class="detail">
+                                            <div class="w-star w-star1">
+                                                <span>&nbsp;</span>
+                                                <span>&nbsp;</span>
+                                                <span>&nbsp;</span>
+                                                <span>&nbsp;</span>
+                                                <span>&nbsp;</span>
+                                            </div>
+                                            999+人订阅
+                                        </div>
+                                        <a class="read" href="    //yuedu.163.com/news_reader/#/~/source?id=e0fa1424-37d8-49cb-be69-2f6bf66f2d5a_1
+    " target="_blank" data-model="zbtj#dy" data-opration="book_reader" title="立即阅读">立即阅读<i></i></a>
+                                    </div>
+                                    <div class="article">
+                                        <p><a href="    //yuedu.163.com/news_reader/#/~/source?id=e0fa1424-37d8-49cb-be69-2f6bf66f2d5a_1&cid=6be68e007c4e4e4187dfd4b333955eeb_1
+    " title="8件值得被载入设计史中的IKEA家具">8件值得被载入设计史中的IKEA家具</a></p>
+                                        <p><a href="    //yuedu.163.com/news_reader/#/~/source?id=e0fa1424-37d8-49cb-be69-2f6bf66f2d5a_1&cid=a5fdce805c18444fa789249f0da8ce66_1
+    " title="GOOD GOODs | 20+1件狗年礼物清单，让温柔与爱同在">GOOD GOODs | 20+1件狗年礼物清单，让温柔与爱同在</a></p>
+                                        <p><a href="    //yuedu.163.com/news_reader/#/~/source?id=e0fa1424-37d8-49cb-be69-2f6bf66f2d5a_1&cid=ef3ae426eeb141bb83a583204d7da22c_1
+    " title="如果把最爱的一本书做成一道菜，会是什么味道？">如果把最爱的一本书做成一道菜，会是什么味道？</a></p>
+                                    </div>
+                                </li>
+                                <li class="ll">
+                                    <div class="f-cb">
+                                        <a class="img" href="    //yuedu.163.com/news_reader/#/~/source?id=50f5b2b26d21495c8cc39698d3c655fc_1
+    " target="_blank" title="慢时间"><img src="https://img4.cache.netease.com/news/2018/2/2/20180202151907f6559.png" alt="慢时间"></a>
+                                        <h3><a href="    //yuedu.163.com/news_reader/#/~/source?id=50f5b2b26d21495c8cc39698d3c655fc_1
+    " target="_blank" data-model="zbtj#dy" data-opration="source" title="慢时间">慢时间</a></h3>
+                                        <div class="detail">
+                                            <div class="w-star w-star1">
+                                                <span>&nbsp;</span>
+                                                <span>&nbsp;</span>
+                                                <span>&nbsp;</span>
+                                                <span>&nbsp;</span>
+                                                <span class="no">&nbsp;</span>
+                                            </div>
+                                            999+人订阅
+                                        </div>
+                                        <a class="read" href="    //yuedu.163.com/news_reader/#/~/source?id=50f5b2b26d21495c8cc39698d3c655fc_1
+    " target="_blank" data-model="zbtj#dy" data-opration="book_reader" title="立即阅读">立即阅读<i></i></a>
+                                    </div>
+                                    <div class="article">
+
+                                        <p><a href="    //yuedu.163.com/news_reader/#/~/source?id=50f5b2b26d21495c8cc39698d3c655fc_1&cid=862870c895ef45a8b98dc82893289c84_1
+    " title="日本紅葉狩">日本紅葉狩</a></p>
+
+                                        <p><a href="    //yuedu.163.com/news_reader/#/~/source?id=50f5b2b26d21495c8cc39698d3c655fc_1&cid=8e0c7b7c2ff4469fa7c1676395fad032_1
+    " title="废物利用：旧书本做的艺术品">废物利用：旧书本做的艺术品</a></p>
+
+                                        <p><a href="    //yuedu.163.com/news_reader/#/~/source?id=50f5b2b26d21495c8cc39698d3c655fc_1&cid=343d8c3b874a4f6fb4f3d522fe78939c_1
+    " title="如妆洱海">如妆洱海</a></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="g-sec">
+                <div class="left">
+                    <header><h2>国风中文网</h2><a class="more" href="/yc">更多&gt;</a></header>
+                    <div class="m-book-four">
+                        <div class="contents">
+                            <ul class="book f-cb">
+                                <li class="up">
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="//guofeng.yuedu.163.com/source/8376dcb778ff409dbd39fa1f9cea1416_4
+" target="_blank" title="绝世佣兵"><img src="https://easyreadfs.nosdn.127.net/B1HhrxgVoxFybU_sXhChTg==/8796093023487071300?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/B1HhrxgVoxFybU_sXhChTg==/8796093023487071300?imageView&quality=90&thumbnail=228y320 2x" data-model="nxxs" data-opration="source" alt="绝世佣兵"></a>
+                                        <h3><a href="//guofeng.yuedu.163.com/source/8376dcb778ff409dbd39fa1f9cea1416_4" target="_blank" data-model="nxxs" data-opration="source" title="绝世佣兵">绝世佣兵</a></h3>
+                                        <p>醉思迁</p>
+                                        <p class="disc eps">五年前，他是一位只会玩乐的阔家少爷。五年后，他是一位满身染满鲜血的死神。</p>
+                                        <a class="read" href="//guofeng.yuedu.163.com/source/8376dcb778ff409dbd39fa1f9cea1416_4
+" target="_blank" data-model="nxxs" data-opration="book_reader">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                                <li class="up rt">
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="//guofeng.yuedu.163.com/source/9f84bd7e313e445ab032c679cc298099_4
+" target="_blank" title="财富人生"><img src="https://easyreadfs.nosdn.127.net/BnXG9etvM1o1dGMw6rlBKg==/8796093023838722916?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/BnXG9etvM1o1dGMw6rlBKg==/8796093023838722916?imageView&quality=90&thumbnail=228y320 2x" data-model="nxxs" data-opration="source" alt="财富人生"></a>
+                                        <h3><a href="//guofeng.yuedu.163.com/source/9f84bd7e313e445ab032c679cc298099_4" target="_blank" data-model="nxxs" data-opration="source" title="财富人生">财富人生</a></h3>
+                                        <p>全行缺金</p>
+                                        <p class="disc eps">财富是一个永恒的主题，但是到底什么才是财富呢？重生后的李世玉，在不断的努力奋斗中，终于找到了答案。</p>
+                                        <a class="read" href="//guofeng.yuedu.163.com/source/9f84bd7e313e445ab032c679cc298099_4
+" target="_blank" data-model="nxxs" data-opration="book_reader">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="//guofeng.yuedu.163.com/source/0e4456ae445e4e25aa208a894d7ebf3f_4
+" target="_blank" title="唐末逍遥游"><img src="https://easyreadfs.nosdn.127.net/5cOZ0xyF0pm4lo3mnByzrg==/8796093023646172876?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/5cOZ0xyF0pm4lo3mnByzrg==/8796093023646172876?imageView&quality=90&thumbnail=228y320 2x" data-model="nxxs" data-opration="source" alt="唐末逍遥游"></a>
+                                        <h3><a href="//guofeng.yuedu.163.com/source/0e4456ae445e4e25aa208a894d7ebf3f_4" target="_blank" data-model="nxxs" data-opration="source" title="唐末逍遥游">唐末逍遥游</a></h3>
+                                        <p>我爱毛毛</p>
+                                        <p class="disc eps">适逢乱世，他经历了一系列曲折坎坷的奇遇……面对弱肉强食的世界，惊心动魄的阴谋，他能否挽狂澜于既倒？</p>
+                                        <a class="read" href="//guofeng.yuedu.163.com/source/0e4456ae445e4e25aa208a894d7ebf3f_4
+" target="_blank" data-model="nxxs" data-opration="book_reader">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                                <li class="rt">
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="//guofeng.yuedu.163.com/source/95444046ab2545a28637132f0a64edba_4
+" target="_blank" title="无限召唤"><img src="https://easyreadfs.nosdn.127.net/FV8Sw_tCK8_DpdeoCuJsFA==/8796093023584434610?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/FV8Sw_tCK8_DpdeoCuJsFA==/8796093023584434610?imageView&quality=90&thumbnail=228y320 2x" data-model="nxxs" data-opration="source" alt="无限召唤"></a>
+                                        <h3><a href="//guofeng.yuedu.163.com/source/95444046ab2545a28637132f0a64edba_4" target="_blank" data-model="nxxs" data-opration="source" title="无限召唤">无限召唤</a></h3>
+                                        <p>夜浮尘</p>
+                                        <p class="disc eps">少年苏暮掌握神秘古印玺，召唤古代英勇之英灵，他的出现给新纪元掀起滔天巨浪，他在这部历史上添上了浓厚的一笔。</p>
+                                        <a class="read" href="//guofeng.yuedu.163.com/source/95444046ab2545a28637132f0a64edba_4
+" target="_blank" data-model="nxxs" data-opration="book_reader">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <header><h2>国风中文网畅销榜</h2></header>
+                    <div id="J_ManBang" class="m-foldlist">
+                        <ul>
+                        </ul>
+                        <a class="more" href="/yc/rank/sell/male#/week"><i></i>查看更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="g-sec">
+                <div class="left">
+                    <header><h2>采薇书院</h2><a class="more" href="/ycmm">更多&gt;</a></header>
+                    <div class="m-book-four">
+                        <div class="contents">
+                            <ul class="book f-cb">
+                                <li class="up">
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="//caiwei.yuedu.163.com/source/19922e94b0794ee19794e363064b9ad2_4
+" target="_blank" data-model="vxxs" data-opration="source" title="重生之名门毒秀"><img src="https://easyreadfs.nosdn.127.net/GgK1h6hbkzAvaG3uK6zKfw==/8796093022433221283?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/GgK1h6hbkzAvaG3uK6zKfw==/8796093022433221283?imageView&quality=90&thumbnail=228y320 2x" alt="重生之名门毒秀"></a>
+                                        <h3><a href="//caiwei.yuedu.163.com/source/19922e94b0794ee19794e363064b9ad2_4" target="_blank" data-model="vxxs" data-opration="source" title="重生之名门毒秀">重生之名门毒秀</a></h3>
+                                        <p>朱七慕九</p>
+                                        <p class="disc eps">七载堂堂丞相妻，一朝沦为阉伶妾，新人猖狂旧人哭。来世只愿为刀俎，杀尽天下负我狗！</p>
+                                        <a class="read" href="//caiwei.yuedu.163.com/source/19922e94b0794ee19794e363064b9ad2_4
+" target="_blank" data-model="vxxs" data-opration="book_reader">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                                <li class="up rt">
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="//caiwei.yuedu.163.com/source/e89fef584fb14fc0adf92624a0422ff5_4
+" target="_blank" data-model="vxxs" data-opration="source" title="我一贱你就笑"><img src="https://easyreadfs.nosdn.127.net/iw88yjaoHFDqoIeRjqGhnw==/8796093022805597948?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/iw88yjaoHFDqoIeRjqGhnw==/8796093022805597948?imageView&quality=90&thumbnail=228y320 2x" alt="我一贱你就笑"></a>
+                                        <h3><a href="//caiwei.yuedu.163.com/source/e89fef584fb14fc0adf92624a0422ff5_4" target="_blank" data-model="vxxs" data-opration="source" title="我一贱你就笑">我一贱你就笑</a></h3>
+                                        <p>甜思</p>
+                                        <p class="disc eps">想装个小鸟依人，却是个大鹏展翅！</p>
+                                        <a class="read" href="//caiwei.yuedu.163.com/source/e89fef584fb14fc0adf92624a0422ff5_4
+" target="_blank" data-model="vxxs" data-opration="book_reader">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="//caiwei.yuedu.163.com/source/ddbe29b8057346e983cfad557736c305_4
+" target="_blank" data-model="vxxs" data-opration="source" title="重生嫡女要逆袭"><img src="https://easyreadfs.nosdn.127.net/WhIkwBLTLLFO4w7kiaBO6Q==/8796093024032003729?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/WhIkwBLTLLFO4w7kiaBO6Q==/8796093024032003729?imageView&quality=90&thumbnail=228y320 2x" alt="重生嫡女要逆袭"></a>
+                                        <h3><a href="//caiwei.yuedu.163.com/source/ddbe29b8057346e983cfad557736c305_4" target="_blank" data-model="vxxs" data-opration="source" title="重生嫡女要逆袭">重生嫡女要逆袭</a></h3>
+                                        <p>尘烟</p>
+                                        <p class="disc eps">21世纪金牌整容师竟然穿越成古代村妞？没银子没爹娘也就算了，居然还嫁了个傻子！什么……原主真实身份竟然是相府嫡女？门不当户不对怎么办？不怕，傻子其实超级官二代！
+                                        </p>
+                                        <a class="read" href="//caiwei.yuedu.163.com/source/ddbe29b8057346e983cfad557736c305_4
+" target="_blank" data-model="vxxs" data-opration="book_reader">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                                <li class="rt">
+                                    <div class="m-book-info f-cb">
+                                        <a class="cover" href="//caiwei.yuedu.163.com/source/5c473f9a05c24f6fb218a535d43c25a7_4
+" target="_blank" data-model="vxxs" data-opration="source" title="冥王请接招"><img src="https://easyreadfs.nosdn.127.net/16DSZ4D8pmgBkn9ceICwIg==/8796093023980071940?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/16DSZ4D8pmgBkn9ceICwIg==/8796093023980071940?imageView&quality=90&thumbnail=228y320 2x" alt="冥王请接招"></a>
+                                        <h3><a href="//caiwei.yuedu.163.com/source/5c473f9a05c24f6fb218a535d43c25a7_4" target="_blank" data-model="vxxs" data-opration="source" title="冥王请接招">冥王请接招</a></h3>
+                                        <p>懒小猫</p>
+                                        <p class="disc eps">“肚子里怀着本尊的孩子还想嫁人？”杨佑宁听着质问的话，莫名的想打人！她一个未出阁的姑娘，哪来的孩子？还威胁她，孩子亡，她整个杨府陪葬……
+                                        </p>
+                                        <a class="read" href="//caiwei.yuedu.163.com/source/5c473f9a05c24f6fb218a535d43c25a7_4
+" target="_blank" data-model="vxxs" data-opration="book_reader">立即阅读<i></i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <header><h2>采薇书院畅销榜</h2></header>
+                    <div id="J_WomenBang" class="m-foldlist">
+                        <ul>
+                        </ul>
+                        <a class="more" href="/ycmm/rank/sell/female#/week"><i></i>查看更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="g-sec">
+                <div class="left">
+                    <header><h2>精品图书</h2><a class="more" href="/book">更多&gt;</a></header>
+                    <div id="J_Publish" class="m-book-ten">
+                        <div class="tabs">
+                        </div>
+                        <div class="contents">
+                            <div class="tab-item">
+                                <ul class="book f-cb">
+                                    <li>
+                                        <a href="    //yuedu.163.com/source/183a1f03c29d435e954baa405aed2fd2_4
+    " target="_blank" data-model="jptu" data-opration="jpts_img" title="白先勇细说红楼梦"><img src="https://easyreadfs.nosdn.127.net/fNBYEGcM-sJlwlxpZ5LqRg==/8796093023453175145?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/fNBYEGcM-sJlwlxpZ5LqRg==/8796093023453175145?imageView&quality=90&thumbnail=228y320 2x" alt="白先勇细说红楼梦" /></a>
+                                        <h3><a href="    //yuedu.163.com/source/183a1f03c29d435e954baa405aed2fd2_4
+    " target="_blank" data-model="jptu" data-opration="jpts_txt" title="白先勇细说红楼梦">白先勇细说红楼梦</a></h3>
+                                        <p>白先勇</p>
+                                    </li>
+                                    <li>
+                                        <a href="    //yuedu.163.com/source/52b68c0c04ed43938c3ab1d8d18ec666_4
+    " target="_blank" data-model="jptu" data-opration="jpts_img" title="华氏451"><img src="https://easyreadfs.nosdn.127.net/LZGKJqRH5JOjKUjtE43-wA==/8796093023465026259?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/LZGKJqRH5JOjKUjtE43-wA==/8796093023465026259?imageView&quality=90&thumbnail=228y320 2x" alt="华氏451" /></a>
+                                        <h3><a href="    //yuedu.163.com/source/52b68c0c04ed43938c3ab1d8d18ec666_4
+    " target="_blank" data-model="jptu" data-opration="jpts_txt" title="华氏451">华氏451</a></h3>
+                                        <p>【美】雷·布拉德伯里</p>
+                                    </li>
+                                    <li>
+                                        <a href="    //yuedu.163.com/source/34dd77c2547c48fdb07ea29bbeadfadf_4
+    " target="_blank" data-model="jptu" data-opration="jpts_img" title="侠隐"><img src="https://easyreadfs.nosdn.127.net/Th7uqzV6ky4glnQXAVTCJQ==/8796093023875585680?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/Th7uqzV6ky4glnQXAVTCJQ==/8796093023875585680?imageView&quality=90&thumbnail=228y320 2x" alt="侠隐" /></a>
+                                        <h3><a href="    //yuedu.163.com/source/34dd77c2547c48fdb07ea29bbeadfadf_4
+    " target="_blank" data-model="jptu" data-opration="jpts_txt" title="侠隐">侠隐</a></h3>
+                                        <p>张北海</p>
+                                    </li>
+                                    <li>
+                                        <a href="    //yuedu.163.com/source/73e6a1e45c714c8a9b49c9278190eed4_4
+    " target="_blank" data-model="jptu" data-opration="jpts_img" title="艰难的制造"><img src="https://easyreadfs.nosdn.127.net/XG22fs002GyPZCulYDka3A==/8796093023347004943?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/XG22fs002GyPZCulYDka3A==/8796093023347004943?imageView&quality=90&thumbnail=228y320 2x" alt="艰难的制造" /></a>
+                                        <h3><a href="    //yuedu.163.com/source/73e6a1e45c714c8a9b49c9278190eed4_4
+    " target="_blank" data-model="jptu" data-opration="jpts_txt" title="艰难的制造">艰难的制造</a></h3>
+                                        <p>阿耐</p>
+                                    </li>
+                                    <li class="ll">
+                                        <a href="    //yuedu.163.com/source/e58b1b4e46bd4b998ed47d5246096b4c_4
+    " target="_blank" data-model="jptu" data-opration="jpts_img" title="解忧杂货店"><img src="https://easyreadfs.nosdn.127.net/SmO4CW8UG3Dt26BjKRzSJA==/8796093023506640543?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/SmO4CW8UG3Dt26BjKRzSJA==/8796093023506640543?imageView&quality=90&thumbnail=228y320 2x" alt="解忧杂货店" /></a>
+                                        <h3><a href="    //yuedu.163.com/source/e58b1b4e46bd4b998ed47d5246096b4c_4
+    " target="_blank" data-model="jptu" data-opration="jpts_txt" title="解忧杂货店">解忧杂货店</a></h3>
+                                        <p>【日】东野圭吾</p>
+                                    </li>
+                                    <li>
+                                        <a href="    //yuedu.163.com/source/267bb902899349a0ad7be583e8a5fd1d_4
+    " target="_blank" data-model="jptu" data-opration="jpts_img" title="海都物语 ： 威尼斯一千年（全两册）"><img src="https://easyreadfs.nosdn.127.net/sR7glaTjHnOp_ULQv6rbmA==/8796093023347269946?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/sR7glaTjHnOp_ULQv6rbmA==/8796093023347269946?imageView&quality=90&thumbnail=228y320 2x" alt="海都物语 ： 威尼斯一千年（全两册）" /></a>
+                                        <h3><a href="    //yuedu.163.com/source/267bb902899349a0ad7be583e8a5fd1d_4
+    " target="_blank" data-model="jptu" data-opration="jpts_txt" title="海都物语 ： 威尼斯一千年（全两册）">海都物语 ： 威尼斯一千年（全两册）</a></h3>
+                                        <p>【日】盐野七生</p>
+                                    </li>
+                                    <li>
+                                        <a href="    //yuedu.163.com/source/60744891ca944b6298c1dd809c7e6449_4
+    " target="_blank" data-model="jptu" data-opration="jpts_img" title="步履不停"><img src="https://easyreadfs.nosdn.127.net/9f-PI1b_r2jV5vqJ3vn1-w==/8796093023528723085?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/9f-PI1b_r2jV5vqJ3vn1-w==/8796093023528723085?imageView&quality=90&thumbnail=228y320 2x" alt="步履不停" /></a>
+                                        <h3><a href="    //yuedu.163.com/source/60744891ca944b6298c1dd809c7e6449_4
+    " target="_blank" data-model="jptu" data-opration="jpts_txt" title="步履不停">步履不停</a></h3>
+                                        <p>【日】是枝裕和,郑有杰</p>
+                                    </li>
+                                    <li>
+                                        <a href="    //yuedu.163.com/source/01637b36c7aa449691ffb949cc2a6dce_4
+    " target="_blank" data-model="jptu" data-opration="jpts_img" title="自控力：和压力做朋友（斯坦福大学最实用的心理学课程）"><img src="https://easyreadfs.nosdn.127.net/Ekh2B_dNEgCNJl16TzZsOg==/8796093022512066034?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/Ekh2B_dNEgCNJl16TzZsOg==/8796093022512066034?imageView&quality=90&thumbnail=228y320 2x" alt="自控力：和压力做朋友（斯坦福大学最实用的心理学课程）" /></a>
+                                        <h3><a href="    //yuedu.163.com/source/01637b36c7aa449691ffb949cc2a6dce_4
+    " target="_blank" data-model="jptu" data-opration="jpts_txt" title="自控力：和压力做朋友（斯坦福大学最实用的心理学课程）">自控力：和压力做朋友（斯坦福大学最实用的心理学课程）</a></h3>
+                                        <p>【美】凯利·麦格尼格尔</p>
+                                    </li>
+                                    <li>
+                                        <a href="    //yuedu.163.com/source/b75d51ccf2a84a19a202385d14fb4bc7_4
+    " target="_blank" data-model="jptu" data-opration="jpts_img" title="牧羊少年奇幻之旅"><img src="https://easyreadfs.nosdn.127.net/yP21P7glrCN2u105Um4urg==/8796093023482348156?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/yP21P7glrCN2u105Um4urg==/8796093023482348156?imageView&quality=90&thumbnail=228y320 2x" alt="牧羊少年奇幻之旅" /></a>
+                                        <h3><a href="    //yuedu.163.com/source/b75d51ccf2a84a19a202385d14fb4bc7_4
+    " target="_blank" data-model="jptu" data-opration="jpts_txt" title="牧羊少年奇幻之旅">牧羊少年奇幻之旅</a></h3>
+                                        <p>【巴西】保罗·柯艾略</p>
+                                    </li>
+                                    <li class="ll">
+                                        <a href="    //yuedu.163.com/source/3b35b6160d684835b7f240c60b607a36_4
+    " target="_blank" data-model="jptu" data-opration="jpts_img" title="北洋夜行记"><img src="https://easyreadfs.nosdn.127.net/Vab3SKcILbMmxHFcZEdIPg==/8796093023969276740?imageView&quality=90&thumbnail=114y160" srcset="https://easyreadfs.nosdn.127.net/Vab3SKcILbMmxHFcZEdIPg==/8796093023969276740?imageView&quality=90&thumbnail=228y320 2x" alt="北洋夜行记" /></a>
+                                        <h3><a href="    //yuedu.163.com/source/3b35b6160d684835b7f240c60b607a36_4
+    " target="_blank" data-model="jptu" data-opration="jpts_txt" title="北洋夜行记">北洋夜行记</a></h3>
+                                        <p>金醉</p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <header><h2>图书畅销榜</h2></header>
+                    <div id="J_PubBang" class="m-foldlist">
+                        <ul>
+                        </ul>
+                        <a class="more" href="/book/rank/sell"><i></i>查看更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="g-sec">
+                <div class="left">
+                    <header><h2>优秀漫画</h2><a class="more" href="//manhua.163.com/search/book/filter/form.do">更多&gt;</a></header>
+                    <div class="m-book-ten">
+                        <div class="contents">
+                            <ul class="book f-cb">
+                                <li>
+                                    <a href="https://manhua.163.com/source/4816503968880123207" target="_blank" title="恋爱大神求放过" data-model="qkzz" data-opration="source"><img alt="恋爱大神求放过" src="https://easyread.nosdn.127.net/pic201612155b86ed7f9d3844a9be71c61b9d7eb545.jpg" /></a>
+                                    <h3><a href="https://manhua.163.com/source/4816503968880123207" target="_blank" data-model="qkzz" data-opration="book_reader">恋爱大神求放过</a></h3>
+                                    <p>站在心尖上的那人</p>
+                                </li>
+                                <li>
+                                    <a href="https://manhua.163.com/source/4508538831870127506" target="_blank" title="中国诡实录" data-model="qkzz" data-opration="source"><img alt="中国诡实录" src="https://easyread.nosdn.127.net/pic/2016/02/26/9b4a71124f91472995a7f70a5b4bfbba.jpg" /></a>
+                                    <h3><a href="https://manhua.163.com/source/4508538831870127506" target="_blank" data-model="qkzz" data-opration="book_reader">中国诡实录</a></h3>
+                                    <p>身边真实的诡异事件</p>
+                                </li>
+                                <li>
+                                    <a href="https://manhua.163.com/source/4316808070150076188" target="_blank" title="战国武校" data-model="qkzz" data-opration="source"><img alt="战国武校" src="https://easyread.nosdn.127.net/pic/2016/08/10/a6a99ee663a74b93966874d111c73832.jpg" /></a>
+                                    <h3><a href="https://manhua.163.com/source/4316808070150076188" target="_blank" data-model="qkzz" data-opration="book_reader">战国武校</a></h3>
+                                    <p>放眼皆是武斗美少女</p>
+                                </li>
+                                <li>
+                                    <a href="https://manhua.163.com/source/4771945676810120861" target="_blank" title="厄运之王" data-model="qkzz" data-opration="source"><img alt="厄运之王" src="https://easyread.nosdn.127.net/pic201712228d1806af0ec14adb8c571b4ee9d6ca35.jpg" /></a>
+                                    <h3><a href="https://manhua.163.com/source/4771945676810120861" target="_blank" data-model="qkzz" data-opration="book_reader">厄运之王</a></h3>
+                                    <p>被厄运缠身的故事</p>
+                                </li>
+                                <li class="ll">
+                                    <a href="https://manhua.163.com/source/4828958330550150442" target="_blank" title="撩妹联盟" data-model="qkzz" data-opration="source"><img alt="撩妹联盟" src="https://easyread.nosdn.127.net/pic2016123062fbdde414b844af8733be4a2f0093d2.jpg" /></a>
+                                    <h3><a href="https://manhua.163.com/source/4828958330550150442" target="_blank" data-model="qkzz" data-opration="book_reader">撩妹联盟</a></h3>
+                                    <p>一大波妹子等你来撩</p>
+                                </li>
+                                <li>
+                                    <a href="https://manhua.163.com/source/4316808069920053167" target="_blank" title="嗜谎之神" data-model="qkzz" data-opration="source"><img alt="嗜谎之神" src="https://easyread.nosdn.127.net/pic20161201a6758149916a4664b15cd6093bb10799.jpg" /></a>
+                                    <h3><a href="https://manhua.163.com/source/4316808069920053167" target="_blank" data-model="qkzz" data-opration="book_reader">嗜谎之神</a></h3>
+                                    <p>拯救迷途的羔羊</p>
+                                </li>
+                                <li>
+                                    <a href="https://manhua.163.com/source/4787600231860156333" target="_blank" title="苍蓝之争" data-model="qkzz" data-opration="source"><img alt="苍蓝之争" src="https://easyread.nosdn.127.net/pic20170610c7e718ca97ed42228b2c3ceda1d763f2.jpg" /></a>
+                                    <h3><a href="https://manhua.163.com/source/4787600231860156333" target="_blank" data-model="qkzz" data-opration="book_reader">苍蓝之争</a></h3>
+                                    <p>王权争夺</p>
+                                </li>
+                                <li>
+                                    <a href="https://manhua.163.com/source/4316808069910049882" target="_blank" title="我才不会被女孩子欺负呢" data-model="qkzz" data-opration="source"><img alt="我才不会被女孩子欺负呢" src="https://easyread.nosdn.127.net/pic201602255e3a2affcab441738c8022ab4b5afd44.jpeg" /></a>
+                                    <h3><a href="https://manhua.163.com/source/4316808069910049882" target="_blank" data-model="qkzz" data-opration="book_reader">我才不会被女孩子欺负呢</a></h3>
+                                    <p>小时候揍我长大泡我</p>
+                                </li>
+                                <li>
+                                    <a href="https://manhua.163.com/source/4806799487140116827" target="_blank" title="王爷不好婚" data-model="qkzz" data-opration="source"><img alt="王爷不好婚" src="https://easyread.nosdn.127.net/pic20171215161d2e859831436ebeb63b050b9b6f2d.jpg" /></a>
+                                    <h3><a href="https://manhua.163.com/source/4806799487140116827" target="_blank" data-model="qkzz" data-opration="book_reader">王爷不好婚</a></h3>
+                                    <p>王爷不能好好结婚…</p>
+                                </li>
+                                <li class="ll">
+                                    <a href="https://manhua.163.com/source/4317064958460058888" target="_blank" title="诡异奇谈" data-model="qkzz" data-opration="source"><img alt="诡异奇谈" src="https://easyread.nosdn.127.net/pic201712056db1255e749e4d35bdd0405236ee3349.jpg" /></a>
+                                    <h3><a href="https://manhua.163.com/source/4317064958460058888" target="_blank" data-model="qkzz" data-opration="book_reader">诡异奇谈</a></h3>
+                                    <p>割下的肉是自己的？</p>
+                                </li>
+                            </ul>
+                            <!-- vampire:success -->
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <header><h2>漫画排行榜</h2></header>
+                    <div id="J_MagBang" class="m-foldlist">
+                        <ul class="">
+                            <li>
+                                <p class="fold" style="display: block;"><a title="中国诡实录" href="https://manhua.163.com/source/4508538831870127506"><i>01</i>中国诡实录</a></p>
+                                <div class="unfold" style="display: none;">
+                                    <i>01</i>
+                                    <div class="border f-cb"><a title="中国诡实录" class="img" href="https://manhua.163.com/source/4508538831870127506" target="_blank">
+                                        <img src="https://easyread.nosdn.127.net/pic/2016/02/26/9b4a71124f91472995a7f70a5b4bfbba.jpg" alt="中国诡实录"></a><h3><a href="https://manhua.163.com/source/4508538831870127506" target="_blank">中国诡实录</a></h3><p>身边真实的诡异事件</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <p class="fold" style="display: block;"><a title="中国怪谈" href="https://manhua.163.com/source/4317041374930046603"><i>02</i>中国怪谈</a></p>
+                                <div class="unfold" style="display: none;">
+                                    <i>02</i>
+                                    <div class="border f-cb"><a title="中国怪谈" class="img" href="https://manhua.163.com/source/4317041374930046603" target="_blank">
+                                        <img src="https://easyread.nosdn.127.net/pic20170117208d344a8a0f42a3928c8a75530a3d7f.jpg" alt="中国怪谈"></a><h3><a href="https://manhua.163.com/source/4317041374930046603" target="_blank">中国怪谈</a></h3><p>小智的一万种死法</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <p class="fold" style="display: block;"><a title="天才医仙" href="https://manhua.163.com/source/4577380875630090313"><i>03</i>天才医仙</a></p>
+                                <div class="unfold" style="display: none;">
+                                    <i>03</i>
+                                    <div class="border f-cb"><a title="天才医仙" class="img" href="https://manhua.163.com/source/4577380875630090313" target="_blank">
+                                        <img src="https://easyread.nosdn.127.net/pic2016031474218470c8dd4ff7a1bff174a5731995.jpeg" alt="天才医仙"></a><h3><a href="https://manhua.163.com/source/4577380875630090313" target="_blank">天才医仙</a></h3><p>美人赐我学医动力！</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <p class="fold" style="display: block;"><a title="我才不会被女孩子欺负呢" href="https://manhua.163.com/source/4316808069910049882"><i>04</i>我才不会被女孩子欺负呢</a></p>
+                                <div class="unfold" style="display: none;">
+                                    <i>04</i>
+                                    <div class="border f-cb"><a title="我才不会被女孩子欺负呢" class="img" href="https://manhua.163.com/source/4316808069910049882" target="_blank">
+                                        <img src="https://easyread.nosdn.127.net/pic201602255e3a2affcab441738c8022ab4b5afd44.jpeg" alt="我才不会被女孩子欺负呢"></a><h3><a href="https://manhua.163.com/source/4316808069910049882" target="_blank">我才不会被女孩子欺负呢</a></h3><p>小时候揍我长大泡我</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <p class="fold" style="display: block;"><a title="杀手古德" href="https://manhua.163.com/source/4317076104890059052"><i>05</i>杀手古德</a></p>
+                                <div class="unfold" style="display: none;">
+                                    <i>05</i>
+                                    <div class="border f-cb"><a title="杀手古德" class="img" href="https://manhua.163.com/source/4317076104890059052" target="_blank">
+                                        <img src="https://easyread.nosdn.127.net/pic/2015/07/02/2466e4a4393f4e7abc2b0824264fa060.jpg" alt="杀手古德"></a><h3><a href="https://manhua.163.com/source/4317076104890059052" target="_blank">杀手古德</a></h3><p>最蠢杀手逗比日常</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <p class="fold" style="display: block;"><a title="尸界" href="https://manhua.163.com/source/4340892233000110888"><i>06</i>尸界</a></p>
+                                <div class="unfold" style="display: none;">
+                                    <i>06</i>
+                                    <div class="border f-cb"><a title="尸界" class="img" href="https://manhua.163.com/source/4340892233000110888" target="_blank">
+                                        <img src="https://easyread.nosdn.127.net/pic201802285d26f40156ea4dc1869821890e133add.jpg" alt="尸界"></a><h3><a href="https://manhua.163.com/source/4340892233000110888" target="_blank">尸界</a></h3><p>末世僵尸世界乱战</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <p class="fold" style="display: block;"><a title="讨喜笨王妃" href="https://manhua.163.com/source/4376930639940112883"><i>07</i>讨喜笨王妃</a></p>
+                                <div class="unfold" style="display: none;">
+                                    <i>07</i>
+                                    <div class="border f-cb"><a title="讨喜笨王妃" class="img" href="https://manhua.163.com/source/4376930639940112883" target="_blank">
+                                        <img src="https://easyread.nosdn.127.net/pic201801122d8ac541e3774351b414d633205f1e21.jpg" alt="讨喜笨王妃"></a><h3><a href="https://manhua.163.com/source/4376930639940112883" target="_blank">讨喜笨王妃</a></h3><p>穿越古代寻真爱</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <p class="fold" style="display: block;"><a title="幽冥诡匠" href="https://manhua.163.com/source/5108295818580343008"><i>08</i>幽冥诡匠</a></p>
+                                <div class="unfold" style="display: none;">
+                                    <i>08</i>
+                                    <div class="border f-cb"><a title="幽冥诡匠" class="img" href="https://manhua.163.com/source/5108295818580343008" target="_blank">
+                                        <img src="https://easyread.nosdn.127.net/pic2017111753ed2aae59044c4d89a7cfb9b893a0d3.jpg" alt="幽冥诡匠"></a><h3><a href="https://manhua.163.com/source/5108295818580343008" target="_blank">幽冥诡匠</a></h3><p>最传统的灵异故事！</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <p class="fold" style="display: block;"><a title="诡异奇谈" href="https://manhua.163.com/source/4317064958460058888"><i>09</i>诡异奇谈</a></p>
+                                <div class="unfold" style="display: none;">
+                                    <i>09</i>
+                                    <div class="border f-cb"><a title="诡异奇谈" class="img" href="https://manhua.163.com/source/4317064958460058888" target="_blank">
+                                        <img src="https://easyread.nosdn.127.net/pic201712056db1255e749e4d35bdd0405236ee3349.jpg" alt="诡异奇谈"></a><h3><a href="https://manhua.163.com/source/4317064958460058888" target="_blank">诡异奇谈</a></h3><p>割下的肉是自己的？</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <a class="more" href="https://manhua.163.com"><i></i>查看更多</a>
+                        <!-- vampire:success -->
+
+                    </div>
+                </div>
+            </div>
+            <div class="g-sec">
+                <header><h2>热门文章</h2><a class="more" href="/contentcenter">更多&gt;</a></header>
+                <div class="m-article">
+                    <ul class="f-cb">
+                        <li class="j-content-query" data-id="http://yuedu.163.com/news_reader/#/~/source?id=e5e1f69c576840289fdaf3d178891c4b_1&cid=457db898c195490fae724c543950cec7_1">
+                            <a class="img" href="    //yuedu.163.com/news_reader/#/~/source?id=e5e1f69c576840289fdaf3d178891c4b_1&cid=457db898c195490fae724c543950cec7_1
+    " target="_blank" data-model="rmwz" data-opration="img" title="人生第一口离别的滋味"><img src="https://img3.cache.netease.com/news/2018/2/7/201802071719096193b.jpg?imageView&quality=90&thumbnail=285y180" srcset="https://img3.cache.netease.com/news/2018/2/7/201802071719096193b.jpg?imageView&quality=90&thumbnail=570y360 2x" alt="人生第一口离别的滋味" />
+                                <h3>人生第一口离别的滋味</h3>
+                                <p>来源：人间</p>
+                                <p class="desc">感谢那杯牛肉汤，感谢那个人，也感谢所有温软的情谊。</p>
+                                <p><i class="zan"></i><b class="zan-num">999+</b> <i class="zhuan"></i><b class="zhuan-num">99+</b></p>
+                            </a>
+                        </li>
+                        <li class="j-content-query" data-id="http://yuedu.163.com/news_reader/#/~/source?id=50f5b2b26d21495c8cc39698d3c655fc_1&cid=9275b2103fc94d38a14044e3ddc068ee_1">
+                            <a class="img" href="    //yuedu.163.com/news_reader/#/~/source?id=50f5b2b26d21495c8cc39698d3c655fc_1&cid=9275b2103fc94d38a14044e3ddc068ee_1
+    " target="_blank" data-model="rmwz" data-opration="img" title="冬日"><img src="https://img2.cache.netease.com/news/2018/2/7/20180207171638c831a.jpg?imageView&quality=90&thumbnail=285y180" srcset="https://img2.cache.netease.com/news/2018/2/7/20180207171638c831a.jpg?imageView&quality=90&thumbnail=570y360 2x" alt="冬日" />
+                                <h3>冬日</h3>
+                                <p>来源：慢时间</p>
+                                <p class="desc">镜头下的冬季。</p>
+                                <p><i class="zan"></i><b class="zan-num">999+</b> <i class="zhuan"></i><b class="zhuan-num">99+</b></p>
+                            </a>
+                        </li>
+                        <li class="ll">
+                            <dl>
+                                <dt class="fl">
+                                    <i></i><a href="    //yuedu.163.com/news_reader/#/~/source?id=dded716f297046c0bd7dcea64a9aed39_1&cid=235c34e0cdd842aaa8dedad62d66a75f_1
+    " target="_blank" data-model="rmwz" data-opration="txt" title="第九味">第九味</a></dt>
+                                <dd>
+                                    “欲忆年年人醉时，只今未醉已先悲”。</dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <i></i><a href="    //yuedu.163.com/news_reader/#/~/source?id=0c74e2cb723d4a54a6953ab3317421bb_1&cid=dea044cd77a24631817723a3cdd0d197_1
+    " target="_blank" data-model="rmwz" data-opration="txt" title="中国哪里的包子最好吃？">中国哪里的包子最好吃？</a></dt>
+                                <dd>
+                                    一篇有诚意的中华包子研究报告。</dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <i></i><a href="    //yuedu.163.com/news_reader/#/~/source?id=9894cb942228463d84b492a7ad9982a1_1&cid=7dcabe3d8d154505b50e20edde78466a_1
+    " target="_blank" data-model="rmwz" data-opration="txt" title="模仿旅行青蛙给爸妈发了照片">模仿旅行青蛙给爸妈发了照片</a></dt>
+                                <dd>
+                                    我们总想去看看世界，而爸妈，只想看看你。</dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <i></i><a href="    //yuedu.163.com/news_reader/#/~/source?id=6b9ee6c9-ebcb-485b-9640-2d104ed817ad_1&cid=c6639627ba0143d7bb428a6728ed0a82_1
+    " target="_blank" data-model="rmwz" data-opration="txt" title="只问盛放，无问西东">只问盛放，无问西东</a></dt>
+                                <dd>
+                                    愿我们都能不世俗的活着。</dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <i></i><a href="    //yuedu.163.com/news_reader/#/~/source?id=50f5b2b26d21495c8cc39698d3c655fc_1&cid=8e0c7b7c2ff4469fa7c1676395fad032_1
+    " target="_blank" data-model="rmwz" data-opration="txt" title="旧书本做的艺术品">旧书本做的艺术品</a></dt>
+                                <dd class="ll">
+                                    DIY改造成了精致好看的小部件。</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- 尾部导航 -->
+    <div class="g-ftw">
+        <div class="g-ft" class="f-cb">
+            <div class="m-foot">
+                <p class="link">
+                    <a href="http://www.163.com" target="_blank">善阅网首页</a><span class="sep">|</span>
+                    <a href="http://sitemap.163.com/" target="_blank">网站导航</a><span class="sep">|</span>
+                    <a href="http://fankui.163.com/ft/comment.fb?pid=11001" target="_blank">意见反馈</a><span class="sep">|</span>
+                    <a id="J_Service" href="javascript:void(0);">客服电话</a><span class="sep">|</span>
+                    <a href="/help" target="_blank">帮助中心</a><span class="sep">|</span>
+                    <a href="http://open.yuedu.163.com/" target="_blank">作者中心</a>
+                </p>
+            </div>
+            <div class="m-right"><p>版权所有&#169;1997-<span id="j-year">2017</span></p></div>
+            <div class="m-share f-cb" >
+                <label>分享到：</label>
+                <div class="share"><a href="javascript:;" class="s2 j-wxwx" data-type="xo">微信</a></div>
+                <div class="share"><a href="javascript:;" class="s4 j-yxyx" data-type="xo">易信</a></div>
+                <div class="share"><a id="_share_b_tsina" href="javascript:(function(){window.open('http://v.t.sina.com.cn/share/share.php?appkey=1560988037&url='+encodeURIComponent('https://yuedu.163.com/')+'&title='+encodeURIComponent('善阅网内容丰富、操作便捷，适合作为平时阅读、充电的软件工具，推荐大家都来下载！')+'&pic='+encodeURIComponent('https://yuedust.yuedu.126.net/images/weibo_v3.jpg?2_20120731162723'),'_blank');})()" class="s1">微博</a></div>
+                <div class="share"><a href="javascript:(function(){window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?site='+encodeURIComponent('善阅网官方网站')+'&url='+encodeURIComponent('https://yuedu.163.com/')+'&title='+encodeURIComponent('善阅网--随时随地，品质阅读')+'&pics='+encodeURIComponent('https://yuedust.yuedu.126.net/images/weibo_v3.jpg?3_20131202100833')+'&summary='+encodeURIComponent('善阅网内容丰富、操作便捷，适合作为平时阅读、充电的软件工具，推荐大家都来下载！'),'_blank');})()" class="s3">QQ空间</a></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="m-pop-qr ma" id="J_WXM" style="display:none;"><a class="close" href="javascript:;"></a></div>
+    <div class="m-pop-qr ma2" id="J_YXM" style="display:none;"><a class="close" href="javascript:;"></a></div>
+    <div class="m-pop-qr ma3" id="J_WBM" style="display:none;"><a class="close" href="javascript:;"></a></div>
+    <div id="J_ServiceNum" class="m-layer m-layer-5" style="display:none;">
+        <div class="inner">
+            <div class="up"><a href="javascript:void(0);"></a></div>
+            <div class="down">
+                <p>购买书籍后无法阅读等问题<br /></p>
+                <p>可拨打：0571-89853801</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        document.getElementById('j-year').innerText = new Date().getFullYear();
+    </script>
 </div>
-<div class="containBox">
-    <div class="containBox-bg"></div>
-	<header class="navbar-wrapper">
-		<div class="navbar navbar-black navbar-fixed-top">
-			<div class="container cl">
-				<a class="logo navbar-logo hidden-xs" href="/aboutHui.shtml">H-ui前端框架</a>
-				<a class="logo navbar-logo-m visible-xs" href="/aboutHui.shtml">H-ui</a>
-				<span class="logo navbar-slogan hidden-xs">简单 &middot; 免费 &middot; 适合中国网站</span>
-				<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs JS-nav-toggle" href="javascript:;">&#xe667;</a>
-				<nav class="nav navbar-nav nav-collapse" role="navigation" id="Hui-navbar">
-					<ul class="cl">
-						<li class="current">
-							<a href="http://www.h-ui.net/" target="_blank">首页</a>
-						</li>
-						<li>
-							<a href="http://www.h-ui.net/Hui-overview.shtml" target="_blank">核心</a>
-						</li>
-						<li>
-							<a href="http://www.h-ui.net/lib/jQuery.cookie.js.shtml" target="_blank">脚本</a>
-						</li>
-						<li class="dropDown dropDown_hover">
-							<a href="javascript:;" class="dropDown_A">工具 <i class="Hui-iconfont">&#xe6d5;</i></a>
-							<ul class="dropDown-menu menu radius box-shadow">
-								<li>
-									<a href="http://www.h-ui.net/bug.shtml" target="_blank">Bug兼容性汇总</a>
-								</li>
-								<li>
-									<a href="http://www.h-ui.net/websafecolors.shtml" target="_blank">web安全色</a>
-								</li>
-								<li>
-									<a href="http://www.h-ui.net/Hui-3.7-Hui-iconfont.shtml" target="_blank">Hui-iconfont</a>
-								</li>
-								<li>
-									<a href="javascript:;">web工具箱<i class="arrow Hui-iconfont">&#xe6d7;</i></a>
-									<ul class="menu">
-										<li>
-											<a href="http://www.h-ui.net/tools/jsformat.shtml" target="_blank">JS/HTML格式化工具</a>
-										<li>
-											<a href="http://www.h-ui.net/tools/HTMLtoJS.shtml" target="_blank">HTML/JS转换工具</a>
-										<li>
-											<a href="http://www.h-ui.net/tools/cssformat.shtml" target="_blank">CSS代码格式化工具</a>
-										<li>
-											<a href="http://www.h-ui.net/tools/daxiaoxie.shtml" target="_blank">字母大小写转换工具</a>
-										<li>
-											<a href="http://www.h-ui.net/tools/fantizhuanhuan.shtml" target="_blank">繁体字、火星文转换</a>
-										<li>
-											<a href="javascript:;">三级菜单<i class="arrow Hui-iconfont">&#xe6d7;</i></a>
-											<ul class="menu">
-												<li>
-													<a href="javascript:;">四级菜单</a>
-												</li>
-												<li>
-													<a href="javascript:;">四级菜单</a>
-												</li>
-												<li>
-													<a href="javascript:;">四级菜单</a>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href="#">三级导航</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="#">二级导航</a>
-								</li>
-								<li class="disabled">
-									<a href="javascript:;">二级菜单</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="http://h-ui.net/aboutHui.shtml" target="_blank">联系我们</a>
-						</li>
-					</ul>
-				</nav>
-				<nav class="navbar-userbar hidden-xs"></nav>
-			</div>
-		</div>
-	</header>
-	<div class="wap-container">
-		<div id="slider-3">
-			<div class="slider">
-				<div class="bd">
-					<ul>
-						<li>
-							<a href="http://www.h-ui.net/" target="_blank"><img src="temp/banner1.jpg" ></a>
-						</li>
-						<li>
-							<a href="http://www.h-ui.net/zhaoshang.shtml" target="_blank"><img src="temp/banner2.jpg" ></a>
-						</li>
-						<li>
-							<a href="http://h-ui.net/H-ui.admin.shtml" target="_blank"><img src="temp/banner3.jpg" ></a>
-						</li>
-					</ul>
-				</div>
-				<ol class="hd cl dots">
-					<li>1</li>
-					<li>2</li>
-					<li>3</li>
-				</ol>
-			</div>
-		</div>
-		<nav class="breadcrumb">
-			<div class="container">
-				<i class="Hui-iconfont">&#xe67f;</i>
-				<a href="/" class="c-primary">首页</a>
-				<span class="c-gray en">&gt;</span>
-				<a href="#">组件</a>
-				<span class="c-gray en">&gt;</span>
-				<span class="c-gray">当前页面</span>
-			</div>
-		</nav>
-		<div class="container ui-sortable">
-			<h1>Hi,H-ui!</h1>
-			<p>开始前端之旅！</p>
-			<div class="panel panel-default">
-				<div class="panel-header">表单</div>
-				<div class="panel-body">
-					<form action="" method="post" class="form form-horizontal responsive" id="demoform">
-						<div class="row cl">
-							<label class="form-label col-xs-3">邮箱：</label>
-							<div class="formControls col-xs-8">
-								<input type="text" class="input-text" placeholder="@" name="email" id="email" autocomplete="off">
-							</div>
-						</div>
-						<div class="row cl">
-							<label class="form-label col-xs-3">用户名：</label>
-							<div class="formControls col-xs-8">
-								<input type="text" class="input-text" placeholder="4~16个字符，字母/中文/数字/下划线" name="username" id="username">
-							</div>
-						</div>
-						<div class="row cl">
-							<label class="form-label col-xs-3">手机：</label>
-							<div class="formControls col-xs-8">
-								<input type="text" class="input-text" autocomplete="off" placeholder="手机" name="telephone" id="telephone">
-							</div>
-						</div>
-						<div class="row cl">
-							<label class="form-label col-xs-3">密码：</label>
-							<div class="formControls col-xs-8">
-								<input type="password" class="input-text" autocomplete="off" placeholder="密码" name="password" id="password">
-							</div>
-						</div>
-						<div class="row cl">
-							<label class="form-label col-xs-3">密码验证：</label>
-							<div class="formControls col-xs-8">
-								<input type="password" class="input-text" autocomplete="off" placeholder="密码" name="password2" id="password2">
-							</div>
-						</div>
-						<div class="row cl">
-							<label class="form-label col-xs-3">单选框：</label>
-							<div class="formControls skin-minimal col-xs-5">
-								<div class="radio-box">
-									<input type="radio" id="sex-1" name="sex">
-									<label for="sex-1">男</label>
-								</div>
-								<div class="radio-box">
-									<input type="radio" id="sex-2" name="sex">
-									<label for="sex-2">女</label>
-								</div>
-								<div class="radio-box">
-									<input type="radio" id="sex-3" name="sex">
-									<label for="sex-3">保密</label>
-								</div>
-							</div>
-						</div>
-						<div class="row cl">
-							<label class="form-label col-xs-3">出生日期：</label>
-							<div class="formControls col-xs-8">
-								<input type="text" class="input-text" value="" autocomplete="off" id="datetimepicker" name="datetimepicker">
-							</div>
-						</div>
-						<div class="row cl">
-							<label class="form-label col-xs-3">爱好：</label>
-							<div class="formControls skin-minimal col-xs-5">
-								<div class="check-box">
-									<input type="checkbox" id="checkbox-5" name="checkbox2">
-									<label for="checkbox-5">上网</label>
-								</div>
-								<div class="check-box">
-									<input type="checkbox" id="checkbox-6" name="checkbox2">
-									<label for="checkbox-6">摄影</label>
-								</div>
-							</div>
-						</div>
-						<div class="row cl">
-							<label class="form-label col-xs-3">数量：</label>
-							<div class="formControls skin-minimal col-xs-5">
-								<div id="spinner-demo"></div>
-							</div>
-						</div>
-						<div class="row cl">
-							<label class="form-label col-xs-3">附件：</label>
-							<div class="formControls col-xs-8">
-								<span class="btn-upload form-group">
-								<input class="input-text upload-url" type="text" name="uploadfile-2" id="uploadfile-2" readonly style="width:200px">
-								<a href="javascript:void();" class="btn btn-primary upload-btn"><i class="Hui-iconfont">&#xe642;</i> 浏览文件</a>
-								<input type="file" multiple name="file-2" class="input-file">
-								</span>
-							</div>
-						</div>
-						<div class="row clearfix">
-							<label class="form-label col-xs-3">所在城市：</label>
-							<div class="formControls col-xs-8">
-								<div class="row clearfix" style="margin-top:0">
-									<div class="col-xs-6">
-										<span class="select-box">
-											<select class="select" size="1" name="city">
-												<option value="" selected>选择省份</option>
-												<option value="1">北京</option>
-												<option value="2">上海</option>
-												<option value="3">广州</option>
-											</select>
-										</span>
-									</div>
-									<div class="col-xs-6">
-										<span class="select-box">
-											<select class="select" size="1" name="city">
-												<option value="" selected>选择城市</option>
-												<option value="1">北京</option>
-												<option value="2">上海</option>
-												<option value="3">广州</option>
-											</select>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row cl">
-							<label class="form-label col-xs-3">网址：</label>
-							<div class="formControls col-xs-8">
-								<input type="text" class="input-text" placeholder="http://" name="website" id="website">
-							</div>
-						</div>
-						<div class="row cl">
-							<label class="form-label col-xs-3">备注：</label>
-							<div class="formControls col-xs-8">
-								<textarea cols="" rows="" class="textarea" name="beizhu" id="beizhu"  placeholder="说点什么...最少输入10个字符"></textarea>
-							</div>
-						</div>
-						<div class="row cl">
-							<div class="col-xs-8 col-xs-offset-3">
-								<input class="btn btn-primary" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">按钮</div>
-				<div class="panel-body">
-					<table class="table table-border table-bordered table-striped table-responsive mt-20">
-						<thead>
-							<tr>
-								<th class="col1">button</th>
-								<th class="col2">input</th>
-								<th class="col3">a</th>
-								<th class="col4">disabled状态</th>
-								<th class="col5">空心</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><button class="btn btn-default radius" type="button">默认</button></td>
-								<td><input class="btn btn-default radius" type="button" value="默认"></td>
-								<td><a href="#" class="btn btn-default radius">默认</a></td>
-								<td><input class="btn btn-default radius disabled" type="button" value="不可点击"></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><button class="btn btn-primary radius" type="button">主要</button></td>
-								<td><input class="btn btn-primary radius" type="button" value="主要"></td>
-								<td><a href="#" class="btn btn-primary radius">主要</a></td>
-								<td><input class="btn btn-primary radius disabled" type="button" value="不可点击"></td>
-								<td><input class="btn btn-primary-outline radius" type="button" value="主要"></td>
-							</tr>
-							<tr>
-								<td><button class="btn btn-secondary radius" type="button">次要</button></td>
-								<td><input class="btn btn-secondary radius" type="button" value="次要"></td>
-								<td><a href="#" class="btn btn-secondary radius">次要</a></td>
-								<td><input class="btn btn-secondary radius disabled" type="button" value="不可点击"></td>
-								<td><input class="btn radius btn-secondary-outline radius" type="button" value="次要"></td>
-							</tr>
-							<tr>
-								<td><button class="btn btn-success radius" type="button">成功</button></td>
-								<td><input class="btn btn-success radius" type="button" value="成功"></td>
-								<td><a href="#" class="btn btn-success radius">成功</a></td>
-								<td><input class="btn btn-success radius disabled" type="button" value="不可点击"></td>
-								<td><input class="btn btn-success-outline radius" type="button" value="成功"></td>
-							</tr>
-							<tr>
-								<td><button class="btn btn-warning radius" type="button">警告</button></td>
-								<td><input class="btn btn-warning radius" type="button" value="警告"></td>
-								<td><a href="#" class="btn btn-warning radius">警告</a></td>
-								<td><input class="btn btn-warning radius disabled" type="button" value="不可点击"></td>
-								<td><input class="btn btn-warning-outline radius" type="button" value="警告"></td>
-							</tr>
-							<tr>
-								<td><button class="btn btn-danger radius" type="button">危险</button></td>
-								<td><input class="btn btn-danger radius" type="button" value="危险"></td>
-								<td><a href="#" class="btn btn-danger radius">危险</a></td>
-								<td><input class="btn btn-danger radius disabled" type="button" value="不可点击"></td>
-								<td><input class="btn btn-danger-outline radius" type="button" value="危险"></td>
-							</tr>
-							<tr>
-								<td><button class="btn btn-link radius" type="button">链接</button></td>
-								<td><input class="btn btn-link radius" type="button" value="链接"></td>
-								<td><a href="#" class="btn btn-link radius">链接</a></td>
-								<td><input class="btn btn-link radius disabled" type="button" value="不可点击"></td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-					<h3>按钮大小</h3>
-					<table class="table table-border table-bordered table-striped">
-						<thead>
-							<tr>
-								<th width="30%">按钮</th>
-								<th>class=""</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><input type="button" class="btn btn-primary size-XL radius" value="特大按钮"></td>
-								<td><code>size-XL</code></td>
-							</tr>
-							<tr>
-								<td><input type="button" class="btn btn-primary size-L radius" value="大按钮"></td>
-								<td><code>size-L</code></td>
-							</tr>
-							<tr>
-								<td><input type="button" class="btn btn-primary radius" value="默认尺寸"></td>
-								<td><code>size-M</code> 缺省值</td>
-							</tr>
-							<tr>
-								<td><input type="button" class="btn btn-primary size-S radius" value="小按钮"></td>
-								<td><code>size-S</code></td>
-							</tr>
-							<tr>
-								<td><input type="button" class="btn btn-primary size-MINI radius" value="迷你按钮"></td>
-								<td><code>size-MINI</code></td>
-							</tr>
-						</tbody>
-					</table>
-					<h3>按钮组</h3>
-					<div class="btn-group">
-						<span class="btn btn-primary radius">左边按钮</span>
-						<span class="btn btn-default radius">中间按钮</span>
-						<span class="btn btn-default radius">中间按钮</span>
-						<span class="btn btn-default radius">右边按钮</span>
-					</div>
-					<div class="cl mt-20">
-						<div class="btn-group l">
-							<span class="btn btn-primary" title="源代码"><i class="Hui-iconfont">&#xe6ee;</i></span>
-						</div>
-						<div class="btn-group l ml-5">
-							<span class="btn btn-primary" title="左对齐"><i class="Hui-iconfont">&#xe710;</i></span>
-							<span class="btn btn-primary" title="居中对齐"><i class="Hui-iconfont">&#xe70e;</i></span>
-							<span class="btn btn-primary" title="右对齐"><i class="Hui-iconfont">&#xe711;</i></span>
-							<span class="btn btn-primary" title="两头对齐"><i class="Hui-iconfont">&#xe70f;</i></span>
-						</div>
-						<div class="btn-group l ml-5">
-							<span class="btn btn-primary" title="字体"><i class="Hui-iconfont">&#xe6ec;</i></span>
-							<span class="btn btn-primary" title="加粗"><i class="Hui-iconfont">&#xe6e7;</i></span>
-							<span class="btn btn-primary" title="倾斜"><i class="Hui-iconfont">&#xe6e9;</i></span>
-							<span class="btn btn-primary" title="下划线"><i class="Hui-iconfont">&#xe6fe;</i></span>
-							<span class="btn btn-primary" title="行高"><i class="Hui-iconfont">&#xe6fc;</i></span>
-							<span class="btn btn-primary" title="行宽"><i class="Hui-iconfont">&#xe6fd;</i></span>
-						</div>
-						<div class="btn-group l ml-5">
-							<span class="btn btn-primary" title="链接"><i class="Hui-iconfont">&#xe6f1;</i></span>
-							<span class="btn btn-primary" title="有序列表"><i class="Hui-iconfont">&#xe6f3;</i></span>
-							<span class="btn btn-primary" title="无序列表"><i class="Hui-iconfont">&#xe6f5;</i></span>
-						</div>
-						<div class="btn-group l ml-5">
-							<span class="btn btn-primary" title="剪切"><i class="Hui-iconfont">&#xe6ef;</i></span>
-							<span class="btn btn-primary" title="复制"><i class="Hui-iconfont">&#xe6ea;</i></span>
-							<span class="btn btn-primary" title="粘贴"><i class="Hui-iconfont">&#xe6eb;</i></span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">图片</div>
-				<div class="panel-body">
-					<p><img width="140" height="140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTEwYmJhZjQzYSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MTBiYmFmNDNhIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" alt="..." class="radius">
-						<img width="140" height="140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTEwYmJhZjQzYSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MTBiYmFmNDNhIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" alt="..." class="round">
-						<img style="width:140px; height:140px" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTEwYmJhZjQzYSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MTBiYmFmNDNhIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" alt="..." class="thumbnail"></p>
-					<div class="album-item" style="width:200px">
-						<div class="album-img">
-							<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTEwYmJhZjQzYSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MTBiYmFmNDNhIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=">
-						</div>
-						<div class="album-title">《仙剑奇侠传》赵灵儿
-							<span class="c-999">(20张)</span>
-						</div>
-						<div class="album-bg">
-							<div class="album-bg-Fir"></div>
-							<div class="album-bg-Sec"></div>
-						</div>
-					</div>
-					<div>
-						<img src="static/h-ui/images/ucnter/avatar-default.jpg" class="avatar radius size-MINI">
-						<img src="static/h-ui/images/ucnter/avatar-default.jpg" class="avatar radius size-S">
-						<img src="static/h-ui/images/ucnter/avatar-default.jpg" class="avatar radius size-M">
-						<img src="static/h-ui/images/ucnter/avatar-default.jpg" class="avatar radius size-L">
-						<img src="static/h-ui/images/ucnter/avatar-default.jpg" class="avatar radius size-XL">
-					</div>
-					<div class="maskWraper" style="width:300px; height:250px; border:solid 1px #ddd;">
-						<img src="http://images.h-ui.net/www/AD-300x250.gif" width="300" height="250">
-						<div class="maskBar text-c">遮罩条</div>
-					</div>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">表格</div>
-				<div class="panel-body">
-					<table class="table table-border table-bordered table-striped mt-20">
-						<thead>
-							<tr>
-								<th class="col1">表头</th>
-								<th class="col2">表头</th>
-								<th class="col3">表头</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th class="col1">类别</th>
-								<td class="col2">表格内容</td>
-								<td class="col3">表格内容</td>
-							</tr>
-							<tr>
-								<th class="col1">类别</th>
-								<td class="col2">表格内容</td>
-								<td class="col3">表格内容</td>
-							</tr>
-							<tr>
-								<th class="col1">类别</th>
-								<td class="col2">表格内容</td>
-								<td class="col3">表格内容</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">选项卡</div>
-				<div class="panel-body">
-					<div id="HuiTab-demo1" class="HuiTab">
-						<div class="tabBar cl">
-							<span>选项卡一</span>
-							<span>选项卡二</span>
-							<span>自适应宽度</span>
-						</div>
-						<div class="tabCon">内容一</div>
-						<div class="tabCon">内容二</div>
-						<div class="tabCon">内容三</div>
-					</div>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">便签与标号</div>
-				<div class="panel-body">
-					<table class="table table-border table-bordered table-bg">
-						<thead>
-							<tr>
-								<th>class=""</th>
-								<th>标签</th>
-								<th>标号</th>
-								<th>描述</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>label label-default radius</code></td>
-								<td><span class="label label-default radius">默认</span></td>
-								<td><span class="badge badge-default radius">1</span></td>
-								<td>默认</td>
-							</tr>
-							<tr>
-								<td><code>label label-primary radius</code></td>
-								<td><span class="label label-primary radius">主要</span></td>
-								<td><span class="badge badge-primary radius">2</span></td>
-								<td>主要</td>
-							</tr>
-							<tr>
-								<td><code>label label-secondary radius</code></td>
-								<td><span class="label label-secondary radius">次要</span></td>
-								<td><span class="badge badge-secondary radius">3</span></td>
-								<td>次要</td>
-							</tr>
-							<tr>
-								<td><code>label label-success radius</code></td>
-								<td><span class="label label-success radius">成功</span></td>
-								<td><span class="badge badge-success radius">4</span></td>
-								<td>成功</td>
-							</tr>
-							<tr>
-								<td><code>label label-warning radius</code></td>
-								<td><span class="label label-warning radius">警告</span></td>
-								<td><span class="badge badge-warning radius">5</span></td>
-								<td>警告</td>
-							</tr>
-							<tr>
-								<td><code>label label-danger radius</code></td>
-								<td><span class="label label-danger radius">危险</span></td>
-								<td><span class="badge badge-danger radius">6</span></td>
-								<td>危险</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">警告</div>
-				<div class="panel-body">
-					<div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>成功状态提示</div>
-					<div class="Huialert Huialert-danger"><i class="Hui-iconfont">&#xe6a6;</i>危险状态提示</div>
-					<div class="Huialert Huialert-error"><i class="Hui-iconfont">&#xe6a6;</i>错误状态提示</div>
-					<div class="Huialert Huialert-info"><i class="Hui-iconfont">&#xe6a6;</i>信息状态提示</div>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">进度条</div>
-				<div class="panel-body">
-					<div class="progress radius">
-						<div class="progress-bar">
-							<span class="sr-only" style="width:25%"></span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">弹出窗口</div>
-				<div class="panel-body">
-					<p class="mt-20">
-						<button class="btn btn-primary" onClick="modaldemo()">弹出对话框</button>
-						<button class="btn btn-primary ml-20" onClick="modalalertdemo()">消息框，2秒钟自动消失</button>
-					</p>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">分享到</div>
-				<div class="panel-body">
-					<section class="share cl">
-						<div class="bdsharebuttonbox Hui-share">
-							<span class="share-text Hui-iconfont">&#xe715;</span>
-							<a href="#" class="bds_weixin Hui-iconfont" data-cmd="weixin" title="分享到微信">&#xe694;</a>
-							<a href="#" class="bds_qzone Hui-iconfont" data-cmd="qzone" title="分享到QQ空间">&#xe6c8;</a>
-							<a href="#" class="bds_sqq Hui-iconfont" data-cmd="sqq" title="分享到QQ好友">&#xe67b;</a>
-							<a href="#" class="bds_tsina Hui-iconfont" data-cmd="tsina" title="分享到新浪微博">&#xe6da;</a>
-							<a href="#" class="bds_tqq Hui-iconfont" data-cmd="tqq" title="分享到腾讯微博">&#xe6d9;</a>
-							<a href="#" class="bds_douban Hui-iconfont" data-cmd="douban" title="分享到豆瓣网">&#xe67c;</a>
-						</div>
-						<script type="text/javascript">
-							window._bd_share_config={
-								"common":{
-									"bdSnsKey":{},
-									"bdText":"H-ui前端框架，架起设计与后端的桥梁轻量级前端框架，简单免费，兼容性好，服务中国网站。",
-									'bdDes':'国内免费轻量级前端框架',
-									'bdPopTitle':'H-ui前端框架',
-									"bdMini":"2",
-									"bdMiniList":false,
-									"bdPic":"http://static.h-ui.net/h-ui/images/logo-big.jpeg",
-									"bdStyle":"0",
-									"bdSize":"24"
-								},
-								"selectShare":{
-									"bdContainerClass":null,
-									"bdSelectMiniList":["weixin","qzone","sqq","tsina","tqq","douban"]
-								}
-							};
-							with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-						</script>
-					</section>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">标签</div>
-				<div class="panel-body">
-					<div id="Huitags-demo1"></div>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">星星评价</div>
-				<div class="panel-body">
-					<div class="clearfix">
-						<span class="f-l f-15 va-m">描述相符：</span>
-						<div id="star-1" class="star-bar size-M f-l mr-10 va-m"></div>
-						<strong id="result-1" class="f-l va-m"></strong>
-					</div>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">tooltip效果</div>
-				<div class="panel-body">
-					<button class="btn btn-primary radius" data-toggle="tooltip" data-placement="right" title="右边显示">右边显示</button>
-					<button class="btn btn-primary radius" data-toggle="tooltip" data-placement="top" title="上边显示">上边显示</button>
-					<button class="btn btn-primary radius" data-toggle="tooltip" data-placement="bottom" title="下边显示">下边显示</button>
-					<button class="btn btn-primary radius" data-toggle="tooltip" data-placement="left" title="左边显示">左边显示</button>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header">popover效果</div>
-				<div class="panel-body">
-					<button type="button" class="btn btn-primary radius" title="标题" data-container="body" data-toggle="popover" data-placement="left" data-content="左侧的 Popover 中的一些内容">左侧的 Popover</button>
-					<button type="button" class="btn btn-primary radius" title="标题" data-container="body" data-toggle="popover" data-placement="top" data-content="顶部的 Popover 中的一些内容">顶部的 Popover</button>
-					<button type="button" class="btn btn-primary radius" title="标题" data-container="body" data-toggle="popover" data-placement="bottom" data-content="底部的 Popover 中的一些内容">底部的 Popover</button>
-					<button type="button" class="btn btn-primary radius" title="标题" data-container="body" data-toggle="popover" data-placement="right" data-content="右侧的 Popover 中的一些内容">右侧的 Popover</button>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header clearfix">
-					<span class="f-l">H-ui官方插件</span>
-					<span class="f-r">需要升级到 H-ui.js v3.1 版本</span>
-				</div>
-				<div class="panel-body">
-					<table class="table table-border table-bordered table-bg">
-						<thead>
-							<tr>
-								<th width="30%">名称</th>
-								<th width="20%">版本号</th>
-								<th>描述</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.Huihover.js.shtml" target="_blank">jQuery.Huihover.js</a></td>
-								<td>2.0</td>
-								<td>hover</td>
-							</tr>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.Huifocusblur.js.shtml" target="_blank">jQuery.Huifocusblur.js</a></td>
-								<td>2.0</td>
-								<td>得到失去焦点</td>
-							</tr>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.Huifold.js.shtml" target="_blank">jQuery.Huifold.js</a></td>
-								<td>2.0</td>
-								<td>折叠</td>
-							</tr>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.Huipreview.js.shtml" target="_blank">jQuery.Huipreview.js</a></td>
-								<td>2.0</td>
-								<td>图片预览</td>
-							</tr>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.Huispinner.js.shtml" target="_blank">jQuery.Huispinner.js</a></td>
-								<td>2.0</td>
-								<td>微调器</td>
-							</tr>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.Huitab.js.shtml" target="_blank">jQuery.Huitab.js</a></td>
-								<td>2.0</td>
-								<td>选项卡</td>
-							</tr>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.Huitags.js.shtml" target="_blank">jQuery.Huitags.js</a></td>
-								<td>2.0</td>
-								<td>标签</td>
-							</tr>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.Huitextarealength.js.shtml" target="_blank">jQuery.Huitextarealength.js</a></td>
-								<td>2.0</td>
-								<td>字数限制</td>
-							</tr>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.HuitogglePassword.js.shtml" target="_blank">jQuery.HuitogglePassword.js</a></td>
-								<td>2.0</td>
-								<td>隐藏显示密码</td>
-							</tr>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.Huitotop.js.shtml" target="_blank">jQuery.Huitotop.js</a></td>
-								<td>2.0</td>
-								<td>返回顶部</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class="panel panel-default mt-20">
-				<div class="panel-header clearfix">
-					<span class="f-l">H-ui.js v3.0 整合的第三方插件<small>(引入了H-ui.js v3.0版本，无需再单独重复引用以下插件)</small></span>
-					<span class="f-r">感谢以下插件！优秀的插件就像金子一样，处处发光</span>
-				</div>
-				<div class="panel-body">
-					<table class="table table-border table-bordered table-bg">
-						<thead>
-							<tr>
-								<th width="30%">名称</th>
-								<th width="20%">版本号</th>
-								<th>描述</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.cookie.js.shtml" target="_blank">jQuery.cookie.js</a></td>
-								<td>1.4.1</td>
-								<td>jQuery cookie插件。</td>
-							</tr>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.form.js.shtml" target="_blank">jQuery.form.js</a></td>
-								<td>3.51.0</td>
-								<td>jquey表单插件。</td>
-							</tr>
-							<tr>
-								<td><a href="http://www.h-ui.net/lib/jQuery.lazyload.js.shtml" target="_blank">jQuery.lazyload.js</a></td>
-								<td>1.9.3</td>
-								<td>图片的延迟加载插件。</td>
-							</tr>
-							<tr>
-								<td>jQuery.responsive-nav.js</td>
-								<td>1.0.39</td>
-								<td>响应式导航插件。</td>
-							</tr>
-							<tr>
-								<td>jQuery.placeholder.js</td>
-								<td>1.0</td>
-								<td>IE浏览器支持placeholder。</td>
-							</tr>
+<!-- 共用结构 -->
+<!-- 右侧悬浮 -->
+<div id="J_BonusPack"></div>
+<div id="J_rightsidebar"></div>
+<div class="m-mask" style="z-index: 8000"></div>
+<div class="m-bonus-success"></div>
+<!-- 为了适配urs web组件 登陆框提前渲染-->
+<div id="login-layer" class="m-login-layer m-login-layer-wy" style="display: none;">
+    <!--<div class="lytt yy"><a class="lyclose j-close" style="display:block;">关闭</a>-->
+        <!--<h4>网易邮箱登录</h4></div>-->
+    <div class="content">
+        <div class="m-loginwrap">
+            <div class="m-login" id="login-container">
 
-							<tr>
-								<td>jQuery.emailsuggest.js</td>
-								<td>1.0</td>
-								<td>邮箱域名自动提示填充插件。</td>
-							</tr>
-							<tr>
-								<td>jQuery.format.js</td>
-								<td>1.0</td>
-								<td>格式化字符串。</td>
-							</tr>
-			
-							<tr>
-								<td>jQuery.iCheck.js</td>
-								<td>1.0</td>
-								<td>单选框，复选框美化插件。</td>
-							</tr>
-							<tr>
-								<td>jQuery.onePageNav.js</td>
-								<td>1.0</td>
-								<td>单页面滚动导航。</td>
-							</tr>
-							<tr>
-								<td>jQuery.stickUp.js</td>
-								<td>1.0</td>
-								<td>网页滚动，元素固定置顶插件。</td>
-							</tr>
-							<tr>
-								<td>jQuery.ColorPicker.js</td>
-								<td>1.0</td>
-								<td>颜色控件。</td>
-							</tr>
-							<tr>
-								<td>Bootstrap.modal.js</td>
-								<td>3.3.0</td>
-								<td>Bootstrap模态窗口，弹窗插件。</td>
-							</tr>
-							<tr>
-								<td>Bootstrap.dropdown.js</td>
-								<td>3.3.0</td>
-								<td>Bootstrap下拉框插件。</td>
-							</tr>
-							<tr>
-								<td>Bootstrap.transition.js</td>
-								<td>3.3.0</td>
-								<td>Bootstrap过渡效果(Transition)插件。</td>
-							</tr>
-							<tr>
-								<td>Bootstrap.tooltip.js</td>
-								<td>3.3.0</td>
-								<td>Bootstrap工具提示插件。</td>
-							</tr>
-							<tr>
-								<td>Bootstrap.popover.js</td>
-								<td>3.3.0</td>
-								<td>Bootstrap弹出框插件。</td>
-							</tr>
-							<tr>
-								<td>Bootstrap.alert.js</td>
-								<td>3.3.0</td>
-								<td>Bootstrap警告框插件。</td>
-							</tr>
-							<tr>
-								<td>Bootstrap.slider.js</td>
-								<td>1.0.1</td>
-								<td>Bootstrap滑动条插件。</td>
-							</tr>
-							<tr>
-								<td>Bootstrap.datetimepicker.js</td>
-								<td>1.0</td>
-								<td>Bootstrap日期插件。</td>
-							</tr>
-							<tr>
-								<td>Bootstrap.Switch.js</td>
-								<td>1.3</td>
-								<td>Bootstrap 开关控件。</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			
-			<div class="panel panel-default mt-20">
-				<div class="panel-header clearfix">
-					<span class="f-l">lib中的第三方插件</span>
-					<span class="f-r">非必选插件，请有选择性的使用，用不上的可自行删除，减少框架体积</span>
-				</div>
-				<div class="panel-body">
-					<table class="table table-border table-bordered table-bg">
-						<thead>
-							<tr>
-								<th width="30%">名称</th>
-								<th width="20%">版本号</th>
-								<th>描述</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>jQuery.js</td>
-								<td>1.9.1</td>
-								<td>jQuery库，可自行下载新版本，替换现有版本。</td>
-							</tr>
-							<tr>
-								<td>Hui-iconfont</td>
-								<td>1.0.8</td>
-								<td>阿里图标字体库（H-ui定制）</td>
-							</tr>
-							<tr>
-								<td>jquery.SuperSlide</td>
-								<td>2.1.1</td>
-								<td>幻灯片组件</td>
-							</tr>
-							<tr>
-								<td>Validform</td>
-								<td>5.3.2</td>
-								<td>表单验证插件</td>
-							</tr>
-							<tr>
-								<td>jquery.validation</td>
-								<td>1.14.0</td>
-								<td>表单验证插件</td>
-							</tr>
-							<tr>
-								<td>My97DatePicker</td>
-								<td>4.8</td>
-								<td>日期插件</td>
-							</tr>
-							<tr>
-								<td>datatables</td>
-								<td>1.10.0</td>
-								<td>表格插件</td>
-							</tr>
-							<tr>
-								<td>nprogress</td>
-								<td>0.2.0</td>
-								<td>进度条插件</td>
-							</tr>
-							<tr>
-								<td>layer</td>
-								<td>2.4</td>
-								<td>layer弹出层插件</td>
-							</tr>
-							<tr>
-								<td>laypage</td>
-								<td>1.2</td>
-								<td>laypage 翻页插件</td>
-							</tr>
-							<tr>
-								<td>html5shiv.js</td>
-								<td><3.7.0/td> 
-								<td>html5插件，让低版本IE支持html5元素</td>
-							</tr>
-							<tr>
-								<td>DD_belatedPNG_0.0.8a-min.js</td>
-								<td>0.0.8a</td>
-								<td>解决IE6png透明</td>
-							</tr>
-							<tr>
-								<td>swfobject.js</td>
-								<td>2.2</td>
-								<td>Flash插件</td>
-							</tr>
-							<tr>
-								<td>waterfall.min</td>
-								<td>0.1.6</td>
-								<td>瀑布流插件</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-		<footer class="footer mt-20">
-			<div class="container">
-				<nav class="footer-nav">
-					<a target="_blank" href="http://www.h-ui.net/aboutHui.shtml">关于H-ui</a>
-					<span class="pipe">|</span>
-					<a target="_blank" href="http://www.h-ui.net/copyright.shtml">软件著作权</a>
-					<span class="pipe">|</span>
-					<a target="_blank" href="http://www.h-ui.net/juanzeng.shtml">感谢捐赠</a>
-				</nav>
-				<p>Copyright &copy;2013-2017 H-ui.net All Rights Reserved. <br>
-					<a rel="nofollow" target="_blank" href="http://www.miitbeian.gov.cn/">京ICP备15015336号-1</a>
-					<br>
-					未经允许，禁止转载、抄袭、镜像<br>
-					用心做站，做不一样的站</p>
-			</div>
-		</footer>
-	</div>
+            </div>
+            <div class="m-loginswitch">
+                <h6>其他帐号登录：</h6>
+                <ul>
+                    <li class="sj"><a><span class="login-icon"></span><div>手机号</div></a></li>
+                    <li class="xl xllogin"><a><span class="login-icon"></span><div>新浪微博</div></a></li>
+                    <li class="tx txlogin"><a><span class="login-icon"></span><div>腾讯微博</div></a></li>
+                    <li class="wx wxlogin"><a><span class="login-icon"></span><div>微信</div></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
-<!--普通弹出层-->
-<div id="modal-demo" class="modal fade middle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content radius">
-			<div class="modal-header">
-				<h3 class="modal-title">对话框标题</h3>
-				<a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:void();">×</a>
-			</div>
-			<div class="modal-body">
-				<p>对话框内容…</p>
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-primary">确定</button>
-				<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-			</div>
-		</div>
-	</div>
-</div>
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="lib/jquery-ui/1.9.1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script>
-<script type="text/javascript" src="lib/jquery.SuperSlide/2.1.1/jquery.SuperSlide.min.js"></script>
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.min.js"></script>
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script>
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.min.js"></script>
-<script>
-//弹窗
-function modaldemo(){
-	$("#modal-demo").modal("show");
-}
-//消息框
-function modalalertdemo(){
-	$.Huimodalalert('我是消息框，2秒后我自动滚蛋！',2000);
-}
-$(function(){
-	$(".input-text,.textarea").Huifocusblur();
-	
-	//幻灯片
-	jQuery("#slider-3 .slider").slide({mainCell:".bd ul",titCell:".hd li",trigger:"click",effect:"leftLoop",autoPlay:true,delayTime:700,interTime:3000,pnLoop:false,titOnClassName:"active"});
-	
-	$(".panel").Huifold({
-		titCell:'.panel-header',
-		mainCell:'.panel-body',
-		type:1,
-		trigger:'click',
-		className:"selected",
-		speed:"first",
-	});
-	
-	//邮箱提示	
-	$("#email").emailsuggest();
-	
-	//checkbox 美化
-	$('.skin-minimal input').iCheck({
-		checkboxClass: 'icheckbox-blue',
-		radioClass: 'iradio-blue',
-		increaseArea: '20%'
-	});
-	
-	//日期插件
-	$("#datetimepicker").datetimepicker({
-    	format: 'yyyy-mm-dd',
-		minView: "month",
-		todayBtn:  1,
-		autoclose: 1,
-		endDate : new Date()
-	}).on('hide',function(e) {
-		//此处可以触发日期校验。
-	});
-	
-	/*+1 -1效果*/
-	$("#spinner-demo").Huispinner({
-		value:1,
-		minValue:1,
-		maxValue:99,
-		dis:1
-	});
-	
-	$(".textarea").Huitextarealength({
-		minlength:10,
-		maxlength:200.
-	});
-	
-	$("#demoform").validate({
-		rules:{
-			email:{
-				required:true,
-				email:true,
-			},
-			username:{
-				required:true,
-				minlength:4,
-				maxlength:16
-			},
-			telephone:{
-				required:true,
-				isMobile:true,
-			},
-			password:{
-				required:true,
-				isPwd:true,
-			},
-			password2:{
-				required:true,
-				equalTo: "#password"
-			},
-			sex:{
-				required:true,
-			},
-			datetimepicker:{
-				required:true,	
-			},
-			checkbox2:{
-				required:true,
-			},
-			city:{
-				required:true,
-			},
-			website:{
-				required:true,
-				url:true,
-			},
-			beizhu:{
-				maxlength:500,
-			}
-		},
-		onkeyup:false,
-		focusCleanup:true,
-		success:"valid",
-		submitHandler:function(form){
-			$("#modal-shenqing-success").modal("show");
-			$(form).ajaxSubmit();
-		}
-	});
-
-	//选项卡
-	$("#HuiTab-demo1").Huitab({
-		index:0
-	});
-	
-	$("#Huitags-demo1").Huitags();
-	
-	//返回顶部
-	$.Huitotop();
-	
-	//hover效果
-	$('.maskWraper').Huihover();
-	
-	//星级评价
-	$("#star-1").raty({
-		hints: ['1','2', '3', '4', '5'],//自定义分数
-		starOff: 'iconpic-star-S-default.png',//默认灰色星星
-		starOn: 'iconpic-star-S.png',//黄色星星
-		path: 'static/h-ui/images/star',//可以是相对路径
-		number: 5,//星星数量，要和hints数组对应
-		showHalf: true,
-		targetKeep : true,
-		click: function (score, evt) {//点击事件
-			//第一种方式：直接取值
-			$("#result-1").html('你的评分是'+score+'分');
-		}
-	});
-
-	$( ".ui-sortable" ).sortable({
-		//connectWith: ".panel",
-		items:".panel",
-		handle: ".panel-header",
-		//delay: 300, //时间延迟
-		//distance: 15, //距离延迟
-		placeholder: "ui-state-highlight", //占位符样式
-		update: function(event, ui){
-			
-		}
-	}).disableSelection();
-
- 	var _bodyHeight = $(window).height();
-	var _doch = $(document).height();
-	$(".containBox").height(_bodyHeight);
-
-	/*左右滑动菜单*/
-    $(".JS-nav-toggle").click(function() {
-		$("body").addClass('sideBox-open');
-        $(".containBox-bg").height(_bodyHeight).show();
-    });
-    $(".containBox-bg").click(function() {
-		$(this).hide();
-		$("body").removeClass('sideBox-open');
-    });
-});
+<script src="//yuedust.yuedu.126.net/assets/js/ursLogin.js?20180325153144"></script>
+<script src="//yuedust.yuedu.126.net/assets/bundle/js/components.js?20180325153144"></script>
+<script src="//yuedust.yuedu.126.net/assets/bundle/js/index.bundle.js?20180325153144"></script>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25074971-1'],['_setLocalGifPath', '/UA-25074971-1/__utm.gif'],['_setLocalRemoteServerMode']);
+    _gaq.push(['_addOrganic','baidu','word']);
+    _gaq.push(['_addOrganic','soso','w']);
+    _gaq.push(['_addOrganic','youdao','q']);
+    _gaq.push(['_addOrganic','sogou','query']);
+    _gaq.push(['_addOrganic','so.360.cn','q']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = 'https://wr.da.netease.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();
 </script>
 </body>
 </html>
-<!--H-ui前端框架提供前端技术支持 h-ui.net @2017-01-01 -->

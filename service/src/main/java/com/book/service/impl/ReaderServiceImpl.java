@@ -5,6 +5,7 @@ import com.mysql.dao.ReaderDAO;
 import com.mysql.model.ReaderDO;
 import com.mysql.query.QueryReader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 /**
  * Created by dingshuangkun on 2018/3/4.
  */
+@Service
 public class ReaderServiceImpl implements ReaderService {
 
     @Autowired

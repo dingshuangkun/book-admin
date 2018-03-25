@@ -32,7 +32,7 @@ public class BookServiceTest {
         List<BookDO> list = new ArrayList<>();
         BookDO bookDO = new BookDO();
         bookDO.setBookCoding("7568926");
-        bookDO.setName("明朝那些事一");
+        bookDO.setName("明朝那些事四");
         bookDO.setBookIndex("朱元璋");
         bookDO.setAuthorName("当年明月");
         bookDO.setAuthorId(0L);

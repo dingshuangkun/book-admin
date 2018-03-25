@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mysql.dao.BookContentDAO">
+    <resultMap type="com.mysql.model.BookContentDO" id="bookContentDO">
+        <id property="bookCoding" javaType="java.lang.String" column="book_coding"/>
+        <id property="gmtCreate" javaType="java.util.Date" column="gmt_create"/>
+        <id property="gmtUpdate" javaType="java.util.Date" column="gmt_update"/>
+    </resultMap>
+
+        <select id="findBookContent"  resultType="com.mysql.model.BookContentDO">
+                SELECT id,book_coding,content,SIZE ,tag,gmt_create,gmt_update
+                FROM book_content where TRUE
+                <if test=" id!=null ">
+                   AND  id = # {id}
+                </if>
+                <if test="bookCoding!=null">
+                    AND book_coding = #{bookCoding}
+                </if>
+        </select>
+
+        <insert id="insertBookContent" parameterType="com.mysql.model.BookContentDO">
+            INSERT INTO book_content(book_coding, content, size, gmt_create, gmt_update)
+            VALUE
+            (#{bookCoding},#{content},#{size},now(),now());
+        </insert>
+
+        <delete id="deleteBookContent">
+            DELETE FROM book_content WHERE id #{id}
+        </delete>
+
+        <update id="updateBookContent" >
+            UPDATE  book_content SET content = #{content} ,gmt_update=now()
+            WHERE id = #{id}
+        </update>
+</mapper>
