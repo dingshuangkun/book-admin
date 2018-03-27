@@ -6,9 +6,12 @@ import java.util.List;
 
 public interface IChapterSpider {
 	/**
+	 * 根据URL返回小说章节
 	 *
 	 * @param url
 	 * @return
 	 */
-	public List<Chapter> getsChapter(String url);
+	List<Chapter> getsChapter(String url);
 }
+
+
