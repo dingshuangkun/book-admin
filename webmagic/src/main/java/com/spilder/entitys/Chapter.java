@@ -2,14 +2,17 @@ package com.spilder.entitys;
 
 import lombok.Data;
 
-import java.io.Serializable;
-
 /**
  *小说章节定义
  */
 @Data
-public class Chapter implements Serializable {
-
+public class Chapter {
+	/**
+	 * 小说标题
+	 */
 	private String title;
+	/**
+	 * 对应的url
+	 */
 	private String url;
 }

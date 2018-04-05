@@ -1,4 +1,4 @@
-package com.spilder.impl;
+package com.spilder.impl.chapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,17 +7,16 @@ import com.spilder.entitys.Chapter;
 import com.spilder.enums.NovelSiteEnum;
 import com.spilder.interfaces.IChapterSpider;
 import com.spilder.util.NovelSpiderUtil;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-
+/**
+ * @author dingshuangkun
+ * on 2018/04/05
+ * 抓取章节对应的标题和url
+ */
 public abstract class AbstractChapterSpider extends AbstractSpider implements IChapterSpider {
 	@Override
 	public List<Chapter> getsChapter(String url) {
@@ -38,6 +37,5 @@ public abstract class AbstractChapterSpider extends AbstractSpider implements IC
 			throw new RuntimeException(e);
 		}
 	}
-
 
 }

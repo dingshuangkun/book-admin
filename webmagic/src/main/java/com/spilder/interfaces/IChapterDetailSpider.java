@@ -7,7 +7,7 @@ import com.spilder.entitys.ChapterDetail;
  */
 public interface IChapterDetailSpider {
     /**
-     * 给我一个url，我就给你一个对应网站的章节内容实体
+     *根据url,拿到对应网站的章节内容实体
      * @param url
      * @return
      */

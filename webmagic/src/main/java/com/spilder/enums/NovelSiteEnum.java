@@ -1,11 +1,14 @@
 package com.spilder.enums;
 
 /**
- *
+ *@Author dingshuangkun
+ * on 2018/04/15
  */
 public enum NovelSiteEnum {
 	DingDianXiaoShuo(1, "23wx.com"),
-	BiQuGe(2, "biquge.tw");
+	BiQuGe(2, "biquge.tw"),
+	KanShuZhong(3, "kanshuzhong.com"),
+	Bxwx(4, "bxwx8.org");
 	private int id;
 	private String url;
 	private NovelSiteEnum(int id, String url) {
@@ -28,7 +31,9 @@ public enum NovelSiteEnum {
 		switch (id) {
 		case 1 : return DingDianXiaoShuo;
 		case 2 : return BiQuGe;
-		default : throw new RuntimeException("id=" + id + "�ǲ���֧�ֵ�С˵��վ");
+		case 3 :return KanShuZhong;
+		case 4:return Bxwx;
+		default : throw new RuntimeException("id=" + id + "该小说网站不支持");
 		}
 	}
 	public static NovelSiteEnum getEnumByUrl(String url) {
@@ -37,6 +42,6 @@ public enum NovelSiteEnum {
 				return novelSiteEnum;
 			}
 		}
-		throw new RuntimeException("url=" + url + "�ǲ���֧�ֵ�С˵��վ");
+		throw new RuntimeException("url=" + url + "该小说网站不被支持");
 	}
 }

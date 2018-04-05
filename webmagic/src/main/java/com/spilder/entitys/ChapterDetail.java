@@ -7,8 +7,20 @@ import lombok.Data;
  */
 @Data
 public class ChapterDetail {
+    /**
+     * 标题
+     */
     private String title;
+    /**
+     * 内容
+     */
     private String content;
+    /**
+     * 前一章
+     */
     private String prev;
+    /**
+     * 下一章
+     */
     private String next;
 }
