@@ -1,22 +1,17 @@
-package com.spilder.impl;
+package com.spilder.impl.download;
 
 import com.mysql.model.BookChapterDO;
 import com.spilder.configuration.Configuration;
 import com.spilder.entitys.Chapter;
 import com.spilder.entitys.ChapterDetail;
+import com.spilder.enums.NovelSiteEnum;
 import com.spilder.interfaces.IChapterDetailSpider;
 import com.spilder.interfaces.IChapterSpider;
 import com.spilder.interfaces.INovelDownlowd;
 import com.spilder.util.ChapterDetailSpiderFactory;
 import com.spilder.util.ChapterSpiderFactory;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.*;
+import java.util.concurrent.*;
 
 /**
  * @author dingshuangkun
