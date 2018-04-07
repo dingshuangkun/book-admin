@@ -16,13 +16,12 @@ import org.jsoup.select.Elements;
 public class KanShuZhongNovelSpider extends AbstractNovelSpider {
 
 	@Override
-	public List<Novel> getsNovel(String url) {
+	public List<Novel> getsNovel(String url, Integer maxTryTimes) {
 		List<Novel> novels = new ArrayList<>();
 		try {
-			Elements trs = super.getsTr(url);
+			Elements trs = super.getsTr(url, maxTryTimes);
 			for (int index = 1, size = trs.size() - 1; index < size; index++) {
 				Elements tds = trs.get(index).getElementsByTag("td");
-
 				Novel novel = new Novel();
 				novel.setType(tds.first().text());
 				novel.setName(tds.get(1).text());
@@ -35,6 +34,7 @@ public class KanShuZhongNovelSpider extends AbstractNovelSpider {
 				novel.setPlatformId(NovelSiteEnum.getEnumByUrl(url).getId());
 				novels.add(novel);
 			}
+
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

@@ -20,6 +20,7 @@ public class ChapterSpiderFactory {
     public static IChapterSpider getChapterSpider(String url) {
         NovelSiteEnum novelSiteEnum = NovelSiteEnum.getEnumByUrl(url);
         IChapterSpider chapterSpider = null;
+
         switch (novelSiteEnum) {
             case Bxwx :
                 chapterSpider = new BxwxChapterSpider(); break;
@@ -27,7 +28,9 @@ public class ChapterSpiderFactory {
             case BiQuGe:
             case KanShuZhong :
                 chapterSpider = new DefaultChapterSpider(); break;
+            default:
         }
+
         return chapterSpider;
     }
 }

@@ -15,6 +15,7 @@ import com.spilder.util.NovelSpiderUtil;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -36,7 +37,7 @@ public class TestCase {
     @Test
     public void testGetsChapter2() throws Exception {
         IChapterSpider spider = new DefaultChapterSpider();
-        List<Chapter>  chapters  = spider.getsChapter("http://www.kanshuzhong.com/book/1236/");
+        List<Chapter>  chapters  = spider.getsChapter("http://www.kanshuzhong.com/book/116469/");
         for (Chapter chapter : chapters) {
             System.out.println(chapter);
         }
@@ -70,7 +71,7 @@ public class TestCase {
     @Test
     public void testGetChapterDetail2() {
         IChapterDetailSpider spider = new DefaultChapterDetailSpider();
-        System.out.println(spider.getChapterDetail("http://www.kanshuzhong.com/book/1236/12899575.html"));
+        System.out.println(spider.getChapterDetail("http://www.kanshuzhong.com/book/116469/27441967.html"));
     }
     /**
      * 该测试方法用于测试手否能正确拿到笔下文学的章节消息内容
@@ -110,7 +111,7 @@ public class TestCase {
     @Test
     public void testKanShuZhongGetsNovel() {
         INovelSpider spider = NovelSpiderFactory.getNovelSpider("http://www.kanshuzhong.com/map/A/1/");
-        List<Novel> novels = spider.getsNovel("http://www.kanshuzhong.com/map/A/1/");
+        List<Novel> novels = spider.getsNovel("http://www.kanshuzhong.com/map/A/1/", 10);
         for (Novel novel : novels) {
             System.out.println(novel);
         }
@@ -118,9 +119,34 @@ public class TestCase {
     @Test
     public void testBxwxGetsNovel() {
         INovelSpider spider = NovelSpiderFactory.getNovelSpider("http://www.bxwx8.org/binitialE/0/1.htm");
-        List<Novel> novels = spider.getsNovel("http://www.bxwx8.org/binitialE/0/1.htm");
+        List<Novel> novels = spider.getsNovel("http://www.bxwx8.org/binitialE/0/1.htm", 10);
         for (Novel novel : novels) {
             System.out.println(novel);
+        }
+    }
+
+    @Test
+    public void testKanShuZhongIterator() {
+        INovelSpider spider = NovelSpiderFactory.getNovelSpider("http://www.kanshuzhong.com/map/A/1/");
+        Iterator<List<Novel>> iterator = spider.iterator("http://www.kanshuzhong.com/map/A/1/", 10);
+        while (iterator.hasNext()) {
+            List<Novel> novels = iterator.next();
+           // System.err.println("URL：" + spider.next());
+			for (Novel novel : novels) {
+				System.out.println(novel);
+			}
+        }
+    }
+    @Test
+    public void testBxwxIterator() {
+        INovelSpider spider = NovelSpiderFactory.getNovelSpider("http://www.bxwx8.org/binitialE/0/1.htm");
+        Iterator<List<Novel>> iterator = spider.iterator("http://www.bxwx8.org/binitialE/0/1.htm", 10);
+        while (iterator.hasNext()) {
+            List<Novel> novels = iterator.next();
+
+			for (Novel novel : novels) {
+			System.out.println(novel);
+			}
         }
     }
 }

@@ -15,14 +15,13 @@ import org.jsoup.select.Elements;
  */
 public class BxwxNovelSpider extends AbstractNovelSpider {
 
-	public BxwxNovelSpider() {
-	}
+	public BxwxNovelSpider() {}
 
 	@Override
-	public List<Novel> getsNovel(String url) {
+	public List<Novel> getsNovel(String url, Integer maxTryTimes) {
 		List<Novel> novels = new ArrayList<>();
 		try {
-			Elements trs = super.getsTr(url, 2);
+			Elements trs = super.getsTr(url, maxTryTimes);
 			for (int index = 1, size = trs.size(); index < size; index++) {
 				Element tr = trs.get(index);
 				Elements tds = tr.getElementsByTag("td");
@@ -38,10 +37,10 @@ public class BxwxNovelSpider extends AbstractNovelSpider {
 				novel.setPlatformId(NovelSiteEnum.getEnumByUrl(url).getId());
 				novels.add(novel);
 			}
+
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 		return novels;
 	}
-
 }

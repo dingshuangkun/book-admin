@@ -5,12 +5,16 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * Created by dingshuangkun on 2018/4/5.
+ * @author dingshuangkun on 2018/4/5.
  */
 @Data
 public class Novel {
-    /** 书名 */
+
+    /**
+     *  书名
+     */
     private String name;
+
     /** 作者名 */
     private String author;
     /** 小说的链接 */

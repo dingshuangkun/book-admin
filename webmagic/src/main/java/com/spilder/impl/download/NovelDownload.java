@@ -1,6 +1,4 @@
 package com.spilder.impl.download;
-
-import com.mysql.model.BookChapterDO;
 import com.spilder.configuration.Configuration;
 import com.spilder.entitys.Chapter;
 import com.spilder.entitys.ChapterDetail;
@@ -10,6 +8,11 @@ import com.spilder.interfaces.IChapterSpider;
 import com.spilder.interfaces.INovelDownlowd;
 import com.spilder.util.ChapterDetailSpiderFactory;
 import com.spilder.util.ChapterSpiderFactory;
+import com.spilder.util.NovelSpiderUtil;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -23,60 +26,91 @@ import java.util.concurrent.*;
  */
 public class NovelDownload implements INovelDownlowd {
 
-    private CountDownLatch countDownLatch;
-
     @Override
-    public String download(String url, Configuration configuration) {
-        IChapterSpider chapterSpider = ChapterSpiderFactory.getChapterSpider(url);
-        List<Chapter> chapters = chapterSpider.getsChapter(url);
-        BookChapterDO bookChapterDO = new BookChapterDO();
-        int size = configuration.getSize();
+    public String download(String url, Configuration config) {
+        IChapterSpider spider = ChapterSpiderFactory.getChapterSpider(url);
+        List<Chapter> chapters = spider.getsChapter(url);
         //某个线程下载完毕之后，你得告诉主线程：我下载好了
-        int maxThreadSize = (int) Math.ceil(chapters.size() * 1.0 / size);
+        //所有的线程都下载好了，合并！！！
+        int size = config.getSize();
+        // 2010章 100章
+        // 需要21个线程
+        // 一个int / int 结果只能是int
+        // 一个double / double 结果依然是double
+        //一个double / int 结果是double
+        //Math.ceil(double) 10 -> 10 10.5->11 10.1 ->11 -10 -> -10 -10.1 -> 10 -10.5 -> -10
+        int maxThreadSize = (int)Math.ceil(chapters.size() * 1.0 / size);
         Map<String, List<Chapter>> downloadTaskAlloc = new HashMap<>();
         for (int i = 0; i < maxThreadSize; i++) {
-            int fromIndex = i * (configuration.getSize());
-            if (i == maxThreadSize - 1) {
-                int toIndex = chapters.size() - 1;
-            }
-            int toIndex = i == maxThreadSize - 1 ? chapters.size() - 1 : i * (configuration.getSize()) + configuration.getSize() - 1;
+            // i = 0 0-99	-- > 100  0 100
+            // i = 1 100-199
+            // i = 2 200-299
+            // i = 3 300-399
+            // ...
+            // i = 19 1900-1999
+            // i = 20 2000-2052
+            // 总共才2053章
+            int fromIndex = i * config.getSize();
+            int toIndex = i == maxThreadSize - 1 ? chapters.size() : i * config.getSize() + config.getSize();
             downloadTaskAlloc.put(fromIndex + "-" + toIndex, chapters.subList(fromIndex, toIndex));
         }
         ExecutorService service = Executors.newFixedThreadPool(maxThreadSize);
         Set<String> keySet = downloadTaskAlloc.keySet();
-        countDownLatch = new CountDownLatch(keySet.size());
+        List<Future<String>> tasks = new ArrayList<>();
+
+        //通过这两段代码就可以创建缺失的路径
+        String savePath = config.getPath() + "/" + NovelSiteEnum.getEnumByUrl(url).getUrl();
+        new File(savePath).mkdirs();
+
         for (String key : keySet) {
-            service.submit(new DownloadCallable(downloadTaskAlloc.get(key)));
+
+            tasks.add(service.submit(new DownloadCallable(savePath + "/" + key + ".txt", downloadTaskAlloc.get(key), config.getTryTimes())));
         }
         service.shutdown();
-        try {
-            countDownLatch.await();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    class DownloadCallable implements Runnable {
-        private List<Chapter> chapters;
-
-        public DownloadCallable(List<Chapter> chapters) {
-            this.chapters = chapters;
-        }
-
-        @Override
-        public void run() {
-            for (Chapter chapter : chapters) {
-                IChapterDetailSpider spider = ChapterDetailSpiderFactory.getChapterDetailSpider(chapter.getUrl());
-                ChapterDetail detail = spider.getChapterDetail(chapter.getUrl());
-                System.out.println(detail.getTitle());
-                System.out.println(detail.getContent());
-                countDownLatch.countDown();
-                // detail.getContent();
-                // 写入数据库
+        for (Future<String> future : tasks) {
+            try {
+                System.out.println(future.get() + ",下载完成！");
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
             }
         }
+        NovelSpiderUtil.multiFileMerge(savePath, null, true);
+        return savePath + "/merge.txt";
+    }
+}
 
+class DownloadCallable implements Callable<String> {
+    private List<Chapter> chapters;
+    private String path;
+    private int tryTimes;
+    public DownloadCallable(String path, List<Chapter> chapters, int tryTimes) {
+        this.path = path;
+        this.chapters = chapters;
+        this.tryTimes = tryTimes;
+    }
+    @Override
+    public String call() throws Exception {
+        try (
+                PrintWriter out = new PrintWriter(new File(path), "UTF-8");
+        ) {
+            for (Chapter chapter : chapters) {
+                IChapterDetailSpider spider = ChapterDetailSpiderFactory.getChapterDetailSpider(chapter.getUrl());
+                ChapterDetail detail = null;
+
+                for (int i = 0; i < tryTimes; i++) {
+                    try {
+                        detail = spider.getChapterDetail(chapter.getUrl());
+                        out.println(detail.getTitle());
+                        out.println(detail.getContent());
+                        break;
+                    } catch (RuntimeException e) {
+                        System.err.println("尝试第[" + (i + 1) + "/" + tryTimes + "]次下载失败了！");
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return path;
     }
 }
