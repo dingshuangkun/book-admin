@@ -1,112 +1,139 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mysql.dao.NovelDAO" >
-    <resultMap id="BaseResultMap" type="com.mysql.model.NovelDO" >
-        <id column="id" property="id" jdbcType="BIGINT" />
-        <result column="bookname" property="bookname" jdbcType="VARCHAR" />
-        <result column="url" property="url" jdbcType="VARCHAR" />
-        <result column="author" property="author" jdbcType="VARCHAR" />
-        <result column="last_update_chapter" property="lastUpdateChapter" jdbcType="VARCHAR" />
-        <result column="last_update_chapter_url" property="lastUpdateChapterUrl" jdbcType="VARCHAR" />
-        <result column="first_letter" property="firstLetter" jdbcType="CHAR" />
-        <result column="writing_state" property="writingState" jdbcType="INTEGER" />
-        <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
-        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
-        <result column="book_state" property="bookState" jdbcType="INTEGER" />
+<mapper namespace="com.mysql.dao.NovelDAO">
+    <resultMap id="BaseResultMap" type="com.mysql.model.NovelDO">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="book_name" property="bookName" jdbcType="VARCHAR"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="author" property="author" jdbcType="VARCHAR"/>
+        <result column="last_update_chapter" property="lastUpdateChapter" jdbcType="VARCHAR"/>
+        <result column="last_update_chapter_url" property="lastUpdateChapterUrl" jdbcType="VARCHAR"/>
+        <result column="first_letter" property="firstLetter" jdbcType="CHAR"/>
+        <result column="writing_state" property="writingState" jdbcType="INTEGER"/>
+        <result column="add_time" property="addTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="book_state" property="bookState" jdbcType="INTEGER"/>
     </resultMap>
-    <sql id="Base_Column_List" >
-        id, bookname, url, author, last_update_chapter, last_update_chapter_url, first_letter,
-        writing_state, add_time, update_time, book_state
+    <sql id="Base_Column_List">
+        id, book_name, url, author, last_update_chapter, last_update_chapter_url, first_letter,
+        writing_state, add_time, update_time, book_state,book_type
     </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-        select
-        <include refid="Base_Column_List" />
-        from tbl_novel
-        where id = #{id,jdbcType=BIGINT} AND book_state = 1
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from novel
+        where book_state=1 and id =#{id}
     </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    <select id="selectByQueryNovel" resultMap="BaseResultMap" parameterType="com.mysql.query.QueryNovel">
+        select
+        a.id, a.book_name, a.url, a.author, a.last_update_chapter, a.last_update_chapter_url,
+        a.first_letter,a.writing_state, a.add_time, a.update_time, a.book_state,a.book_type
+        from novel as a inner join (
+        SELECT
+        <include refid="Base_Column_List"/>
+        from novel
+        where book_state=1
+        order by id
+        <if test="beginIndex != null and endIndex !=null">
+            limit #{beginIndex},#{endIndex}
+        </if>
+        ) as b
+        on a.id = b.id
+        where true
+        <if test="id != null">
+            and a.id = #{id}
+        </if>
+        <if test="author != null">
+            and a.author = #{author}
+        </if>
+        <if test="bookState != null">
+            and a.book_state = #{bookState}
+        </if>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from tbl_novel
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" parameterType="com.mysql.model.NovelDO" >
-        insert into tbl_novel (id, bookname, url,
+    <insert id="insert" parameterType="com.mysql.model.NovelDO">
+        insert into novel (book_name, url,
         author, last_update_chapter, last_update_chapter_url,
         first_letter, writing_state, add_time,
-        update_time, book_state)
-        values (#{id,jdbcType=BIGINT}, #{bookname,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR},
-        #{author,jdbcType=VARCHAR}, #{lastUpdateChapter,jdbcType=VARCHAR}, #{lastUpdateChapterUrl,jdbcType=VARCHAR},
-        #{firstLetter,jdbcType=CHAR}, #{writingState,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP},
-        #{updateTime,jdbcType=TIMESTAMP}, #{bookState,jdbcType=INTEGER})
+        update_time, book_state,book_type)
+        values ( #{book_name}, #{url},
+        #{author}, #{lastUpdateChapter}, #{lastUpdateChapterUrl},
+        #{firstLetter}, #{writingState}, now(),
+        #{updateTime}, #{bookState},#{bookType})
     </insert>
-    <insert id="insertSelective" parameterType="com.mysql.model.NovelDO" >
+    <insert id="insertSelective" parameterType="com.mysql.model.NovelDO">
         insert into tbl_novel
-        <trim prefix="(" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
                 id,
             </if>
-            <if test="bookname != null" >
-                bookname,
+            <if test="book_name != null">
+                book_name,
             </if>
-            <if test="url != null" >
+            <if test="url != null">
                 url,
             </if>
-            <if test="author != null" >
+            <if test="author != null">
                 author,
             </if>
-            <if test="lastUpdateChapter != null" >
+            <if test="lastUpdateChapter != null">
                 last_update_chapter,
             </if>
-            <if test="lastUpdateChapterUrl != null" >
+            <if test="lastUpdateChapterUrl != null">
                 last_update_chapter_url,
             </if>
-            <if test="firstLetter != null" >
+            <if test="firstLetter != null">
                 first_letter,
             </if>
-            <if test="writingState != null" >
+            <if test="writingState != null">
                 writing_state,
             </if>
-            <if test="addTime != null" >
+            <if test="addTime != null">
                 add_time,
             </if>
-            <if test="updateTime != null" >
+            <if test="updateTime != null">
                 update_time,
             </if>
-            <if test="bookState != null" >
+            <if test="bookState != null">
                 book_state,
             </if>
         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
                 #{id,jdbcType=BIGINT},
             </if>
-            <if test="bookname != null" >
-                #{bookname,jdbcType=VARCHAR},
+            <if test="book_name != null">
+                #{book_name,jdbcType=VARCHAR},
             </if>
-            <if test="url != null" >
+            <if test="url != null">
                 #{url,jdbcType=VARCHAR},
             </if>
-            <if test="author != null" >
+            <if test="author != null">
                 #{author,jdbcType=VARCHAR},
             </if>
-            <if test="lastUpdateChapter != null" >
+            <if test="lastUpdateChapter != null">
                 #{lastUpdateChapter,jdbcType=VARCHAR},
             </if>
-            <if test="lastUpdateChapterUrl != null" >
+            <if test="lastUpdateChapterUrl != null">
                 #{lastUpdateChapterUrl,jdbcType=VARCHAR},
             </if>
-            <if test="firstLetter != null" >
+            <if test="firstLetter != null">
                 #{firstLetter,jdbcType=CHAR},
             </if>
-            <if test="writingState != null" >
+            <if test="writingState != null">
                 #{writingState,jdbcType=INTEGER},
             </if>
-            <if test="addTime != null" >
+            <if test="addTime != null">
                 #{addTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="updateTime != null" >
+            <if test="updateTime != null">
                 #{updateTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="bookState != null" >
+            <if test="bookState != null">
                 #{bookState,jdbcType=INTEGER},
             </if>
         </trim>
@@ -114,56 +141,58 @@
     <!-- 批量插入 -->
     <insert id="batchInsert" parameterType="list">
         insert into tbl_novel
-        (bookname, url, author, last_update_chapter, last_update_chapter_url,
+        (book_name, url, author, last_update_chapter, last_update_chapter_url,
         first_letter, writing_state, add_time,
         update_time, book_state)
         values
         <foreach collection="list" item="item" index="index" separator=",">
-            (#{item.bookname,jdbcType=VARCHAR}, #{item.url,jdbcType=VARCHAR},
-            #{item.author,jdbcType=VARCHAR}, #{item.lastUpdateChapter,jdbcType=VARCHAR}, #{item.lastUpdateChapterUrl,jdbcType=VARCHAR},
-            #{item.firstLetter,jdbcType=CHAR}, #{item.writingState,jdbcType=INTEGER}, #{item.addTime,jdbcType=TIMESTAMP},
+            (#{item.book_name,jdbcType=VARCHAR}, #{item.url,jdbcType=VARCHAR},
+            #{item.author,jdbcType=VARCHAR}, #{item.lastUpdateChapter,jdbcType=VARCHAR},
+            #{item.lastUpdateChapterUrl,jdbcType=VARCHAR},
+            #{item.firstLetter,jdbcType=CHAR}, #{item.writingState,jdbcType=INTEGER},
+            #{item.addTime,jdbcType=TIMESTAMP},
             #{item.updateTime,jdbcType=TIMESTAMP}, #{item.bookState,jdbcType=INTEGER})
         </foreach>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.mysql.model.NovelDO" >
+    <update id="updateByPrimaryKeySelective" parameterType="com.mysql.model.NovelDO">
         update tbl_novel
-        <set >
-            <if test="bookname != null" >
-                bookname = #{bookname,jdbcType=VARCHAR},
+        <set>
+            <if test="book_name != null">
+                book_name = #{book_name,jdbcType=VARCHAR},
             </if>
-            <if test="url != null" >
+            <if test="url != null">
                 url = #{url,jdbcType=VARCHAR},
             </if>
-            <if test="author != null" >
+            <if test="author != null">
                 author = #{author,jdbcType=VARCHAR},
             </if>
-            <if test="lastUpdateChapter != null" >
+            <if test="lastUpdateChapter != null">
                 last_update_chapter = #{lastUpdateChapter,jdbcType=VARCHAR},
             </if>
-            <if test="lastUpdateChapterUrl != null" >
+            <if test="lastUpdateChapterUrl != null">
                 last_update_chapter_url = #{lastUpdateChapterUrl,jdbcType=VARCHAR},
             </if>
-            <if test="firstLetter != null" >
+            <if test="firstLetter != null">
                 first_letter = #{firstLetter,jdbcType=CHAR},
             </if>
-            <if test="writingState != null" >
+            <if test="writingState != null">
                 writing_state = #{writingState,jdbcType=INTEGER},
             </if>
-            <if test="addTime != null" >
+            <if test="addTime != null">
                 add_time = #{addTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="updateTime != null" >
+            <if test="updateTime != null">
                 update_time = #{updateTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="bookState != null" >
+            <if test="bookState != null">
                 book_state = #{bookState,jdbcType=INTEGER},
             </if>
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.mysql.model.NovelDO" >
+    <update id="updateByPrimaryKey" parameterType="com.mysql.model.NovelDO">
         update tbl_novel
-        set bookname = #{bookname,jdbcType=VARCHAR},
+        set book_name = #{book_name,jdbcType=VARCHAR},
         url = #{url,jdbcType=VARCHAR},
         author = #{author,jdbcType=VARCHAR},
         last_update_chapter = #{lastUpdateChapter,jdbcType=VARCHAR},

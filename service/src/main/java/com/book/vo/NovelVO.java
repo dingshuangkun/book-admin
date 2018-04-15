@@ -1,16 +1,16 @@
-package com.mysql.model;
-
+package com.book.vo;
+import com.mysql.model.ChapterDO;
 import lombok.Data;
 
 import java.util.Date;
-import java.util.function.Consumer;
+import java.util.List;
 
 /**
- * Created by dingshuangkun on 2018/4/7.
+ * @author  dingshuangkun
+ * @Date on 2018/4/15.
  */
 @Data
-public class NovelDO  {
-
+public class NovelVO {
     private Long id;
 
     private String bookName;
@@ -31,7 +31,9 @@ public class NovelDO  {
 
     private Date updateTime;
 
-    private Integer bookState;
+    private String  bookState;
 
     private String bookType;
+
+    private List<ChapterDO> chapterDOList;
 }

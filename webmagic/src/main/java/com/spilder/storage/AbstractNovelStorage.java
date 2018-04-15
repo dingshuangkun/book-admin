@@ -23,7 +23,7 @@ public abstract class AbstractNovelStorage implements Processor {
 
 	@Override
 	public void process() {
-		ExecutorService service = Executors.newFixedThreadPool(tasks.size());
+		ExecutorService service =  Executors.newFixedThreadPool(tasks.size());
 		List<Future<String>> futures = new ArrayList<>(tasks.size());
 		for (Map.Entry<String, String> entry : tasks.entrySet()) {
 			final String key = entry.getKey();

@@ -23,11 +23,11 @@ public class NovelSpiderHttpGet extends HttpGet{
      */
     private void setDefaultConfig() {
         this.setConfig(RequestConfig.custom()
-                .setSocketTimeout(2_000)
+                .setSocketTimeout(10000)
                 //设置连接服务器的超时时间
-                .setConnectTimeout(10_000)
+                .setConnectTimeout(10000)
                 //设置从服务器读取数据的超时时间
-                .setConnectionRequestTimeout(10_000)
+                .setConnectionRequestTimeout(10000)
                 .build());
         //设置请求头
         this.setHeader("User-Agent", "NovelSpider");

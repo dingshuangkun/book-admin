@@ -1,6 +1,7 @@
 package com.spilder.impl.chapter;
 
 import com.spilder.enums.NovelSiteEnum;
+import com.spilder.util.NovelSpiderHttpGet;
 import com.spilder.util.NovelSpiderUtil;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -21,7 +22,7 @@ public abstract class AbstractSpider {
 	 */
 	protected String crawl(String url) throws Exception {
 		try (CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-			 CloseableHttpResponse httpResponse = httpClient.execute(new HttpGet(url))) {
+			 CloseableHttpResponse httpResponse = httpClient.execute(new NovelSpiderHttpGet(url))) {
 			String result = EntityUtils.toString(httpResponse.getEntity(), NovelSpiderUtil.getContext(NovelSiteEnum.getEnumByUrl(url)).get("charset"));
 			return result;
 		} catch (Exception e) {

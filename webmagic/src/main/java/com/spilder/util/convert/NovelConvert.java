@@ -15,7 +15,7 @@ public class NovelConvert implements ConvertUtil<Novel,NovelDO> {
         novel.setLastUpdateChapter(novelDO.getLastUpdateChapter());
         novel.setLastUpdateTime(novelDO.getUpdateTime());
         novel.setLastUpdateChapterUrl(novelDO.getLastUpdateChapterUrl());
-        novel.setName(novelDO.getBookname());
+        novel.setName(novelDO.getBookName());
         novel.setStatus(novelDO.getBookState());
         novel.setUrl(novelDO.getUrl());
         novel.setAddTime(novelDO.getAddTime());
@@ -25,12 +25,17 @@ public class NovelConvert implements ConvertUtil<Novel,NovelDO> {
     @Override
     public NovelDO to(Novel novel) {
         NovelDO novelDO = new NovelDO();
-        novelDO.setAddTime(novel.getAddTime());
+
         novelDO.setAuthor(novel.getAuthor());
-        novelDO.setBookname(novel.getName());
+        novelDO.setBookName(novel.getName());
         novelDO.setBookState(novel.getStatus());
         novelDO.setUpdateTime(novel.getLastUpdateTime());
         novelDO.setUrl(novel.getUrl());
+        novelDO.setLastUpdateChapter(novel.getLastUpdateChapter());
+        novelDO.setLastUpdateChapterUrl(novel.getLastUpdateChapterUrl());
+        novelDO.setBookState(novel.getStatus());
+        novelDO.setBookType(novel.getType());
+        novelDO.setFirstLetter(novel.getFirstLetter()+"");
         return novelDO;
     }
 }

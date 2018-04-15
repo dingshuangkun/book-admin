@@ -1,6 +1,7 @@
 package com.mysql.dao;
 
 import com.mysql.model.NovelDO;
+import com.mysql.query.QueryNovel;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -32,6 +33,13 @@ public interface NovelDAO {
      * @return
      */
      NovelDO selectByPrimaryKey(Long id);
+
+    /**
+     * 根据queryNovel分页查询
+     * @param queryNovel
+     * @return
+     */
+     List<NovelDO> selectByQueryNovel(QueryNovel queryNovel);
 
      int updateByPrimaryKeySelective(NovelDO record);
 

@@ -1,4 +1,5 @@
-import com.mysql.dao.NovelDAO;
+package com.test.webmagic;
+
 import com.spilder.configuration.Configuration;
 import com.spilder.entitys.Chapter;
 import com.spilder.entitys.Novel;
@@ -23,14 +24,16 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by dingshuangkun on 2018/3/25.
+ * Created by dingshuangkun on 2018/4/12.
  */
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath*:applicationContext.xml")
 public class TestCase {
+
     @Test
     public void testGetsChapter() throws Exception {
         IChapterSpider spider = new DefaultChapterSpider();
-        List<Chapter>  chapters  = spider.getsChapter("http://www.biquge.tw/0_5/");
+        List<Chapter> chapters  = spider.getsChapter("http://www.biquge.tw/0_5/");
         for (Chapter chapter : chapters) {
             System.out.println(chapter);
         }
@@ -137,10 +140,10 @@ public class TestCase {
         while (iterator.hasNext()) {
             List<Novel> novels = iterator.next();
 
-			for (Novel novel : novels) {
-				System.out.println(novel);
+            for (Novel novel : novels) {
+                System.out.println(novel);
                 ////////////////////////////
-			}
+            }
         }
     }
     @Test
@@ -150,9 +153,10 @@ public class TestCase {
         while (iterator.hasNext()) {
             List<Novel> novels = iterator.next();
 
-			for (Novel novel : novels) {
-			System.out.println(novel);
-			}
+            for (Novel novel : novels) {
+                System.out.println(novel);
+            }
         }
     }
 }
+

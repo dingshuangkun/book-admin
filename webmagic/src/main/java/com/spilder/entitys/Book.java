@@ -7,6 +7,6 @@ import lombok.Data;
  */
 @Data
 public class Book {
-    protected String bookname;
+    protected String bookNmae;
     protected String url;
 }

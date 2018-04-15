@@ -21,7 +21,7 @@ public final class NovelSpiderUtil {
 	private static void init() {
 		SAXReader reader = new SAXReader();
 		try {
-			Document doc = reader.read(new File("conf/Spider-Rule.xml"));
+			Document doc = reader.read(new File("F:\\zk\\bookadmin\\webmagic\\src\\main\\java\\com\\spilder\\util\\Spider-Rule.xml"));
 			Element root = doc.getRootElement();
 			List<Element> sites = root.elements("site");
 			for (Element site : sites) {

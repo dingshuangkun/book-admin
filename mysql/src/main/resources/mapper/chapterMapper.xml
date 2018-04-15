@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mysql.dao.ChapterDAO">
+
+    <resultMap id="chapterResultMap" type="com.mysql.model.ChapterDO">
+        <id column="id" property="id"/>
+        <result column="book_id" property="bookId"/>
+        <result column="title" property="title"/>
+        <result column="url" property="url"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+    <insert id="insertChapter" parameterType="com.mysql.model.ChapterDO">
+        INSERT INTO novel_chapter(book_id,title,url,create_time,update_time)
+        VALUE (#{bookId},#{title},#{url},now(),now())
+    </insert>
+
+    <select id="selectChapter" parameterType="com.mysql.query.QueryNovel" resultMap="chapterResultMap"
+            resultType="com.mysql.model.ChapterDO">
+        select id, book_id,title,url,create_time,update_time
+        from novel_chapter
+        where true
+        <if test="id != null">
+          and  id = #{id}
+        </if>
+        <if test="bookId != null">
+          and  book_id = #{bookId}
+        </if>
+        <if test="title != null">
+          and  title = #{title}
+        </if>
+        <if test="beginIndex != null and endIndex != null">
+         and   limit #{beginIndex},#{endIndex}
+        </if>
+        order by id;
+    </select>
+
+
+</mapper>
