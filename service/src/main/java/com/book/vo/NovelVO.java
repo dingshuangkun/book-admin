@@ -27,13 +27,13 @@ public class NovelVO {
 
     private Integer writingState;
 
-    private Date addTime;
+    private String addTime;
 
-    private Date updateTime;
+    private String updateTime;
 
     private String  bookState;
 
     private String bookType;
 
-    private List<ChapterDO> chapterDOList;
+    private String chapters;
 }

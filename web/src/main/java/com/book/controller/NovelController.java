@@ -42,7 +42,6 @@ public class NovelController {
     @RequestMapping("/query")
     public List<NovelVO> getNovel(){
         QueryNovel queryNovel = new QueryNovel();
-        queryNovel.setId(1000L);
         queryNovel.setBeginIndex(0);
         queryNovel.setEndIndex(100);
        return novelService.queryNovel(queryNovel);

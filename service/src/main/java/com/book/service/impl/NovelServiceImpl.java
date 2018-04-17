@@ -24,6 +24,7 @@ import com.spilder.util.convert.NovelConvert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -146,25 +147,22 @@ public class NovelServiceImpl implements NovelService {
     public List<NovelVO> queryNovel(QueryNovel queryNovel) {
         List<NovelDO> noveDOList = novelDAO.selectByQueryNovel(queryNovel);
         List<NovelVO> novelVOList = new ArrayList<>();
+        SimpleDateFormat time = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
         if (noveDOList != null && noveDOList.size() > 0) {
             noveDOList.forEach(n -> {
                 QueryChapter queryChapter = new QueryChapter();
                 queryChapter.setBookId(n.getId());
-                List<ChapterDO> chapterDOList = chapterDAO.selectChapter(queryChapter);
-                if (chapterDOList != null) {
                     NovelVO novelVO = new NovelVO();
                     novelVO.setId(n.getId());
-                    novelVO.setAddTime(n.getAddTime());
+                    novelVO.setAddTime(time.format(n.getAddTime()));
                     novelVO.setAuthor(n.getAuthor());
                     novelVO.setBookName(n.getBookName());
                     novelVO.setBookState(BookState.getByType(n.getBookState()).getDesc());
                     novelVO.setBookType(n.getBookType());
-                    novelVO.setChapterDOList(chapterDOList);
                     novelVO.setLastUpdateChapter(n.getLastUpdateChapter());
-                    novelVO.setUpdateTime(n.getUpdateTime());
+                    novelVO.setUpdateTime(time.format(n.getUpdateTime()));
                     novelVO.setUrl(n.getUrl());
                     novelVOList.add(novelVO);
-                }
             });
         }
 
