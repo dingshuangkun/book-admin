@@ -27,19 +27,21 @@
     <title>小说列表</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 资讯管理 <span class="c-gray en">&gt;</span> 资讯列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 小说管理 <span class="c-gray en">&gt;</span> 小说列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
     <div class="text-c">
         </span> 日期范围：
         <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" id="logmin" class="input-text Wdate" style="width:120px;">
         -
         <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" id="logmax" class="input-text Wdate" style="width:120px;">
-        <input type="text" name="siteName" id="siteName" placeholder="网站" style="width:250px" class="input-text">
+        <input type="text" name="siteName" id="bookId" placeholder="id" style="width:120px" class="input-text">
+        <input type="text" name="siteName" id="bookName" placeholder="书名" style="width:120px" class="input-text">
+        <input type="text" name="siteName" id="author" placeholder="作者" style="width:120px" class="input-text">
         <button name="" id="searchSiteRule" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
     </div>
     <div class="mt-20">
 
-        <table data-toggle="table" data-url="http://127.0.0.1:8080/novel/query" data-height="346" data-pagination="true">
+        <table data-toggle="table" classes = "table table-hover" data-url="http://127.0.0.1:8080/novel/query" data-height="346" data-pagination="true">
             <thead>
             <tr>
                 <th data-field="id" data-align="left" >id</th>

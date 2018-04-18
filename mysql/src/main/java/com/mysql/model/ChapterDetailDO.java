@@ -2,6 +2,8 @@ package com.mysql.model;
 
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * Created by dingshuangkun on 2018/4/14.
  */
@@ -35,4 +37,12 @@ public class ChapterDetailDO {
      * 后一章节的url
      */
     private String nextUrl;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
 }

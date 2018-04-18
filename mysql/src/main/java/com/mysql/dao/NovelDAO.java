@@ -41,6 +41,13 @@ public interface NovelDAO {
      */
      List<NovelDO> selectByQueryNovel(QueryNovel queryNovel);
 
+    /**
+     * 根据作者或者书名进行查询
+     * @param authorOrTitle
+     * @return
+     */
+     List<NovelDO> selectLikeByAuthorOrTitle(String authorOrTitle);
+
      int updateByPrimaryKeySelective(NovelDO record);
 
     /**

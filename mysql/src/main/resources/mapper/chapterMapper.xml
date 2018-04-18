@@ -21,18 +21,19 @@
         from novel_chapter
         where true
         <if test="id != null">
-          and  id = #{id}
+            and id = #{id}
         </if>
         <if test="bookId != null">
-          and  book_id = #{bookId}
+            and book_id = #{bookId}
         </if>
         <if test="title != null">
-          and  title = #{title}
+            and title = #{title}
         </if>
         <if test="beginIndex != null and endIndex != null">
-         and   limit #{beginIndex},#{endIndex}
+            order by id
+            limit #{beginIndex},#{endIndex}
         </if>
-        order by id;
+
     </select>
 
 

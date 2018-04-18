@@ -19,4 +19,5 @@ public class QueryChapter extends Pagination{
      * 章节标题
      */
     private String title;
+
 }

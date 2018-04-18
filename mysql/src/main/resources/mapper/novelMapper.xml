@@ -44,12 +44,26 @@
         <if test="id != null">
             and a.id = #{id}
         </if>
-        <if test="author != null">
+        <if test="bookName != null">
+            and a.book_name = #{bookName}
+        </if>
+        <if test="author != null and bookState == null">
             and a.author = #{author}
         </if>
-        <if test="bookState != null">
+        <if test="author !=null and bookState != null">
+            and author=#{author}
             and a.book_state = #{bookState}
         </if>
+    </select>
+
+    <select id="selectLikeByAuthorOrTitle" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        id, book_name, url, author, last_update_chapter, last_update_chapter_url,
+        first_letter,writing_state, add_time, update_time, book_state,book_type
+        from novel where
+        book_name like #{authorOrTitle}  or author like #{authorOrTitle}
+
+
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from tbl_novel

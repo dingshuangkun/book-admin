@@ -20,5 +20,12 @@ public class QueryNovel extends Pagination {
      * 状态
      */
     private Integer bookState;
-
+    /**
+     * 书名
+     */
+    private String bookName;
+    /**
+     * 是否查询章节
+     */
+    private Boolean queryChapters;
 }

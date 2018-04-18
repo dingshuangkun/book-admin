@@ -1,7 +1,10 @@
 package com.book.service.impl;
 
 import com.book.enums.BookState;
+import com.book.service.ChapterService;
 import com.book.service.NovelService;
+import com.book.util.TimeUtil;
+import com.book.vo.ChapterVO;
 import com.book.vo.NovelVO;
 import com.mysql.dao.ChapterDAO;
 import com.mysql.dao.ChapterDetailDAO;
@@ -21,6 +24,7 @@ import com.spilder.interfaces.IChapterSpider;
 import com.spilder.interfaces.INovelSpider;
 import com.spilder.util.NovelSpiderFactory;
 import com.spilder.util.convert.NovelConvert;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +45,8 @@ public class NovelServiceImpl implements NovelService {
     private ChapterDAO chapterDAO;
     @Autowired
     private ChapterDetailDAO chapterDetailDAO;
-
+    @Autowired
+    private ChapterService chapterService;
     @Override
     public Integer insertNovel() {
         INovelSpider spider = NovelSpiderFactory.getNovelSpider("http://www.kanshuzhong.com/map/A/1/");
@@ -102,8 +107,8 @@ public class NovelServiceImpl implements NovelService {
             for (int bookId = 1028; bookId <= 2000; bookId++) {
                 QueryChapter queryChapter = new QueryChapter();
                 queryChapter.setId(Long.valueOf(bookId));
-                List<ChapterDO> chapterDOList= chapterDAO.selectChapter(queryChapter);
-                if (chapterDOList != null && chapterDOList.size()>0) {
+                List<ChapterDO> chapterDOList = chapterDAO.selectChapter(queryChapter);
+                if (chapterDOList != null && chapterDOList.size() > 0) {
                     ChapterDO chapterDO = chapterDOList.get(0);
                     IChapterDetailSpider spider = new DefaultChapterDetailSpider();
                     ChapterDetail chapterDetail = spider.getChapterDetail(chapterDO.getUrl());
@@ -152,21 +157,40 @@ public class NovelServiceImpl implements NovelService {
             noveDOList.forEach(n -> {
                 QueryChapter queryChapter = new QueryChapter();
                 queryChapter.setBookId(n.getId());
-                    NovelVO novelVO = new NovelVO();
-                    novelVO.setId(n.getId());
-                    novelVO.setAddTime(time.format(n.getAddTime()));
-                    novelVO.setAuthor(n.getAuthor());
-                    novelVO.setBookName(n.getBookName());
-                    novelVO.setBookState(BookState.getByType(n.getBookState()).getDesc());
-                    novelVO.setBookType(n.getBookType());
-                    novelVO.setLastUpdateChapter(n.getLastUpdateChapter());
-                    novelVO.setUpdateTime(time.format(n.getUpdateTime()));
-                    novelVO.setUrl(n.getUrl());
-                    novelVOList.add(novelVO);
+                NovelVO novelVO = new NovelVO();
+                novelVO.setId(n.getId());
+                novelVO.setAddTime(time.format(n.getAddTime()));
+                novelVO.setAuthor(n.getAuthor());
+                novelVO.setBookName(n.getBookName());
+                novelVO.setBookState(BookState.getByType(n.getBookState()).getDesc());
+                novelVO.setBookType(n.getBookType());
+                novelVO.setLastUpdateChapter(n.getLastUpdateChapter());
+                novelVO.setLastUpdateChapterUrl(n.getLastUpdateChapterUrl());
+                novelVO.setUpdateTime(time.format(n.getUpdateTime()));
+                novelVO.setUrl(n.getUrl());
+                if(queryNovel.getQueryChapters() == true) {
+                    List<ChapterVO> chapterVOList = chapterService.queryChapterByBookId(n.getId());
+                    novelVO.setChapters(chapterVOList);
+                }
+                novelVOList.add(novelVO);
             });
         }
 
         return novelVOList;
     }
 
+
+    @Override
+    public List<NovelVO> queryLikeByauthorOrTitle(String authorOrTitle) {
+        authorOrTitle = authorOrTitle + "%";
+        List<NovelDO> novelDOS = novelDAO.selectLikeByAuthorOrTitle(authorOrTitle);
+        List<NovelVO> novelVOS = new ArrayList<>();
+        novelDOS.forEach(n -> {
+            NovelVO novelVO = new NovelVO();
+            BeanUtils.copyProperties(n, novelVO);
+            novelVO.setUpdateTime(TimeUtil.formatYYYY_MM_dd(n.getUpdateTime()));
+            novelVOS.add(novelVO);
+        });
+        return novelVOS;
+    }
 }

@@ -35,5 +35,5 @@ public class NovelVO {
 
     private String bookType;
 
-    private String chapters;
+    private List<ChapterVO> chapters;
 }
