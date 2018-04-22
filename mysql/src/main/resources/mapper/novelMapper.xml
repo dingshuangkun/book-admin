@@ -29,17 +29,7 @@
         select
         a.id, a.book_name, a.url, a.author, a.last_update_chapter, a.last_update_chapter_url,
         a.first_letter,a.writing_state, a.add_time, a.update_time, a.book_state,a.book_type
-        from novel as a inner join (
-        SELECT
-        <include refid="Base_Column_List"/>
-        from novel
-        where book_state=1
-        order by id
-        <if test="beginIndex != null and endIndex !=null">
-            limit #{beginIndex},#{endIndex}
-        </if>
-        ) as b
-        on a.id = b.id
+        from novel as a
         where true
         <if test="id != null">
             and a.id = #{id}

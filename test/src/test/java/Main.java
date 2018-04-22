@@ -1,41 +1,33 @@
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 /**
  * Created by dingshuangkun on 2018/3/31.
  */
 public class Main {
+    // (a* b)%n
+    public static void main(String[] arges) {
 
-    public static void main(String[] arges){
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int results[] = new int[n];
-        for(int i = 0; i < n; i++) {
-            int r = sc.nextInt();
-            int g = sc.nextInt();
-            int b = sc.nextInt();
-            int table = calc(r, g, b);
-            results[i]=table;
-        }
-        for(int result:results){
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int n =sc.nextInt();
+        int result = 1;
+        if(y==0){
+            System.out.println(1%n);
+        }else if(y==1){
+            System.out.println(x%n);
+        }else if(y%2 == 0) {
+            for(int i = 1 ;i<=y/2;i++) {
+                 result *= ((x % n) * (x % n))%n;
+            }
             System.out.println(result);
-        }
-    }
-
-    public static int calc(int a, int b, int c) {
-        int table = 0;
-        int[] arr = {a, b, c};
-        Arrays.sort(arr);
-        a = arr[0];
-        b = arr[1];
-        c = arr[2];
-        if(c/2 == 0 || b == 0){
-            return a;
         }else {
-            int min=(c-a)/2 >= (b-a)? b-a:(c-a)/2;
-            return a+min;
+            for(int i = 1 ;i<=y/2;i++){
+                result *= ((x % n) * (x % n))%n;
+            }
+            System.out.println((x*result)%n);
         }
-
     }
 
 }

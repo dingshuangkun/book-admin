@@ -39,6 +39,8 @@ import java.util.List;
 @Service
 public class NovelServiceImpl implements NovelService {
 
+    private static String IS_QUERY_CHAPTER = "true";
+
     @Autowired
     private NovelDAO novelDAO;
     @Autowired
@@ -47,6 +49,7 @@ public class NovelServiceImpl implements NovelService {
     private ChapterDetailDAO chapterDetailDAO;
     @Autowired
     private ChapterService chapterService;
+
     @Override
     public Integer insertNovel() {
         INovelSpider spider = NovelSpiderFactory.getNovelSpider("http://www.kanshuzhong.com/map/A/1/");
@@ -68,9 +71,10 @@ public class NovelServiceImpl implements NovelService {
     }
 
     @Override
-    public Integer insertChapter() {
+    public Integer
+    insertChapter() {
         try {
-            for (int i = 1671; i <= 2516; i++) {
+            for (int i = 969; i <= 1048; i++) {
                 NovelDO novelDO = novelDAO.selectByPrimaryKey(Long.valueOf(i));
                 if (novelDO != null) {
                     Thread.sleep(1000);
@@ -104,9 +108,9 @@ public class NovelServiceImpl implements NovelService {
     @Override
     public Integer insertContent() {
         try {
-            for (int bookId = 1028; bookId <= 2000; bookId++) {
+            for (int bookId = 969; bookId <= 1048; bookId++) {
                 QueryChapter queryChapter = new QueryChapter();
-                queryChapter.setId(Long.valueOf(bookId));
+                queryChapter.setBookId(Long.valueOf(bookId));
                 List<ChapterDO> chapterDOList = chapterDAO.selectChapter(queryChapter);
                 if (chapterDOList != null && chapterDOList.size() > 0) {
                     ChapterDO chapterDO = chapterDOList.get(0);
@@ -162,13 +166,15 @@ public class NovelServiceImpl implements NovelService {
                 novelVO.setAddTime(time.format(n.getAddTime()));
                 novelVO.setAuthor(n.getAuthor());
                 novelVO.setBookName(n.getBookName());
-                novelVO.setBookState(BookState.getByType(n.getBookState()).getDesc());
+                if (BookState.getByType(n.getBookState()) != null) {
+                    novelVO.setBookState(BookState.getByType(n.getBookState()).getDesc());
+                }
                 novelVO.setBookType(n.getBookType());
                 novelVO.setLastUpdateChapter(n.getLastUpdateChapter());
                 novelVO.setLastUpdateChapterUrl(n.getLastUpdateChapterUrl());
                 novelVO.setUpdateTime(time.format(n.getUpdateTime()));
                 novelVO.setUrl(n.getUrl());
-                if(queryNovel.getQueryChapters() == true) {
+                if (IS_QUERY_CHAPTER.equals(queryNovel.getQueryChapters())) {
                     List<ChapterVO> chapterVOList = chapterService.queryChapterByBookId(n.getId());
                     novelVO.setChapters(chapterVOList);
                 }

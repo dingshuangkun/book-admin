@@ -13,7 +13,7 @@
 <header class="header">
     <div class="flex flex-vc color-white book-detail-title">
         <div class="left" onclick="back()"><i class="icon-zuoleft157"></i></div>
-        <div class="box-flex-1 title"><h4 class="fz14rem">籍名字施法似的士大夫</h4></div>
+        <div class="box-flex-1 title"><h4 class="fz14rem"><p id="title1"></p></h4></div>
         <div class="right"><a href="#"><i class="icon-yuedu"></i></a><span class="fg"></span><a href="../index.html"><i class="icon-zhuye1"></i></a></div>
     </div>
 </header>
@@ -23,13 +23,13 @@
         <img src="images/132.jpg" alt="loading.." class="img-bespread">
     </div>
     <div class="box-flex-1 book-detail-info">
-        <h4 class="none color-blue title">喜羊羊与灰太狼的故事</h4>
+        <h4 class="none color-blue title"><p id="title2"></p></h4>
         <span class="state ing"><i class="icon-yuedu"></i>连载中</span>
         <!--<span class="state end">已完结</span>-->
         <div class="fz12rem mt1rem">
-            <p class="none ">作者：杨永信</p>
-            <p class="none ">分类：古典文学</p>
-            <p class="none ">字数：999999</p>
+            <p class="none " id="author"></p>
+            <p class="none " id="type"></p>
+            <p class="none " id="updateTime"></p>
         </div>
     </div>
 </div>
@@ -51,21 +51,8 @@
 <div class="section recharge-col mt1rem book-mulu">
     <h3 class="fz2rem book-detail-titles"><i class="icon-mulu"></i>书籍目录</h3>
     <div class="book-all-mulu color-blue"><i class="icon-xia pull-right"></i>全部章节</div>
-    <ul class="none book-mulu-items fz16rem">
-        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#">第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#"><i class="icon-vip"></i>第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#"><i class="icon-vip"></i>第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#"><i class="icon-vip"></i>第一章：喜洋洋与灰太狼的爱情故事</a></li>
-        <li><a href="#"><i class="icon-vip"></i>第一章：喜洋洋与灰太狼的爱情故事</a></li>
+    <ul class="none book-mulu-items fz16rem" id="novel-chapters">
+
     </ul>
 </div>
 <!--搜索框-->
@@ -149,15 +136,37 @@
         $.ajax({
             url:"http://127.0.0.1:8080/novel/query",
             type:"post",
-            data:{"id":bookId,queryChapters:true},
+            data:{"id":bookId,queryChapters:"true"},
             dataType:"json",
             success:function (data) {
-                alert(data);
+                parseObj(data);
             },
             error:function () {
                 alert("加载失败");
             }
-        })
+        });
+    }
+
+    function  parseObj(data) {
+        var key = 0;
+        $("#title1").html(data[0].bookName);
+        $("#title2").html(data[0].bookName);
+        $("#author").html("作者：" + data[0].author);
+        $("#type").html("类型：" + data[0].bookType);
+        $("#updateTime").html("更新时间：" + data[0].updateTime);
+        var array = data[0].chapters;
+        var str = "";
+        for (var i in array) {
+            if (i <= 15) {
+                str +="<li  onclick=\"bookReade("+array[i].id+")\">"+"<a href='book-read.html'>"+array[i].title+"</a></li>"
+            } else {
+                str +="<li  onclick=\"bookReade("+array[i].id+")\">"+"<a href='book-read.html'><i class='icon-vip'>"+array[i].title+"</i>></a></li>"
+            }
+        }
+        $("#novel-chapters").html(str);
+    }
+    function  bookReade(id) {
+        $.session.set("chapterId",id);
     }
 </script>
 </html>

@@ -31,14 +31,9 @@ public class NovelController {
 
     @RequestMapping("/insertContent")
     @ResponseBody
-    public String testInsertContent(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                novelService.insertContent();
-            }
-        }).start();
-        return "a";
+    public void testInsertContent(){
+        novelService.insertContent();
+
     }
 
     @ResponseBody
@@ -47,7 +42,7 @@ public class NovelController {
     public List<NovelVO> getNovel(QueryNovel queryNovel){
         queryNovel.setBeginIndex(0);
         queryNovel.setEndIndex(20);
-       return novelService.queryNovel(queryNovel);
+        return novelService.queryNovel(queryNovel);
     }
 
     @ResponseBody

@@ -25,7 +25,7 @@ public class NovelTest {
     public void test(){
         QueryNovel queryNovel = new QueryNovel();
         queryNovel.setId(1002L);
-        queryNovel.setQueryChapters(true);
+       // queryNovel.setQueryChapters(true);
         List<NovelVO> list =  novelService.queryNovel(queryNovel);
 
         System.out.println(list);

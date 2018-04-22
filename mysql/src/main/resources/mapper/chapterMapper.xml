@@ -17,8 +17,7 @@
 
     <select id="selectChapter" parameterType="com.mysql.query.QueryNovel" resultMap="chapterResultMap"
             resultType="com.mysql.model.ChapterDO">
-        select id, book_id,title,url,create_time,update_time
-        from novel_chapter
+        select id, book_id,title,url,create_time,update_time from novel_chapter
         where true
         <if test="id != null">
             and id = #{id}
@@ -33,7 +32,6 @@
             order by id
             limit #{beginIndex},#{endIndex}
         </if>
-
     </select>
 
 
