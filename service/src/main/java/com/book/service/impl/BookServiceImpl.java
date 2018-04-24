@@ -4,6 +4,7 @@ import com.book.service.BookService;
 import com.mysql.dao.BookDAO;
 import com.mysql.model.BookDO;
 import com.mysql.query.QueryBook;
+import com.redis.service.RedisNovelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +21,11 @@ public class BookServiceImpl implements BookService {
 
     @Autowired
     private BookDAO bookDAO;
-
+    @Autowired
+    private RedisNovelService redisNovelService;
     public BookDO findById(Long id) {
+        // 先从缓存中找
+
         List<Long> list = new ArrayList<>();
         list.add(id);
         List<BookDO> bookDOS = findByIds(list);

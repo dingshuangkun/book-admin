@@ -1,8 +1,6 @@
 package com.book.vo;
-import com.mysql.model.ChapterDO;
+import com.mysql.annotation.RedisQuery;
 import lombok.Data;
-
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,12 +9,13 @@ import java.util.List;
  */
 @Data
 public class NovelVO {
+    @RedisQuery
     private Long id;
-
+    @RedisQuery
     private String bookName;
 
     private String url;
-
+    @RedisQuery
     private String author;
 
     private String lastUpdateChapter;

@@ -1,4 +1,4 @@
-package util;
+package com.redis.util;
 
 /**
  * Created by dingshuangkun on 2018/4/21.

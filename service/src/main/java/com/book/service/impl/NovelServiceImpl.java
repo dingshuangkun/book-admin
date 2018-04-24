@@ -14,6 +14,8 @@ import com.mysql.model.ChapterDetailDO;
 import com.mysql.model.NovelDO;
 import com.mysql.query.QueryChapter;
 import com.mysql.query.QueryNovel;
+import com.redis.service.RedisChapterService;
+import com.redis.service.RedisNovelService;
 import com.spilder.entitys.Chapter;
 import com.spilder.entitys.ChapterDetail;
 import com.spilder.entitys.Novel;
@@ -49,7 +51,10 @@ public class NovelServiceImpl implements NovelService {
     private ChapterDetailDAO chapterDetailDAO;
     @Autowired
     private ChapterService chapterService;
-
+    @Autowired
+    private RedisNovelService redisNovelService;
+    @Autowired
+    private RedisChapterService redisChapterService;
     @Override
     public Integer insertNovel() {
         INovelSpider spider = NovelSpiderFactory.getNovelSpider("http://www.kanshuzhong.com/map/A/1/");
@@ -71,8 +76,7 @@ public class NovelServiceImpl implements NovelService {
     }
 
     @Override
-    public Integer
-    insertChapter() {
+    public Integer insertChapter() {
         try {
             for (int i = 969; i <= 1048; i++) {
                 NovelDO novelDO = novelDAO.selectByPrimaryKey(Long.valueOf(i));
@@ -154,35 +158,78 @@ public class NovelServiceImpl implements NovelService {
 
     @Override
     public List<NovelVO> queryNovel(QueryNovel queryNovel) {
-        List<NovelDO> noveDOList = novelDAO.selectByQueryNovel(queryNovel);
-        List<NovelVO> novelVOList = new ArrayList<>();
-        SimpleDateFormat time = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
-        if (noveDOList != null && noveDOList.size() > 0) {
-            noveDOList.forEach(n -> {
-                QueryChapter queryChapter = new QueryChapter();
-                queryChapter.setBookId(n.getId());
-                NovelVO novelVO = new NovelVO();
-                novelVO.setId(n.getId());
-                novelVO.setAddTime(time.format(n.getAddTime()));
-                novelVO.setAuthor(n.getAuthor());
-                novelVO.setBookName(n.getBookName());
-                if (BookState.getByType(n.getBookState()) != null) {
-                    novelVO.setBookState(BookState.getByType(n.getBookState()).getDesc());
-                }
-                novelVO.setBookType(n.getBookType());
-                novelVO.setLastUpdateChapter(n.getLastUpdateChapter());
-                novelVO.setLastUpdateChapterUrl(n.getLastUpdateChapterUrl());
-                novelVO.setUpdateTime(time.format(n.getUpdateTime()));
-                novelVO.setUrl(n.getUrl());
-                if (IS_QUERY_CHAPTER.equals(queryNovel.getQueryChapters())) {
-                    List<ChapterVO> chapterVOList = chapterService.queryChapterByBookId(n.getId());
-                    novelVO.setChapters(chapterVOList);
-                }
-                novelVOList.add(novelVO);
-            });
-        }
+        // 判断参数是否为空，如果为空从缓存查出来
+        if(queryNovel == null ){
+           List<NovelDO> novelDOS = redisNovelService.queryAll();
+           List<NovelVO> novelVOS = new ArrayList<>();
+           novelDOS.forEach(n->{
+               NovelVO novelVO = new NovelVO();
+               BeanUtils.copyProperties(n,novelVO);
+               novelVO.setUpdateTime(TimeUtil.formatYYYY_MM_dd(n.getUpdateTime()));
+               novelVO.setAddTime(TimeUtil.formatYYYY_MM_dd(n.getAddTime()));
+               novelVOS.add(novelVO);
+           });
+           return novelVOS;
+        }else if(queryNovel.getId()!=null){
+            NovelVO novelVO = new NovelVO();
+           NovelDO novelDO =  redisNovelService.queryById(queryNovel.getId());
+           BeanUtils.copyProperties(novelDO,novelVO);
+           novelVO.setAddTime(TimeUtil.formatYYYY_MM_dd(novelDO.getAddTime()));
+           novelVO.setUpdateTime(TimeUtil.formatYYYY_MM_dd(novelDO.getUpdateTime()));
+           if(novelDO!=null){
+             List<ChapterDO> chapterDOList =   redisChapterService.queryByBookId(novelDO.getId());
+             // chapterDO 命中缓存
+             if(chapterDOList!=null && chapterDOList.size()>0){
+                 List<ChapterVO> chapterVOS = new ArrayList<>();
+                 chapterDOList.forEach(n->{
+                     ChapterVO chapterVO = new ChapterVO();
+                     BeanUtils.copyProperties(n,chapterVO);
+                     chapterVOS.add(chapterVO);
+                 });
+                 novelVO.setChapters(chapterVOS);
+                 List<NovelVO> list = new ArrayList<>();
+                 list.add(novelVO);
+                 return list;
+             }else {
+                List<ChapterVO> chapterVOS =  chapterService.queryChapterByBookId(novelDO.getId());
+                novelVO.setChapters(chapterVOS);
+                 List<NovelVO> list = new ArrayList<>();
+                 list.add(novelVO);
+                 return list;
+             }
+           }
 
-        return novelVOList;
+        }
+            List<NovelDO> noveDOList = novelDAO.selectByQueryNovel(queryNovel);
+            List<NovelVO> novelVOList = new ArrayList<>();
+            SimpleDateFormat time = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
+            if (noveDOList != null && noveDOList.size() > 0) {
+                noveDOList.forEach(n -> {
+                    QueryChapter queryChapter = new QueryChapter();
+                    queryChapter.setBookId(n.getId());
+                    NovelVO novelVO = new NovelVO();
+                    novelVO.setId(n.getId());
+                    novelVO.setAddTime(time.format(n.getAddTime()));
+                    novelVO.setAuthor(n.getAuthor());
+                    novelVO.setBookName(n.getBookName());
+                    if (BookState.getByType(n.getBookState()) != null) {
+                        novelVO.setBookState(BookState.getByType(n.getBookState()).getDesc());
+                    }
+                    novelVO.setBookType(n.getBookType());
+                    novelVO.setLastUpdateChapter(n.getLastUpdateChapter());
+                    novelVO.setLastUpdateChapterUrl(n.getLastUpdateChapterUrl());
+                    novelVO.setUpdateTime(time.format(n.getUpdateTime()));
+                    novelVO.setUrl(n.getUrl());
+                    if (IS_QUERY_CHAPTER.equals(queryNovel.getQueryChapters())) {
+                        List<ChapterVO> chapterVOList = chapterService.queryChapterByBookId(n.getId());
+                        novelVO.setChapters(chapterVOList);
+                    }
+                    novelVOList.add(novelVO);
+                });
+            }
+
+            return novelVOList;
+
     }
 
 

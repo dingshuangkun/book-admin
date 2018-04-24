@@ -3,6 +3,8 @@ package com.book.service;
 import com.book.util.CollectionUtil;
 import com.book.vo.NovelVO;
 import com.mysql.query.QueryNovel;
+import com.redis.service.RedisNovelService;
+import com.redis.service.impl.RedisNovelServiceImpl;
 
 import java.util.List;
 
@@ -10,6 +12,7 @@ import java.util.List;
  * Created by dingshuangkun on 2018/4/12.
  */
 public interface NovelService {
+
     /**
      * 插入小说
      *
@@ -40,11 +43,14 @@ public interface NovelService {
 
 
      List<NovelVO> queryLikeByauthorOrTitle(String authorOrTitle);
+
     /**
-     * 根据id查询小说
+     * 根据id查询
+     * @param id
      * @return
      */
     default NovelVO queryNovelById(Long id){
+
         QueryNovel queryNovel = new QueryNovel();
         queryNovel.setId(id);
         List<NovelVO> novelVOList = queryNovel(queryNovel);
