@@ -18,6 +18,7 @@
                 <value>classpath:dataSource.properties</value>
             </list>
         </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
     </bean>
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">

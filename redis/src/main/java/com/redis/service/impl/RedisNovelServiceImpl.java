@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -30,11 +31,23 @@ public class RedisNovelServiceImpl implements RedisNovelService {
 
     private static final String SPLIT_MARK=":";
     @Autowired
-    private RedisCacheManager redisCacheManager;
+    private  RedisCacheManager redisCacheManager;
 
+    private   RedisCachePool redisCachePool;
+
+    private  Jedis jedis;
+
+    /**
+     * 初始化链接
+     */
+    @PostConstruct
+    public void init(){
+        redisCachePool = redisCacheManager.getRedisPoolMap().get(RedisDataBaseType.defaultType.toString());
+        jedis = redisCachePool.getResouces();
+    }
     @Override
     public List<NovelDO> queryAll() {
-        RedisCachePool redisCachePool = redisCacheManager.getRedisPoolMap().get(RedisDataBaseType.defaultType.toString());
+
         Jedis jedis = redisCachePool.getResouces();
         RedisDAO rd = new RedisDAO(jedis);
         Set<String> bookId = rd.keys("novel:bookId:*");
@@ -49,8 +62,6 @@ public class RedisNovelServiceImpl implements RedisNovelService {
 
     @Override
     public NovelDO queryById(Long id) {
-        RedisCachePool redisCachePool = redisCacheManager.getRedisPoolMap().get(RedisDataBaseType.defaultType.toString());
-        Jedis jedis = redisCachePool.getResouces();
         RedisDAO rd = new RedisDAO(jedis);
         String resut = RedisDAO.get(TABLE_NAME+SPLIT_MARK+PK+SPLIT_MARK+id,jedis);
         NovelDO novelDO =  JSON.parseObject(resut,NovelDO.class);
@@ -70,11 +81,8 @@ public class RedisNovelServiceImpl implements RedisNovelService {
 
     @Override
     public void addNovelDO(NovelDO novelDO){
-        RedisCachePool redisCachePool = redisCacheManager.getRedisPoolMap().get(RedisDataBaseType.defaultType.toString());
-        Jedis jedis = redisCachePool.getResouces();
-        Transaction transaction = jedis.multi();
+       Transaction   transaction = jedis.multi();
         RedisDAO rd = new RedisDAO(transaction);
-
         try {
           rd.set(TABLE_NAME+SPLIT_MARK+PK+SPLIT_MARK+novelDO.getId(), JSON.toJSON(novelDO).toString());
           transaction.exec();

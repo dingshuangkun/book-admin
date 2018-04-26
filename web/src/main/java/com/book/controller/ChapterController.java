@@ -34,7 +34,7 @@ public class ChapterController {
     public List<ChapterVO> queryChapter(){
         QueryChapter queryChapter = new QueryChapter();
         queryChapter.setBeginIndex(0);
-        queryChapter.setEndIndex(20);
+        queryChapter.setEndIndex(40);
         return chapterService.queryChapter(queryChapter);
     }
 

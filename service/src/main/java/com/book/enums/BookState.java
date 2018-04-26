@@ -25,4 +25,13 @@ public enum BookState {
         }
         return null;
     }
+
+    public static BookState getByDesc(String desc){
+        for(BookState bookState:values()){
+            if(bookState.getDesc().equals(desc)){
+                return bookState;
+            }
+        }
+        return null;
+    }
 }

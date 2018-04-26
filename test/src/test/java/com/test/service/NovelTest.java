@@ -1,5 +1,6 @@
 package com.test.service;
 
+import com.book.enums.BookState;
 import com.book.service.ChapterService;
 import com.book.service.NovelService;
 import com.book.util.TimeUtil;
@@ -39,7 +40,7 @@ public class NovelTest {
     private RedisNovelService redisNovelService;
     @Test
     public void testInsertChapterDOToRedis() {
-        for (int bookId = 1005; bookId <= 1048; bookId++) {
+        for (int bookId = 969; bookId <= 1048; bookId++) {
 
            List<ChapterVO> chapterVOS  = chapterService.queryChapterByBookId(Long.valueOf(bookId));
            List<ChapterDO> chapterDOS = new ArrayList<>();
@@ -63,11 +64,12 @@ public class NovelTest {
 
     @Test
     public void testInsertNovelToRedis(){
-        for(int id=969; id<=1048;id++) {
+        for(int id=996; id<=1048;id++) {
             NovelVO novelVO = novelService.queryNovelById(Long.valueOf(id));
             if(novelVO!=null) {
                 NovelDO novelDO = new NovelDO();
                 BeanUtils.copyProperties(novelVO, novelDO);
+                novelDO.setBookState(BookState.getByDesc(novelVO.getBookState()).getType());
                 novelDO.setAddTime(TimeUtil.parseYYYY_MM_dd( novelVO.getAddTime()));
                 novelDO.setUpdateTime(TimeUtil.parseYYYY_MM_dd(novelVO.getUpdateTime()));
                 redisNovelService.addNovelDO(novelDO);

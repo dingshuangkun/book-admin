@@ -40,8 +40,7 @@ public class NovelController {
     @CrossOrigin(origins = "*" ,maxAge = 360)
     @RequestMapping("/query")
     public List<NovelVO> getNovel(QueryNovel queryNovel){
-        queryNovel.setBeginIndex(0);
-        queryNovel.setEndIndex(20);
+
         return novelService.queryNovel(queryNovel);
     }
 

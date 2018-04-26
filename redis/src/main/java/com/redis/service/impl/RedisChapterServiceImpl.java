@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 /**
@@ -27,11 +28,16 @@ public class RedisChapterServiceImpl implements RedisChapterService {
     @Autowired
     private RedisCacheManager redisCacheManager;
 
+    private  RedisCachePool redisCachePool;
 
+    private  Jedis jedis;
+    @PostConstruct
+    public void init(){
+        redisCachePool = redisCacheManager.getRedisPoolMap().get(RedisDataBaseType.defaultType.toString());
+        jedis = redisCachePool.getResouces();
+    }
     @Override
     public List<ChapterDO> queryByBookId(Long bookId) {
-        RedisCachePool redisCachePool =   redisCacheManager.getRedisPoolMap().get(RedisDataBaseType.defaultType.toString());
-        Jedis jedis = redisCachePool.getResouces();
         if(jedis!=null){
             String key=TABLE_NAME+SPLIT_MARK+bookId;
             String result =  RedisDAO.get(key,jedis);

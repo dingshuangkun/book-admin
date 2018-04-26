@@ -15,7 +15,7 @@ public interface ChapterService {
      * 查询章节列表
      * @return
      */
-    List<ChapterVO>  queryChapter(QueryChapter queryChapter);
+    List<ChapterVO>   queryChapter(QueryChapter queryChapter);
 
     /**
      * 根据Id 查询
