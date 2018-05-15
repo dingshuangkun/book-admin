@@ -64,7 +64,7 @@ public class NovelTest {
 
     @Test
     public void testInsertNovelToRedis(){
-        for(int id=996; id<=1048;id++) {
+        for(int id=969; id<=1048;id++) {
             NovelVO novelVO = novelService.queryNovelById(Long.valueOf(id));
             if(novelVO!=null) {
                 NovelDO novelDO = new NovelDO();
@@ -88,4 +88,8 @@ public class NovelTest {
     public void testQueryNovelAll(){
         redisNovelService.queryAll();
     }
+
+
+
+
 }

@@ -31,10 +31,7 @@ public class ChapterController {
     @ResponseBody
     @CrossOrigin(origins = "*" ,maxAge = 360)
     @RequestMapping("query")
-    public List<ChapterVO> queryChapter(){
-        QueryChapter queryChapter = new QueryChapter();
-        queryChapter.setBeginIndex(0);
-        queryChapter.setEndIndex(40);
+    public List<ChapterVO> queryChapter(QueryChapter queryChapter){
         return chapterService.queryChapter(queryChapter);
     }
 

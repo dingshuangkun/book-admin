@@ -41,6 +41,7 @@ public interface NovelService {
      */
      List<NovelVO> queryNovel(QueryNovel queryNovel);
 
+     List<NovelVO> queryNovelNoCache(QueryNovel queryNovel);
 
      List<NovelVO> queryLikeByauthorOrTitle(String authorOrTitle);
 
@@ -60,6 +61,8 @@ public interface NovelService {
             return null;
         }
     }
+
+
 
     /**
      * 根据书名查询

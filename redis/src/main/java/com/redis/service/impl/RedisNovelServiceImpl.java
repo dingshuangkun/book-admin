@@ -88,8 +88,6 @@ public class RedisNovelServiceImpl implements RedisNovelService {
           transaction.exec();
         }catch (Exception e){
             e.printStackTrace();
-        }finally {
-            redisCachePool.returnResources(jedis);
         }
 
     }

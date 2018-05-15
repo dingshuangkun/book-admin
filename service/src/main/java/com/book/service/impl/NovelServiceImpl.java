@@ -3,10 +3,7 @@ package com.book.service.impl;
 import com.book.enums.BookState;
 import com.book.service.ChapterService;
 import com.book.service.NovelService;
-import com.book.util.ChapterVOAndDO;
-import com.book.util.NovelVOAndDO;
-import com.book.util.TimeUtil;
-import com.book.util.VOAndDO;
+import com.book.util.*;
 import com.book.vo.ChapterVO;
 import com.book.vo.NovelVO;
 import com.mysql.dao.ChapterDAO;
@@ -59,6 +56,7 @@ public class NovelServiceImpl implements NovelService {
     private RedisNovelService redisNovelService;
     @Autowired
     private RedisChapterService redisChapterService;
+
     @Override
     public Integer insertNovel() {
         INovelSpider spider = NovelSpiderFactory.getNovelSpider("http://www.kanshuzhong.com/map/A/1/");
@@ -164,6 +162,13 @@ public class NovelServiceImpl implements NovelService {
     }
 
     @Override
+    public List<NovelVO> queryNovelNoCache(QueryNovel queryNovel) {
+       List<NovelDO> list =   novelDAO.selectByQueryNovel(queryNovel);
+       VOAndDO<NovelVO,NovelDO> vd = new NovelVOAndDO();
+        return vd.from(list);
+    }
+
+    @Override
     public List<NovelVO> queryNovel(QueryNovel queryNovel) {
         VOAndDO<NovelVO, NovelDO> vd = new NovelVOAndDO();
         VOAndDO<ChapterVO, ChapterDO> vdc = new ChapterVOAndDO();
@@ -172,14 +177,17 @@ public class NovelServiceImpl implements NovelService {
             NovelDO novelDO = redisNovelService.queryById(queryNovel.getId());
             // 缓存中没找到 去mysql查询
             if(novelDO == null){
-               NovelVO novelVO =  queryNovelById(queryNovel.getId());
-               redisNovelService.addNovelDO(vd.to(novelVO));
-               list.add(novelVO);
-               return list;
+               List<NovelVO> novelVOS =  queryNovelNoCache(queryNovel);
+               if(CollectionUtil.isNotEmpty(novelVOS)) {
+                   redisNovelService.addNovelDO(vd.to(novelVOS.get(0)));
+                   list.add(novelVOS.get(0));
+                   return list;
+               }else {
+                   return null;
+               }
             }
 
-            // 查找小说对应的章节
-            if (novelDO != null) {
+
                 NovelVO novelVO = vd.from(novelDO);
                 List<ChapterDO> chapterDOList = redisChapterService.queryByBookId(novelDO.getId());
                 // 命中缓存,从缓存取出来
@@ -201,7 +209,6 @@ public class NovelServiceImpl implements NovelService {
                     // 插入缓存
                     return list;
                 }
-            }
 
         } else {
             List<NovelDO> noveDOList = novelDAO.selectByQueryNovel(queryNovel);
@@ -235,7 +242,6 @@ public class NovelServiceImpl implements NovelService {
 
             return novelVOList;
         }
-        return null;
 
     }
     @Override
