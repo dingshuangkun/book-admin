@@ -47,16 +47,31 @@ public class JedisConnection {
      * @return
      */
     public Jedis getJedis() {
-        if (jedisPool != null) {
-            return jedisPool.getResource();
+        //
+        //
+        //
+        /**
+         * 这里的做法推荐这样做
+         * 其实应该来讲看这个类是不会出现jedisPool为null的情况的
+         * 如果jedisPool为null，我个人的感觉是抛出异常
+         * 完成初始化（类似{@link com.redis.service.impl.RedisChapterServiceImpl}当中我的做法）
+         */
+        if(jedisPool == null){
+            return null;
         }
-        return null;
+
+        return jedisPool.getResource();
+
+//        if (jedisPool != null) {
+//            return jedisPool.getResource();
+//        }
+//        return null;
     }
 
     /**
      * 关闭链接
      */
-    public void closeResouces() {
+    public void closeResources() {
         if (jedisPool != null) {
             jedisPool.close();
         }
