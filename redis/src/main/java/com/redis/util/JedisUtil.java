@@ -11,15 +11,15 @@ public class JedisUtil {
     private static JedisConnection jedisConnection =JedisConnetionFactory.getJedisConnection();
     private static Jedis jedis = jedisConnection.getJedis();
     public static String get(String key){
-       return   jedis.get(key);
+        return   jedis.get(key);
     }
 
     public static String set(String key , String  value){
-       return    jedis.set(key,value);
+        return    jedis.set(key,value);
     }
 
     public static String set(String key , String value,String nxxx){
-       return   jedis.set(key,value,nxxx);
+        return   jedis.set(key,value,nxxx);
     }
 
     public static String set(String key,String value,String nxxx, String expx,long time){
@@ -27,6 +27,6 @@ public class JedisUtil {
     }
 
     public static void coonClose(){
-        jedisConnection.closeResouces();
+        jedisConnection.closeResources();
     }
 }

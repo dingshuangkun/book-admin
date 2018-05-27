@@ -18,21 +18,43 @@ public class CacheNovelServiceImpl implements CacheNovelService {
     private RedisNovelService redisNovelService;
 
     private NovelService novelService;
+
     @Override
     public NovelVO queryById(Long id) {
-        NovelDO novelDO =  redisNovelService.queryById(id);
-        if(novelDO == null){
-          NovelVO novelVO =  novelService.queryNovelById(id);
-          if(novelVO!=null){
-              BeanUtils.copyProperties(novelVO,novelDO);
-              redisNovelService.addNovelDO(novelDO);
-              return novelVO;
-          }
-          return null;
-        }else {
-           NovelVO novelVO = new NovelVO();
-           BeanUtils.copyProperties(novelDO,novelVO);
-           return novelVO;
+//        NovelDO novelDO =  redisNovelService.queryById(id);
+//        if(novelDO == null){
+//          NovelVO novelVO =  novelService.queryNovelById(id);
+//          if(novelVO!=null){
+//              BeanUtils.copyProperties(novelVO,novelDO);
+//              redisNovelService.addNovelDO(novelDO);
+//              return novelVO;
+//          }
+//          return null;
+//        }else {
+//           NovelVO novelVO = new NovelVO();
+//           BeanUtils.copyProperties(novelDO,novelVO);
+//           return novelVO;
+//        }
+
+        /**
+         * 这是重构后的代码，减少了控制流程
+         */
+        NovelDO novelDO = redisNovelService.queryById(id);
+
+        if (novelDO != null) {
+            NovelVO novelVO = new NovelVO();
+            BeanUtils.copyProperties(novelDO, novelVO);
+            return novelVO;
         }
+
+        NovelVO novelVO = novelService.queryNovelById(id);
+        if (novelVO != null) {
+            BeanUtils.copyProperties(novelVO, novelDO);
+            redisNovelService.addNovelDO(novelDO);
+
+            return novelVO;
+        }
+
+        return null;
     }
 }
