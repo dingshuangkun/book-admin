@@ -30,7 +30,7 @@ public interface RedisNovelService {
      * @param author
      * @return
      */
-    NovelDO queryByauthor(String author);
+    NovelDO queryByAuthor(String author);
 
     /**
      * 添加小说

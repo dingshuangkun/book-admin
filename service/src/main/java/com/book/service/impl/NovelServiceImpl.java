@@ -149,7 +149,7 @@ public class NovelServiceImpl implements NovelService {
                                 chapterDetailDO.setNextId(id + 1);
                             }
                         }
-                         chapterDetailDAO.insertChapterDetail(chapterDetailDO);
+                        chapterDetailDAO.insertChapterDetail(chapterDetailDO);
                     }
                     System.out.println("bookId=" + bookId);
 
@@ -163,8 +163,8 @@ public class NovelServiceImpl implements NovelService {
 
     @Override
     public List<NovelVO> queryNovelNoCache(QueryNovel queryNovel) {
-       List<NovelDO> list =   novelDAO.selectByQueryNovel(queryNovel);
-       VOAndDO<NovelVO,NovelDO> vd = new NovelVOAndDO();
+        List<NovelDO> list =   novelDAO.selectByQueryNovel(queryNovel);
+        VOAndDO<NovelVO,NovelDO> vd = new NovelVOAndDO();
         return vd.from(list);
     }
 
@@ -177,38 +177,38 @@ public class NovelServiceImpl implements NovelService {
             NovelDO novelDO = redisNovelService.queryById(queryNovel.getId());
             // 缓存中没找到 去mysql查询
             if(novelDO == null){
-               List<NovelVO> novelVOS =  queryNovelNoCache(queryNovel);
-               if(CollectionUtil.isNotEmpty(novelVOS)) {
-                   redisNovelService.addNovelDO(vd.to(novelVOS.get(0)));
-                   list.add(novelVOS.get(0));
-                   return list;
-               }else {
-                   return null;
-               }
+                List<NovelVO> novelVOS =  queryNovelNoCache(queryNovel);
+                if(CollectionUtil.isNotEmpty(novelVOS)) {
+                    redisNovelService.addNovelDO(vd.to(novelVOS.get(0)));
+                    list.add(novelVOS.get(0));
+                    return list;
+                }else {
+                    return null;
+                }
             }
 
 
-                NovelVO novelVO = vd.from(novelDO);
-                List<ChapterDO> chapterDOList = redisChapterService.queryByBookId(novelDO.getId());
-                // 命中缓存,从缓存取出来
-                if (chapterDOList != null && chapterDOList.size() > 0) {
-                    List<ChapterVO> chapterVOS = new ArrayList<>();
-                    chapterDOList.forEach(n -> {
-                        chapterVOS.add(vdc.from(n));
-                    });
-                    novelVO.setChapters(chapterVOS);
-                    // 构造返回值
-                    list.add(novelVO);
-                    return list;
-                } else {
-                    //没有命中缓存 从mysql中取出，然后加入缓存
-                    List<ChapterVO> chapterVOS = chapterService.queryChapterByBookId(novelDO.getId());
-                    redisChapterService.addChapterList(vdc.to(chapterVOS), novelDO.getId());
-                    novelVO.setChapters(chapterVOS);
-                    list.add(novelVO);
-                    // 插入缓存
-                    return list;
-                }
+            NovelVO novelVO = vd.from(novelDO);
+            List<ChapterDO> chapterDOList = redisChapterService.queryByBookId(novelDO.getId());
+            // 命中缓存,从缓存取出来
+            if (chapterDOList != null && chapterDOList.size() > 0) {
+                List<ChapterVO> chapterVOS = new ArrayList<>();
+                chapterDOList.forEach(n -> {
+                    chapterVOS.add(vdc.from(n));
+                });
+                novelVO.setChapters(chapterVOS);
+                // 构造返回值
+                list.add(novelVO);
+                return list;
+            } else {
+                //没有命中缓存 从mysql中取出，然后加入缓存
+                List<ChapterVO> chapterVOS = chapterService.queryChapterByBookId(novelDO.getId());
+                redisChapterService.addChapterList(vdc.to(chapterVOS), novelDO.getId());
+                novelVO.setChapters(chapterVOS);
+                list.add(novelVO);
+                // 插入缓存
+                return list;
+            }
 
         } else {
             List<NovelDO> noveDOList = novelDAO.selectByQueryNovel(queryNovel);
@@ -217,7 +217,20 @@ public class NovelServiceImpl implements NovelService {
             if (noveDOList != null && noveDOList.size() > 0) {
                 noveDOList.forEach(n -> {
                     QueryChapter queryChapter = new QueryChapter();
-
+//                    queryChapter.setBookId(n.getId());
+//                    NovelVO novelVO = new NovelVO();
+//                    novelVO.setId(n.getId());
+//                    novelVO.setAddTime(time.format(n.getAddTime()));
+//                    novelVO.setAuthor(n.getAuthor());
+//                    novelVO.setBookName(n.getBookName());
+//                    if (BookState.getByType(n.getBookState()) != null) {
+//                        novelVO.setBookState(BookState.getByType(n.getBookState()).getDesc());
+//                    }
+//                    novelVO.setBookType(n.getBookType());
+//                    novelVO.setLastUpdateChapter(n.getLastUpdateChapter());
+//                    novelVO.setLastUpdateChapterUrl(n.getLastUpdateChapterUrl());
+//                    novelVO.setUpdateTime(time.format(n.getUpdateTime()));
+//                    novelVO.setUrl(n.getUrl());
                      NovelVO novelVO =  vd.from(n);
                     if (IS_QUERY_CHAPTER.equals(queryNovel.getQueryChapters())) {
                         List<ChapterVO> chapterVOList = chapterService.queryChapterByBookId(n.getId());

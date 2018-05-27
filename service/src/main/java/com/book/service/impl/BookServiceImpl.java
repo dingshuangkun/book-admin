@@ -29,17 +29,17 @@ public class BookServiceImpl implements BookService {
         List<Long> list = new ArrayList<>();
         list.add(id);
         List<BookDO> bookDOS = findByIds(list);
-        if (bookDOS != null && bookDOS.size() > 0) {
-            return findByIds(list).get(0);
-        } else {
+        if (bookDOS == null || bookDOS.isEmpty()) {
             return null;
         }
+
+        return bookDOS.get(0);
     }
 
     public List<BookDO> findByIds(List<Long> ids) {
         QueryBook queryBook = new QueryBook();
         queryBook.setIds(ids);
-           return bookDAO.findBooks(queryBook);
+        return bookDAO.findBooks(queryBook);
     }
 
     public BookDO findByBookCoding(String bookCoding) {
@@ -76,10 +76,6 @@ public class BookServiceImpl implements BookService {
     }
 
     public Boolean batchDeleteById(List<Long> ids) {
-        int result = bookDAO.deleteByIds(ids);
-        if (result > 0) {
-            return true;
-        }
-        return false;
+        return bookDAO.deleteByIds(ids) > 0;
     }
 }
