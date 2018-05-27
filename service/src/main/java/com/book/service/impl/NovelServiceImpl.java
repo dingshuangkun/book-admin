@@ -217,20 +217,7 @@ public class NovelServiceImpl implements NovelService {
             if (noveDOList != null && noveDOList.size() > 0) {
                 noveDOList.forEach(n -> {
                     QueryChapter queryChapter = new QueryChapter();
-//                    queryChapter.setBookId(n.getId());
-//                    NovelVO novelVO = new NovelVO();
-//                    novelVO.setId(n.getId());
-//                    novelVO.setAddTime(time.format(n.getAddTime()));
-//                    novelVO.setAuthor(n.getAuthor());
-//                    novelVO.setBookName(n.getBookName());
-//                    if (BookState.getByType(n.getBookState()) != null) {
-//                        novelVO.setBookState(BookState.getByType(n.getBookState()).getDesc());
-//                    }
-//                    novelVO.setBookType(n.getBookType());
-//                    novelVO.setLastUpdateChapter(n.getLastUpdateChapter());
-//                    novelVO.setLastUpdateChapterUrl(n.getLastUpdateChapterUrl());
-//                    novelVO.setUpdateTime(time.format(n.getUpdateTime()));
-//                    novelVO.setUrl(n.getUrl());
+
                      NovelVO novelVO =  vd.from(n);
                     if (IS_QUERY_CHAPTER.equals(queryNovel.getQueryChapters())) {
                         List<ChapterVO> chapterVOList = chapterService.queryChapterByBookId(n.getId());

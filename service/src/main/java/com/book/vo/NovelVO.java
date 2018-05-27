@@ -30,7 +30,7 @@ public class NovelVO {
 
     private String updateTime;
 
-    private String  bookState;
+    private Integer  bookState;
 
     private String bookType;
 

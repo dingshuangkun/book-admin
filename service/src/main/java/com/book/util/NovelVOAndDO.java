@@ -1,6 +1,4 @@
 package com.book.util;
-
-import com.book.enums.BookState;
 import com.book.vo.NovelVO;
 import com.mysql.model.NovelDO;
 import org.springframework.beans.BeanUtils;
@@ -17,7 +15,6 @@ public class NovelVOAndDO implements VOAndDO<NovelVO,NovelDO> {
             BeanUtils.copyProperties(n, novelVO);
             novelVO.setUpdateTime(TimeUtil.formatYYYY_MM_dd(n.getUpdateTime()));
             novelVO.setAddTime(TimeUtil.formatYYYY_MM_dd(n.getAddTime()));
-            novelVO.setBookState(BookState.getByType(n.getBookState()).getDesc());
             return novelVO;
         }
         return null;

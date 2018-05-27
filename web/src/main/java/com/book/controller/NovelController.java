@@ -1,7 +1,8 @@
 package com.book.controller;
 
 /**
- * Created by dingshuangkun on 2018/4/12.
+ * @author dingshuangkun
+ * @date on 2018/4/12.
  */
 
 import com.book.service.NovelService;
