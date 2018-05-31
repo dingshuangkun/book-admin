@@ -1,14 +1,13 @@
-package com.mysql.model;
+package com.book.vo;
 
 import lombok.Data;
 
 import java.util.Date;
-
 /**
- * Created by dingshuangkun on 2018/3/3.
+ * Created by dingshuangkun on 2018/5/27.
  */
 @Data
-public class ReaderDO {
+public class ReaderVO {
     /**
      * 读者Id
      */

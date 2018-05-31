@@ -186,8 +186,6 @@ public class NovelServiceImpl implements NovelService {
                     return null;
                 }
             }
-
-
             NovelVO novelVO = vd.from(novelDO);
             List<ChapterDO> chapterDOList = redisChapterService.queryByBookId(novelDO.getId());
             // 命中缓存,从缓存取出来
@@ -216,21 +214,6 @@ public class NovelServiceImpl implements NovelService {
             SimpleDateFormat time = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
             if (noveDOList != null && noveDOList.size() > 0) {
                 noveDOList.forEach(n -> {
-                    QueryChapter queryChapter = new QueryChapter();
-//                    queryChapter.setBookId(n.getId());
-//                    NovelVO novelVO = new NovelVO();
-//                    novelVO.setId(n.getId());
-//                    novelVO.setAddTime(time.format(n.getAddTime()));
-//                    novelVO.setAuthor(n.getAuthor());
-//                    novelVO.setBookName(n.getBookName());
-//                    if (BookState.getByType(n.getBookState()) != null) {
-//                        novelVO.setBookState(BookState.getByType(n.getBookState()).getDesc());
-//                    }
-//                    novelVO.setBookType(n.getBookType());
-//                    novelVO.setLastUpdateChapter(n.getLastUpdateChapter());
-//                    novelVO.setLastUpdateChapterUrl(n.getLastUpdateChapterUrl());
-//                    novelVO.setUpdateTime(time.format(n.getUpdateTime()));
-//                    novelVO.setUrl(n.getUrl());
                      NovelVO novelVO =  vd.from(n);
                     if (IS_QUERY_CHAPTER.equals(queryNovel.getQueryChapters())) {
                         List<ChapterVO> chapterVOList = chapterService.queryChapterByBookId(n.getId());
@@ -242,7 +225,6 @@ public class NovelServiceImpl implements NovelService {
 
             return novelVOList;
         }
-
     }
     @Override
     public List<NovelVO> queryLikeByauthorOrTitle(String authorOrTitle) {

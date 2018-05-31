@@ -19,13 +19,13 @@
             resultType="com.mysql.model.ChapterDO">
         select id, book_id,title,url,create_time,update_time from novel_chapter
         where true
-        <if test="id != null">
+        <if test="id != null and id != '' ">
             and id = #{id}
         </if>
-        <if test="bookId != null">
+        <if test="bookId != null and bookId != '' ">
             and book_id = #{bookId}
         </if>
-        <if test="title != null">
+        <if test="title != null  and title !='' ">
             and title = #{title}
         </if>
         <if test="beginIndex != null and endIndex != null">

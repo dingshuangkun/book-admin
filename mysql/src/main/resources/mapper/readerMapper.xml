@@ -9,15 +9,18 @@
     </resultMap>
 
     <select id="findReaders" resultType="com.mysql.model.ReaderDO" parameterType="com.mysql.query.QueryReader">
-        SELECT id,account,password,name,nick_name,role,gmt_create,gmt_update
+        SELECT id,account,nick_name,role,integration,status,gmt_create,gmt_update
         FROM reader WHERE TRUE
-        <if test="ids != null">
+        <if test="ids != null and ids != '' ">
             AND id IN
             <foreach collection="list" item="id" separator="," open="(" close=")">
                 #{ids}
             </foreach>
         </if>
 
+        <if test="account !=null and  account != '' ">
+            AND account = #{account}
+        </if>
         <if test="account !=null and password != null">
             AND account = #{account}
             AND password = #{password}
