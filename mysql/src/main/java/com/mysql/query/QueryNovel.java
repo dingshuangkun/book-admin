@@ -28,4 +28,8 @@ public class QueryNovel extends Pagination {
      * 是否查询章节
      */
     private String  queryChapters;
+    /**
+     * 积分
+     */
+    private Integer integration;
 }

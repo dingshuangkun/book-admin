@@ -55,15 +55,7 @@
 
     </ul>
 </div>
-<!--搜索框-->
-<div class="search-box">
-    <div class="search">
-        <form action="#" method="get">
-        <input type="text" class="inp inp-block search-inp" placeholder="请输入关键字">
-        <input type="submit" class="btn search-btn" value="搜索">
-        </form>
-    </div>
-</div>
+
 <!--底部-->
 <footer class="footer">
     <ul class="none">
@@ -133,6 +125,7 @@
 
 
     function loadData(bookId) {
+
         $.ajax({
             url:"http://127.0.0.1:8080/novel/query",
             type:"post",

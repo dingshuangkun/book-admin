@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="src/fonts/iconfont.css"/>
     <link rel="stylesheet" href="src/css/style.min.css">
     <link rel="stylesheet" href="src/css/swiper.min.css">
-
+    <script src="./src/js/jquery.min.js"></script>
+    <script src="./src/js/script.js"></script>
+    <script src="./src/js/swiper.min.js"></script>
     <script src="src/js/loading.js"></script>
+    <script src="./src/js/jquery.session.js"></script>
 </head>
 <body>
 <header class="header flex flex-vc" >
@@ -35,17 +38,12 @@
     <nav>
         <ul class="flex flex-vc none text-center color-white fz16rem">
             <li class="box-flex-1">
-                <a href="./src/index.html">
+                <a href="./index.html">
                     <div class="nav-div home"><i class="icon icon-zhuye1"></i></div>
                     <span>首页</span>
                 </a>
             </li>
-            <!--<li class="box-flex-1">-->
-                <!--<a href="./src/recharge.html">-->
-                    <!--<div class="nav-div cz fz22rem"><i class="icon icon-qianbao1 fz22rem"></i></div>-->
-                    <!--<span>充值</span>-->
-                <!--</a>-->
-            <!--</li>-->
+
             <li class="box-flex-1">
                 <a href="./src/bookshelf.html">
                     <div class="nav-div sj"><i class="icon icon-yuedu1"></i></div>
@@ -74,256 +72,71 @@
 <div class="section apps-free recharge-col">
     <ul class="flex none text-center">
         <li>
-            <a href="#">
+            <a href="javascript:void(0)" id="969">
                 <figure>
-                    <img src="./src/images/1.jpg" class="img-bespread" alt="loading">
+                    <img src="http://www.kanshuzhong.com/image/23/23729/23729s.jpg" class="img-bespread" alt="loading" style="width: 110%">
                     <p>限时免费</p>
            	    </figure>
-                 <h5 class="none">小说名字</h5>
+                 <h5 class="none">绝世武神</h5>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="#" id="970">
                 <figure>
-                    <img src="./src/images/1.jpg" class="img-bespread" alt="loading">
+                    <img src="https://easyreadfs.nosdn.127.net/B9eOl8zBrzjGrPTyCmAOpA==/8796093024236440788"" class="img-bespread" alt="loading">
                     <p>限时免费</p>
            	    </figure>
-                 <h5 class="none">小说名字</h5>
+                 <h5 class="none">天朝</h5>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="#" id="972">
                 <figure>
                     <img src="./src/images/1.jpg" class="img-bespread" alt="loading">
                     <p>限时免费</p>
            	    </figure>
-                 <h5 class="none">小说名字</h5>
+                 <h5 class="none">俺是一个贼</h5>
             </a>
         </li>
     </ul>
 </div>
-<div class="public-title section mt1rem">
-    <h2 class="none fz16rem">最热作品</h2>
-</div>
-<div class="section apps-free  recharge-col">
-    <ul class="flex none text-center">
-        <li>
-            <a href="#">
-                <figure>
-                    <img src="./src/images/1.jpg" class="img-bespread" alt="loading">
-                    <p>限时免费</p>
-           	    </figure>
-                 <h5 class="none">小说名字</h5>
-            </a>
-        </li>
-    </ul>
-    <!--推荐-->
-    <div class="clearfix recommend-title">
-        <ul class="none">
-            <li><a href="#"><span class="title">[现言]</span>霸道总裁爱：亿万逃妻萌萌哒</li></a>
-            <li><a href="#"><span class="title">[现言]</span>霸道总裁爱：亿万逃妻萌萌哒</li></a>
-        </ul>
-    </div>
-</div>
+
 <div class="public-title section mt1rem">
     <h2 class="none fz16rem">最新推荐</h2>
 </div>
 <div class="section apps-free recharge-col">
     <ul class="flex none text-center">
         <li>
-            <a href="#">
+            <a href="#" id="973">
                 <figure>
-                    <img src="./src/images/1.jpg" class="img-bespread" alt="loading">
-                    <p>限时免费</p>
+                    <img src="https://easyreadfs.nosdn.127.net/NVD01qG2DVEgq8wuGQI4Qg==/7806553447931754449?param=200x0&type=1.jpg" class="img-bespread" alt="loading">
+                    <p>最新推荐</p>
            	    </figure>
-                 <h5 class="none">小说名字</h5>
+                 <h5 class="none">捉尸道长</h5>
             </a>
         </li>
         <li>
             <a href="#">
                 <figure>
-                    <img src="./src/images/1.jpg" class="img-bespread" alt="loading">
-                    <p>限时免费</p>
+                    <img src="http://www.kanshuzhong.com/image/15/15493/15493s.jpg" class="img-bespread" alt="loading" style="width: 110%">
+                    <p>最新推荐</p>
            	    </figure>
-                 <h5 class="none">小说名字</h5>
+                 <h5 class="none" id="974">末世神座</h5>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="#" id="975">
                 <figure>
-                    <img src="./src/images/1.jpg" class="img-bespread" alt="loading">
-                    <p>限时免费</p>
+                    <img src="http://www.kanshuzhong.com/image/94/94521/94521s.jpg"  class="img-bespread" alt="loading" style="width: 110%">
+                    <p>最新推荐</p>
            	    </figure>
-                 <h5 class="none">小说名字</h5>
+                 <h5 class="none">最后的三国</h5>
             </a>
         </li>
     </ul>
-    <!--推荐-->
-    <div class="clearfix recommend-title">
-        <ul class="none">
-            <li><a href="#"><span class="title">[现言]</span>完美世界</li></a>
-            <li><a href="#"><span class="title">[现言]</span>完美世界</li></a>
-        </ul>
-    </div>
+
 </div>
 <!--推荐书籍-->
-<div class="recommend mt1rem">
-    <ul class="none">
-        <li class="section flex mt1rem recharge-col">
-            <div class=recommend-img>
-                <img src="./src/images/111.jpg" alt="loading..">
-            </div>
-            <div class="box-flex-1">
-                <h4 class="none">推荐书籍标题</h4>
-                <p class="fz14rem">内容内容内容收到反馈技术开发建设的jfk受到激发复试独家刊发开始的jfk受到激发撒地方就是打开房间</p>
-            </div>
-        </li>
-        <li class="section flex mt1rem recharge-col">
-            <div class=recommend-img>
-                <img src="./src/images/111.jpg" alt="loading..">
-            </div>
-            <div class="box-flex-1">
-                <h4 class="none">推荐书籍标题</h4>
-                <p class="fz14rem">内容内容内容收到反馈技术开发建设的jfk受到激发复试独家刊发开始的jfk受到激发撒地方就是打开房间</p>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="section apps-free mt1rem recharge-col">
-    <ul class="flex none text-center">
-        <li>
-            <a href="#">
-                <figure>
-                    <img src="./src/images/1.jpg" class="img-bespread" alt="loading">
-                    <p>限时免费</p>
-           	    </figure>
-                 <h5 class="none">小说名字</h5>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <figure>
-                    <img src="./src/images/1.jpg" class="img-bespread" alt="loading">
-                    <p>限时免费</p>
-           	    </figure>
-                 <h5 class="none">小说名字</h5>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <figure>
-                    <img src="./src/images/1.jpg" class="img-bespread" alt="loading">
-                    <p>限时免费</p>
-           	    </figure>
-                 <h5 class="none">小说名字</h5>
-            </a>
-        </li>
-    </ul>
-</div>
-<!--推荐书籍-->
-<div class="recommend mt1rem">
-    <ul class="none">
-        <li class="section flex mt1rem recharge-col">
-            <div class=recommend-img>
-                <img src="./src/images/111.jpg" alt="loading..">
-            </div>
-            <div class="box-flex-1">
-                <h4 class="none">推荐书籍标题</h4>
-                <p class="fz14rem">内容内容内容收到反馈技术开发建设的jfk受到激发复试独家刊发开始的jfk受到激发撒地方就是打开房间</p>
-            </div>
-        </li>
-        <li class="section flex mt1rem recharge-col">
-            <div class=recommend-img>
-                <img src="./src/images/111.jpg" alt="loading..">
-            </div>
-            <div class="box-flex-1">
-                <h4 class="none">推荐书籍标题</h4>
-                <p class="fz14rem">内容内容内容收到反馈技术开发建设的jfk受到激发复试独家刊发开始的jfk受到激发撒地方就是打开房间</p>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="section apps-free mt1rem recharge-col">
-    <ul class="flex none text-center">
-        <li>
-            <a href="#">
-                <figure>
-                    <img src="./src/images/1.jpg" class="img-bespread" alt="loading">
-                    <p>限时免费</p>
-           	    </figure>
-                 <h5 class="none">小说名字</h5>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <figure>
-                    <img src="./src/images/1.jpg" class="img-bespread" alt="loading">
-                    <p>限时免费</p>
-           	    </figure>
-                 <h5 class="none">小说名字</h5>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <figure>
-                    <img src="./src/images/132.jpg" class="img-bespread" alt="loading">
-                    <p>限时免费</p>
-           	    </figure>
-                 <h5 class="none">小说名字</h5>
-            </a>
-        </li>
-    </ul>
-</div>
-<!--推荐书籍-->
-<div class="recommend mt1rem">
-    <ul class="none">
-        <li class="section flex mt1rem recharge-col">
-            <div class=recommend-img>
-                <img src="./src/images/111.jpg" alt="loading..">
-            </div>
-            <div class="box-flex-1">
-                <h4 class="none">推荐书籍标题</h4>
-                <p class="fz14rem">内容内容内容收到反馈技术开发建设的jfk受到激发复试独家刊发开始的jfk受到激发撒地方就是打开房间</p>
-            </div>
-        </li>
-        <li class="section flex mt1rem recharge-col">
-            <div class=recommend-img>
-                <img src="./src/images/111.jpg" alt="loading..">
-            </div>
-            <div class="box-flex-1">
-                <h4 class="none">推荐书籍标题</h4>
-                <p class="fz14rem">内容内容内容收到反馈技术开发建设的jfk受到激发复试独家刊发开始的jfk受到激发撒地方就是打开房间</p>
-            </div>
-        </li>
-                <li class="section flex mt1rem recharge-col">
-            <div class=recommend-img>
-                <img src="./src/images/111.jpg" alt="loading..">
-            </div>
-            <div class="box-flex-1">
-                <h4 class="none">推荐书籍标题</h4>
-                <p class="fz14rem">内容内容内容收到反馈技术开发建设的jfk受到激发复试独家刊发开始的jfk受到激发撒地方就是打开房间</p>
-            </div>
-        </li>
-                <li class="section flex mt1rem recharge-col">
-            <div class=recommend-img>
-                <img src="./src/images/111.jpg" alt="loading..">
-            </div>
-            <div class="box-flex-1">
-                <h4 class="none">推荐书籍标题</h4>
-                <p class="fz14rem">内容内容内容收到反馈技术开发建设的jfk受到激发复试独家刊发开始的jfk受到激发撒地方就是打开房间</p>
-            </div>
-        </li>
-                <li class="section flex mt1rem recharge-col">
-            <div class=recommend-img>
-                <img src="./src/images/111.jpg" alt="loading..">
-            </div>
-            <div class="box-flex-1">
-                <h4 class="none">推荐书籍标题</h4>
-                <p class="fz14rem">内容内容内容收到反馈技术开发建设的jfk受到激发复试独家刊发开始的jfk受到激发撒地方就是打开房间</p>
-            </div>
-        </li>
-    </ul>
-</div>
 <footer class="footer">
     <ul class="none">
         <li class=""><a href="#">登录</a></li>
@@ -335,9 +148,7 @@
     <p class="none">客服QQ：123435666</p>
 </footer>
 </body>
-<script src="./src/js/jquery.min.js"></script>
-<script src="./src/js/script.js"></script>
-<script src="./src/js/swiper.min.js"></script>
+
 <!--<script src="../bootstrap/assets/bootstrap/js/bootstrap.min.js"/>-->
 <script>
     
@@ -348,6 +159,32 @@
             paginationClickable: true,
             lazyLoading : true,
         });
+
+        $("#969").click(function () {
+            $.session.set("bookId",969);
+            window.location.href="http://127.0.0.1:8080/user/src/book-detail.html";
+        })
+        $("#970").click(function () {
+            $.session.set("bookId",970);
+            window.location.href="http://127.0.0.1:8080/user/src/book-detail.html";
+        })
+        $("#972").click(function () {
+            $.session.set("bookId",972);
+            window.location.href="http://127.0.0.1:8080/user/src/book-detail.html";
+        })
+        $("#973").click(function () {
+            $.session.set("bookId",973);
+            window.location.href="http://127.0.0.1:8080/user/src/book-detail.html";
+        })
+        $("#974").click(function () {
+            $.session.set("bookId",974);
+            window.location.href="http://127.0.0.1:8080/user/src/book-detail.html";
+        })
+        $("#975").click(function () {
+            $.session.set("bookId",975);
+            window.location.href="http://127.0.0.1:8080/user/src/book-detail.html";
+        })
+
     })
 </script>
 </html>

@@ -35,4 +35,6 @@ public class NovelVO {
     private String bookType;
 
     private List<ChapterVO> chapters;
+
+    private Integer  integration;
 }

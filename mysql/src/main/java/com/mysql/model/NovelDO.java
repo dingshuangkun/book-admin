@@ -34,4 +34,6 @@ public class NovelDO  {
     private Integer bookState;
 
     private String bookType;
+
+    private Integer integration;
 }

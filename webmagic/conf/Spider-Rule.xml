@@ -30,6 +30,7 @@
 		<chapter-detail-prev-selector>.readlink a,1</chapter-detail-prev-selector>
 		<chapter-detail-next-selector>.readlink a,3</chapter-detail-next-selector>
 		<novel-selector>.book_list tr</novel-selector>
+		<novel-img>.readtip a img</novel-img>
 	</site>
 	<site>
 		<title>笔下文学</title>
